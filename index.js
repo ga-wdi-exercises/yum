@@ -15,4 +15,9 @@ db.once('open', function (callback) {
 
   console.log("Restaurants look like this:", Object.keys(restaurantSchema.paths))
 
+  // define our model
+  var Restaurant = mongoose.model('Restaurant', restaurantSchema);
+
+  console.log("The Restaurant model:", Restaurant)
+
 });
