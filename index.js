@@ -27,4 +27,19 @@ db.once('open', function (callback) {
     console.log("We have", restaurantCount, "in", searchZipcode)
   })
 
+  //Create a restaurant
+  Restaurant.create({ name: 'Cookies-R-Us', "address.zipcode": 20001 }, function (err, restaurant) {
+    if (err) return handleError(err);
+    // saved!
+    console.log("We created", restaurant.name, 'in', restaurant.address.zipcode)
+
+    // List restaurants in zipcode 20001
+    var searchZipcode = 20001
+    Restaurant.count({"address.zipcode": searchZipcode}, function (err, restaurantCount) {
+      if (err) return handleError(err);
+      console.log("We have", restaurantCount, "in", searchZipcode)
+    })
+  })
+
+
 });
