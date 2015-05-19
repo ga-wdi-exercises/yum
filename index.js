@@ -9,7 +9,7 @@ db.once('open', function (callback) {
   // With Mongoose, everything is derived from a Schema.
   var restaurantSchema = mongoose.Schema({
       name: String,
-      address: [{ street: String, state: String, zipcode: Number }],
+      address: { street: String, state: String, zipcode: Number },
       yelp: String
   })
 
@@ -19,5 +19,12 @@ db.once('open', function (callback) {
   var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
   console.log("The Restaurant model:", Restaurant)
+
+  // List restaurants in zipcode 20001
+  var searchZipcode = 20001
+  Restaurant.count({"address.zipcode": searchZipcode}, function (err, restaurantCount) {
+    if (err) return handleError(err);
+    console.log("We have", restaurantCount, "in", searchZipcode)
+  })
 
 });
