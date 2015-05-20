@@ -1,6 +1,8 @@
 # YUM!
 
-A basic javascript app to demonstrate mongoose ORM.  Created in-class during MongoDB/mongoose lesson.
+We love Milk-n-Cookes.  Where can we find some?
+
+A basic javascript app to demonstrate the mongoose.js ORM.  Created in-class during MongoDB/mongoose lesson.
 
 ## Setup
 
