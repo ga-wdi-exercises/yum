@@ -25,6 +25,14 @@ db.once('open', function (callback) {
       if (err) return handleError(err);
       console.log("We have", restaurantCount, "in", searchZipcode)
     })
+
+    var query = Restaurant.find({"address.zipcode": searchZipcode});
+    query.select('-_id name address.zipcode');
+    query.exec(function (err, restaurants) {
+      if (err) return handleError(err);
+      console.log("In", searchZipcode, ":", restaurants)
+    })
+
   }
 
   // List restaurants in zipcode 20001
@@ -37,5 +45,4 @@ db.once('open', function (callback) {
     console.log("We created", restaurant.name, 'in', restaurant.address.zipcode)
     Restaurant.displayFromZipcode(20001)
   })
-
 });
