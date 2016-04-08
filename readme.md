@@ -21,7 +21,7 @@ npm install
   - A Restaurant should have the following attributes:
 
     * name (a string)
-    * address (an object with a street and zipcode property)
+    * address (an object with a street(string) and zipcode property(number))
     * yelp url (a string)
     * items (array containing your items schema)
 
@@ -29,9 +29,17 @@ npm install
 
     * title (a string)
 
-3. Write Methods to preform full CRUD functionality for your Restaurant Model
+3. Create a new Restaurant
 
-4. Write Methods to preform full CRUD functionality for your embedded menu documents for a Restaurant of your choosing.
+4. Write a function or method that finds a Restaurant by name
+
+5. Write a function or method that finds all Restaurants by ZipCode
+
+6. Create a function that updates a Restaurant  
+
+7. Write a function or method that deletes a restaurant
+
+8. Write Methods to add and remove embedded menu item documents for a Restaurant of your choosing.
 
 ## Monitor your changes and test:
 
