@@ -1,3 +1,1 @@
-// seed the database
-var seed = require("../db/schema.js");
-schema.connect(seed);
+var Schema = require("../db/schema.js");

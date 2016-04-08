@@ -14,32 +14,32 @@ npm install
 
 ## Instructions:
 
-1. Create Schemas and Corresponding Models for A Restaurant and for Menu Items
+1. Create schemas and corresponding models for a restaurant and for menu items
 
-2. Adds Seeds Data for the Restaurant and Menu Items:
+2. Adds seeds data for the restaurant and menu items:
 
-  - A Restaurant should have the following attributes:
+  - A restaurant should have the following field names:
 
     * name (a string)
     * address (an object with a street(string) and zipcode property(number))
     * yelp url (a string)
     * items (array containing your items schema)
 
-  - A Menu Item should contain the following:
+  - A menu item should contain the following:
 
     * title (a string)
 
-3. Create a new Restaurant
+3. Create a new restaurant
 
-4. Write a function or method that finds a Restaurant by name
+4. Write a function or method that finds a restaurant by name
 
-5. Write a function or method that finds all Restaurants by ZipCode
+5. Write a function or method that finds all restaurants by zipCode
 
-6. Create a function that updates a Restaurant  
+6. Create a function that updates a restaurant  
 
 7. Write a function or method that deletes a restaurant
 
-8. Write Methods to add and remove embedded menu item documents for a Restaurant of your choosing.
+8. Write methods to add and remove embedded menu item documents for a restaurant of your choosing.
 
 ## Monitor your changes and test:
 
