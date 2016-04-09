@@ -6,9 +6,9 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var Schema = mongoose.Schema;
   ObjectId = Schema.ObjectId;
 
-var MenuSchema = new Schema({
+var MenuItemSchema = new Schema({
   title: String
-}); // end MenuSchema
+}); // end MenuItemSchema
 
 var RestaurantSchema = new Schema({
   name: String,
@@ -17,8 +17,13 @@ var RestaurantSchema = new Schema({
     zipcode: Number
   },
   yelpUrl: String,
-  menu: [MenuSchema]
+  menuItem: [MenuItemSchema]
 }); // end RestaurantSchema
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
-var MenuModel = mongoose.model("Menu", MenuSchema);
+var MenuItemModel = mongoose.model("MenuItem", MenuItemSchema);
+
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuItemModel: MenuItemModel
+};
