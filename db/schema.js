@@ -12,14 +12,14 @@ var Schema = mongoose.Schema,
 
 var RestaurantSchema = new Schema({
   name: String,
-  address :
+  address: Object,
   yelpUrl: String,
-  items:
+  items: [{type: Schema.ObjectId, ref: "Items"}]
 });
 
 var ItemSchema = new Schema({
   name: String,
-  restaurant: [RestaurantSchema]
+  restaurant: [{type: Schema.ObjectId, ref: "Restaurant"}]
 });
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
