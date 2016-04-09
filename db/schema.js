@@ -11,13 +11,21 @@ var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId
 
 var RestaurantSchema = new Schema({
-  name: String
+  name: String,
+  address :
+  yelpUrl: String,
+  items:
 });
 
-var MenuSchema = new Schema({
+var ItemSchema = new Schema({
   name: String,
   restaurant: [RestaurantSchema]
 });
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
-var MenuModel = mongoose.model("Menu", MenuSchema);
+var ItemModel = mongoose.model("Item", ItemSchema);
+
+module.exports ={
+  RestaurantModel: RestaurantModel,
+  ItemModel: ItemModel
+};
