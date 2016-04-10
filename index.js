@@ -5,23 +5,17 @@ var Restaurant = Schema.RestaurantModel;
 var MenuItem = Schema.MenuItemModel;
 
 // create a new Restaurant
-Restaurant.create({
-  name: "Jimmy's New York Pizza",
-  address: {
-    street: "156 Enterprise St",
-    zipcode: 20164
-  },
-  yelpUrl: "https://www.yelp.com/biz/jimmys-new-york-pizza-sterling"
-},
-function(err, restaurant){
-  if(err){
-    return handleError(err);
-  }
-  else{
-    console.log(restaurant.name + " created");
-  }
-}
-); // end create restaurant
+function addRestaurant(restaurant, street, zip, yelp){
+  Restaurant.create({
+    name: restaurant,
+    address: {
+      street: street,
+      zipcode: zip
+    },
+    yelpUrl: yelp
+  });
+} // end create a restaurant
+addRestaurant("Jimmy's New York Pizza", "156 Enterprise St", 20164, "https://www.yelp.com/biz/jimmys-new-york-pizza-sterling");
 
 // find a restaurant by name
 function findByName(restaurant){
@@ -46,7 +40,7 @@ function findByZip(zip){
         allRestaurants.push(restaurant);
       }
     });
-    console.log(allRestaurants);
+    console.log("All Restaurants at " + zip + ": " + allRestaurants);
   });
 } // end findByZip
 findByZip(20164);
@@ -58,13 +52,24 @@ function updateRestaurantName(restaurant, newName){
       console.log(err);
     }
     else{
-      console.log(docs);
+      console.log("Changed to: " + docs);
     }
   });
 } // end updateRestaurantName
 updateRestaurantName("Jimmy's New York Pizza", "Jimmy's NY Pizza");
 
-
 // delete a restaurant
+function deleteRestaurant(restaurant){
+  Restaurant.findOneAndRemove({name: restaurant}, function(err, docs){
+    if(err){
+      console.log(docs);
+    }
+    else{
+      console.log(docs + " removed");
+    }
+  });
+}// end deleteRestaurant
+deleteRestaurant("Jimmy's NY Pizza");
+
 
 // add or remove embedded menu items for a specified restaurant
