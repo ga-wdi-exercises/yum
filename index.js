@@ -86,3 +86,20 @@ function addToMenu(restaurant, food){
   });
 } // end add to menu
 addToMenu("Jimmy's NY Pizza", "Cheese Pizza");
+//addToMenu("Masa Luna", "Tacos");
+
+// confession: had to look up the solution for this one. Not sure why it doesn't always work...
+function deleteFromMenu(restaurant, food){
+  Restaurant.findOneAndUpdate({name: restaurant}, {
+    $pull: {menuItem: {title: food}}
+  },
+  {new: true}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs);
+    }
+  });
+} // end delete from menu
+deleteFromMenu("Masa Luna", "Tacos");
