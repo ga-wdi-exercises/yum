@@ -22,6 +22,12 @@ db.once('open', function() {
   var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
   var ItemModel = mongoose.model("Item", ItemSchema);
 
+  module.exports ={
+    RestaurantModel: RestaurantModel,
+    ItemModel: ItemModel
+  };
+
+//could not get this section to work in another file
   var diner = new RestaurantModel({name: "The Diner", address:{street: "101 18th Street", zipcode: 20006}, yelp_url:"www.yelp.com"});
 
   var chicken = new ItemModel({title: "chicken"});
@@ -35,6 +41,65 @@ db.once('open', function() {
       console.log(restaurant);
     }
   });
+//end of seed section
+
+
+  function index(){
+    RestaurantModel.find({}, function(err, docs){
+      console.log(docs);
+    });
+  }
+
+  //finds a restaurant by name
+  function show(res_name){
+    RestaurantModel.findOne({"name": res_name.name}, function(err, doc){
+      console.log(doc.name);
+    });
+  }
+
+  //finds all restaurants by zipCode
+  function zip_code(zip){
+    RestaurantModel.find({"address.zipcode": zip}, 'name', function(err, doc){
+      console.log(doc);
+    });
+  }
+
+//updates a restaurant
+  function up_date(old, update){
+    RestaurantModel.findOneAndUpdate(old, update, {new: true}, function(err, doc){
+      if (err){
+        console.log(err);
+      }
+      else{
+        console.log(doc);
+      }
+    });
+  }
+
+//deletes a restaurant
+  function de_lete(req){
+    RestaurantModel.findOneAndRemove(req, function(err, doc){
+      if (err){
+        console.log(err);
+      }
+      else{
+        console.log(req + " has been deleted");
+      }
+    });
+  }
+
+//ought to update a menu
+function addItem(req){
+  RestaurantModel.findOneAndUpdate(req).populate({
+    path: "ItemModel",
+    select: "ItemModel.title"
+  }).exec(function(err, req){
+    console.log(req);
+  });
+}
+
+addItem("beef");
+
 
 
 });
