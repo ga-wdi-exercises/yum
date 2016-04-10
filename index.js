@@ -71,5 +71,18 @@ function deleteRestaurant(restaurant){
 }// end deleteRestaurant
 deleteRestaurant("Jimmy's NY Pizza");
 
-
 // add or remove embedded menu items for a specified restaurant
+function addToMenu(restaurant, food){
+  Restaurant.findOne({name: restaurant}, function(err, docs){
+    docs.menuItem.push(new MenuItem({title: food}));
+    docs.save(function(err, results){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log(results);
+      }
+    });
+  });
+} // end add to menu
+addToMenu("Jimmy's NY Pizza", "Cheese Pizza");
