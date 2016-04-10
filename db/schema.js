@@ -12,7 +12,7 @@ var Schema = mongoose.Schema,
 
 var RestaurantSchema = new Schema({
   name: String,
-  address: { street: String, state: String, zip: Number },
+  address: { street: String, city: String, state: String, zip: Number},
   yelpUrl: String,
   items: [{type: Schema.ObjectId, ref: "Items"}]
 });
