@@ -6,11 +6,14 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var Schema = mongoose.schema;
 
 var RestaurantSchema = new Schema({
-
+  name: String
+  menu: [{street: String}, {zipcode: Number}]
+  yelp_url: String
+  address: [Schema]
 })
 
 var MenuSchema = new Schema({
-
+  title: String
 })
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
