@@ -27,23 +27,23 @@ db.once('open', function() {
     ItemModel: ItemModel
   };
 
-//could not get this section to work in another file
-  var diner = new RestaurantModel({name: "The Diner", address:{street: "101 18th Street", zipcode: 20006}, yelp_url:"www.yelp.com"});
+  //could not get this section to work in another file
+  // var diner = new RestaurantModel({name: "The Diner", address:{street: "101 18th Street", zipcode: 20006}, yelp_url:"www.yelp.com"});
+  //
+  // var chicken = new ItemModel({title: "chicken"});
+  //
+  // diner.items.push(chicken);
+  // diner.save(function(err, restaurant){
+  //   if (err){
+  //     console.log(err);
+  //   }
+  //   else{
+  //     console.log(restaurant.items);
+  //   }
+  // });
+  //end of seed section
 
-  var chicken = new ItemModel({title: "chicken"});
-
-  diner.items.push(chicken);
-  diner.save(function(err, restaurant){
-    if (err){
-      console.log(err);
-    }
-    else{
-      console.log(restaurant);
-    }
-  });
-//end of seed section
-
-
+  //finds all restaurants
   function index(){
     RestaurantModel.find({}, function(err, docs){
       console.log(docs);
@@ -64,7 +64,7 @@ db.once('open', function() {
     });
   }
 
-//updates a restaurant
+  //updates a restaurant
   function up_date(old, update){
     RestaurantModel.findOneAndUpdate(old, update, {new: true}, function(err, doc){
       if (err){
@@ -76,7 +76,7 @@ db.once('open', function() {
     });
   }
 
-//deletes a restaurant
+  //deletes a restaurant
   function de_lete(req){
     RestaurantModel.findOneAndRemove(req, function(err, doc){
       if (err){
@@ -88,18 +88,28 @@ db.once('open', function() {
     });
   }
 
-//ought to update a menu
-function addItem(req){
-  RestaurantModel.findOneAndUpdate(req).populate({
-    path: "ItemModel",
-    select: "ItemModel.title"
-  }).exec(function(err, req){
-    console.log(req);
-  });
-}
+  //adds a new menu item
+  function addItem(place, food){
+    RestaurantModel.findOneAndUpdate(place, {items: {title: food.title}}, {new: true}, function(err, doc){
+      if (err){
+        console.log(err);
+      }
+      else{
+        console.log(doc);
+      }
+    });
+  }
 
-addItem("beef");
-
-
+//deletes a menu item
+  function removeItem(place, food){
+    RestaurantModel.findOneAndRemove(place, {items: {title: food.title}}, {new: true}, function(err, doc){
+      if (err){
+        console.log(err);
+      }
+      else{
+        console.log(doc);
+      }
+    });
+  }
 
 });
