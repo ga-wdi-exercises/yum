@@ -10,4 +10,15 @@ var barcelona = new RestaurantModel({name: "Barcelona"}, {address: "street": "14
 var ted = new RestaurantModel({name: "Ted's Bulletin"}, {address: "street": "14th Street", "zipcode": 20009}, {yelp_url: "http://www.yelp.com/biz/teds-bulletin-washington-3"})
 
 
-var
+var salad = new MenuModel({title: "The Big Veggie Salad"})
+var burger = new MenuModel({title: "Turkey Burger"})
+var chicken = new MenuModel({title: "Roasted Chicken"})
+var greek = new MenuModel({title: "Greek Salad"})
+var potato = new MenuModel({title: "Patatas Fritas"})
+var pop = new MenuModel({title: "Pop Tarts"})
+var veg = new MenuModel({title: "Veggie Burger"})
+var fries = new MenuModel({title: "Sweet Potato Fries"})
+var nacho = new MenuModel({title: "Nachos"})
+var mac = new MenuModel({title: "Mac & Cheese"})
+var pizza = new MenuModel({title: "Flatbread Pizza"})
+var fajita = new MenuModel({title: "Chicken Fajitas"})
