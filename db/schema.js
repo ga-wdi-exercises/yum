@@ -9,11 +9,12 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
   var RestaurantSchema = new Schema({
     name: String,
-    address:
+    address: {"street": String, "zipcode_property": Number},
     yelp_url: String,
     items: []
   })
 
+
   var MenuSchema = new Schema({
-    title: String,
+    title: String
   })
