@@ -17,12 +17,3 @@ var rest = new StudentModel({
   zipcode: 20111,
   yelpUrl: "https://www.yelp.com/joes"
 });
-
-var menu = new MenuItemModel({name: "Fried pizza"});
-
-var project1 = new ProjectModel({title: "project1", unit: "JS"})
-
-var students = [anna, brandon]
-var projects [project1]
-
-anna.save
