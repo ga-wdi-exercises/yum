@@ -29,10 +29,20 @@ var restaurantsController = {
         console.log(docs);
       }
     });
+  },
+  destroy: function(req){
+    RestaurantModel.findOneAndRemove(req, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
   }
 
 };
 
 // restaurantsController.index();
 // restaurantsController.show({name: "Founding Farmers"});
-restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
+// restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
+restaurantsController.destroy({name: "Losing Farmers"});
