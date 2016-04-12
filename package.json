@@ -9,6 +9,6 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
+    "mongoose": "^4.4.12"
   }
 }
