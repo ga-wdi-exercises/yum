@@ -60,6 +60,18 @@ var restaurantsController = {
         console.log(docs);
       }
     });
+  },
+  addItem: function(req, item){
+    RestaurantModel.findOneAndUpdate(req, {
+      $push: {items: {title: item}}
+    },
+    {new: true}, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
   }
 };
 
@@ -68,4 +80,5 @@ var restaurantsController = {
 // restaurantsController.showByZipcode({zipcode: 20009});
 // restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
 // restaurantsController.destroy({name: "Losing Farmers"});
-restaurantsController.removeItem({name: "Ted's Bulletin"}, "Salad");
+// restaurantsController.removeItem({name: "Ted's Bulletin"}, "Salad");
+restaurantsController.addItem({name: "Ted's Bulletin"}, "Wings");
