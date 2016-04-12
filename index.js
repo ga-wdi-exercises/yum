@@ -47,7 +47,14 @@ deleteRestaurant = function(name, update){
   })
 }
 
+updateZipcode = function(name, yelpUrl){
+  RestaurantModel.findOneAndUpdate({name: name}, {yelpUrl: yelpUrl}, {new: true}, function(err, results){
+    console.log("Here is your updated URL: " + results)
+  })
+}
+
 findRestaurant("Post Pub");
 findByZipcode("20010");
 updateRestaurant("Post Pub", "Barcode");
 deleteRestaurant("Barcode");
+updateZipcode("Barcode", "www.barcode.com");
