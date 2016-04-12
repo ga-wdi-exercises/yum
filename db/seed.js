@@ -24,5 +24,5 @@ var item11 = new MenuModel({title: "Flatbread Pizza"})
 var item12 = new MenuModel({title: "Chicken Fajitas"})
 
 
-var menuItems = [item1, item2, item3, item4, item5, item7, item8, item9, item10, item11, item12]
+var menu = [item1, item2, item3, item4, item5, item7, item8, item9, item10, item11, item12]
 var restaurants = [restaurant1, restaurant2, restaurant3, restaurant4]
