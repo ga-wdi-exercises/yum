@@ -6,12 +6,23 @@ var restaurantsController = {
   index: function(){
     RestaurantModel.find({}, function(err, docs){
       if (err){
-        console.log(err)
+        console.log(err);
       }else{
-        console.log(docs)
+        console.log(docs);
       }
     });
-  }
-}
+  },
+  show: function(req){
+    RestaurantModel.findOne({"name": req.name}, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
+  },
 
-restaurantsController.index();
+};
+
+
+restaurantsController.show({name: "Founding Farmers"});
