@@ -11,3 +11,13 @@ Restaurant.create({name: "McDonalads", "address.zipcode": 22222, "address.state"
 });
 
 // find by name
+function findByName(restaurant){
+  Restaurant.findOne({name: restaurant}, function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(result);
+    }
+  });
+}

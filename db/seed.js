@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var Schema = require("../db/schema.js");
 
 
@@ -25,8 +26,11 @@ var fries = new MenuItem({title: "fries"});
 var restaurants = [inAndOut];
 var menuitems = [hamburger, fries];
 
+console.log(restaurants);
+
+
 for(var i = 0; i< restaurants.length; i++){
-  restaurants[i].menuitems.push(menuitem[i], menuitem[i+1])
+  restaurants[i].items.push(menuitems[i])
   restaurants[i].save(function(err){
     if(err){
       console.log(err)
@@ -35,3 +39,5 @@ for(var i = 0; i< restaurants.length; i++){
     }
   })
 }
+
+// process.exit();
