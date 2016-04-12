@@ -21,3 +21,5 @@ function findByName(restaurant){
     }
   });
 }
+
+findByName("In and Out"); // this will show me that findByName is working

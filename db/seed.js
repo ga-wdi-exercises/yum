@@ -20,10 +20,18 @@ var inAndOut= new Restaurant(
     yelp: "inandout.com"
   });
 
+var fiveGuys= new Restaurant(
+    {
+      name: "five Guys",
+      address: {street: "M street", zipcode: 22310, state: "CA"},
+      yelp: "fiveGuys.com"
+  });
+
+
 var hamburger = new MenuItem({title: "hamburger"});
 var fries = new MenuItem({title: "fries"});
 
-var restaurants = [inAndOut];
+var restaurants = [inAndOut, fiveGuys];
 var menuitems = [hamburger, fries];
 
 console.log(restaurants);
