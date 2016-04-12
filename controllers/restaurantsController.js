@@ -48,12 +48,24 @@ var restaurantsController = {
         console.log(docs);
       }
     });
+  },
+  removeItem: function(req, item){
+    RestaurantModel.findOneAndUpdate(req, {
+      $pull: {items: {title: item}}
+    },
+    {new: true}, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
   }
-
 };
 
 // restaurantsController.index();
 // restaurantsController.show({name: "Founding Farmers"});
-restaurantsController.showByZipcode({zipcode: 20009});
+// restaurantsController.showByZipcode({zipcode: 20009});
 // restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
 // restaurantsController.destroy({name: "Losing Farmers"});
+restaurantsController.removeItem({name: "Ted's Bulletin"}, "Salad");
