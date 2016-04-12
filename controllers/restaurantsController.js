@@ -21,8 +21,18 @@ var restaurantsController = {
       }
     });
   },
+  update: function(req, update){
+    RestaurantModel.findOneAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
+  }
 
 };
 
-
-restaurantsController.show({name: "Founding Farmers"});
+// restaurantsController.index();
+// restaurantsController.show({name: "Founding Farmers"});
+restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
