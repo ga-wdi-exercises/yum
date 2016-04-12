@@ -11,15 +11,20 @@ var Schema = mongoose.Schema,
   ObjectID = Schema.ObjectID;                   //What exactly does this do?//
 
 var MenuSchema = new Schema({
-  title: String
+  title: String                                 //Create menu schema.//
 });
 
 var RestaurantSchema = new Schema({
   name: String,
   address: [{street: String, zipcode: Number}],
   yelp_url: String,
-  items: [MenuSchema]
+  items: [MenuSchema]                           //Create restaurant schema.//
 });
 
-var restaurantModel = mongoose.model("Restaurant", RestaurantSchema);
-var menuModel = mongoose.model("Menu", MenuSchema);
+var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema); //Create models.//
+var MenuModel = mongoose.model("Menu", MenuSchema);
+
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuModel: MenuModel                    //Connects schema file to seeds file.// 
+};
