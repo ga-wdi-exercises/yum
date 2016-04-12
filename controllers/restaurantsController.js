@@ -21,6 +21,16 @@ var restaurantsController = {
       }
     });
   },
+  showByZipcode: function(req){
+    console.log(req.zipcode);
+    RestaurantModel.find({"address.zipcode": req.zipcode}, function(err, docs){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(docs);
+      }
+    });
+  },
   update: function(req, update){
     RestaurantModel.findOneAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err, docs){
       if(err){
@@ -44,5 +54,6 @@ var restaurantsController = {
 
 // restaurantsController.index();
 // restaurantsController.show({name: "Founding Farmers"});
+restaurantsController.showByZipcode({zipcode: 20009});
 // restaurantsController.update({name: "Founding Farmers"}, {name: "Losing Farmers"});
-restaurantsController.destroy({name: "Losing Farmers"});
+// restaurantsController.destroy({name: "Losing Farmers"});

@@ -22,12 +22,21 @@ var tedsbulletin = new RestaurantModel({
   yelpurl: "www.yelp.com/biz/teds-bulletin-washington-3"
 });
 
+var matchbox = new RestaurantModel({
+  name: "Match Box",
+  address: {
+    street: "1901 14th Street",
+    zipcode: 20009
+  },
+  yelpurl: "www.yelp.com/biz/matchbox-washington-5"
+});
+
 var steak = new ItemModel({title: "Steak" });
 var pasta = new ItemModel({title: "Pasta"});
 var soup = new ItemModel({title: "Soup"});
 var salad = new ItemModel({title: "Salad"});
 
-var restaurants = [foundingfarmers, tedsbulletin]
+var restaurants = [foundingfarmers, tedsbulletin, matchbox]
 var items = [steak, pasta, soup, salad]
 
 restaurants.forEach(function(restaurant, i){
