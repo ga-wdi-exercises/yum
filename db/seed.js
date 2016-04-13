@@ -6,20 +6,12 @@ var RestaurantModel = Schema.RestaurantModel
 var MenuModel = Schema.MenuModel
 
 
-
-
-
-
-
-
 RestaurantModel.remove({}, function(err){
   console.log(err)
 });
 MenuModel.remove({}, function(err){
   console.log(err)
 });
-
-
 
 
 var Post_Pub = new RestaurantModel({
@@ -55,6 +47,17 @@ var menu3 = new MenuModel ({title: "bananas"})
 
 var restaurants = [Post_Pub, Subway, Roses]
 var menu = [menu1, menu2, menu3]
+
+for(var i = 0; i < restaurants.length; i++){
+  restaurants[i].menu.push(menu[i], project[i+2])
+  restaurants[i].save(function(err){
+    if (err){
+      console.log(err)
+    } else {
+      console.log("item saved");
+    }
+  })
+}
 //
 //
 // Post_Pub.save(function(err, restaurant){
