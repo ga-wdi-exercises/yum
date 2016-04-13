@@ -43,4 +43,5 @@ var items = [cheesesteak, jerkChicken, wings, plantains];
 for (i = 0; i < restaurants.length; i++) {
   restaurants[i].items.push(items[i], items[i + 2]);
   restaurants[i].save();
+  console.log(restaurants);
 }
