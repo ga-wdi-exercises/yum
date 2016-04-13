@@ -46,8 +46,11 @@ var removeMenuItem = function(restaurant, item) {
   });
 };
 
-// findByName("Johnny's Carryout");
-// findByZip(20010);
-// updateRestaurant("Johnny's Carryout", "Brendan's Carryout");
-// deleteRestaurant("Sandovan's Restaurant and Lounge");
-// removeMenuItem("Johnny's Carryout", "Cheesesteak");
+
+// Tested functions below
+
+findByName("Johnny's Carryout");
+findByZip(20010);
+updateRestaurant("Johnny's Carryout", "Brendan's Carryout");
+deleteRestaurant("Sandovan's Restaurant and Lounge");
+removeMenuItem("Johnny's Carryout", "Cheesesteak");
