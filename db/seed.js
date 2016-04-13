@@ -1,7 +1,26 @@
-var Schema = require("../db/schema.js");
+
+var mongoose = require('mongoose');
+var Schema = require("./db/schema.js");
 
 var RestaurantModel = Schema.RestaurantModel
 var MenuModel = Schema.MenuModel
+
+
+
+
+
+
+
+
+RestaurantModel.remove({}, function(err){
+  console.log(err)
+});
+MenuModel.remove({}, function(err){
+  console.log(err)
+});
+
+
+
 
 var Post_Pub = new RestaurantModel({
   name: "Post_Pub".
@@ -11,14 +30,38 @@ var Post_Pub = new RestaurantModel({
   })
 });
 
+var Subway = new RestaurantModel({
+  name: "Subway".
+  address: ({
+    "street": Nada,
+    "zipcode_property": 77
+  })
+});
 
-Post_Pub.save(function(err, restaurant){
-  if(err){
-    console.log(err);
-  }
-  else{
-    console.log(resturant);
-  }
-})
+var Roses = new RestaurantModel({
+  name: "Roses".
+  address: ({
+    "street": East,
+    "zipcode_property": 700
+  })
+});
 
-var item = new
+var menu1 = new MenuModel ({title: "pretzels"})
+var menu2 = new MenuModel ({title: "goldfish"})
+var menu3 = new MenuModel ({title: "bananas"})
+
+
+
+
+var restaurants = [Post_Pub, Subway, Roses]
+var menu = [menu1, menu2, menu3]
+//
+//
+// Post_Pub.save(function(err, restaurant){
+//   if(err){
+//     console.log(err);
+//   }
+//   else{
+//     console.log(resturant);
+//   }
+// })
