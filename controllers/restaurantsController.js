@@ -3,7 +3,7 @@ var Schema = require("../db/schema.js");
 var RestaurantModel = Schema.RestaurantModel;
 var ItemModel = Schema.ItemModel;
 
-// Find a restraunt by name
+// Find a restaurant by name
 
 var findByName = function(restaurant) {
   RestaurantModel.findOne({"name": restaurant}, function(err, docs){
@@ -35,4 +35,19 @@ var deleteRestaurant = function(restaurant){
   });
 };
 
-deleteRestaurant("Johnny's Carryout");
+// Remove an item from a restaurant
+
+var removeMenuItem = function(restaurant, item) {
+  RestaurantModel.findOneAndUpdate({"name": restaurant}, {
+    $pull: {items: {title: item}}
+  },
+  {new: true}, function(err, docs){
+    console.log(docs);
+  });
+};
+
+// findByName("Johnny's Carryout");
+// findByZip(20010);
+// updateRestaurant("Johnny's Carryout", "Brendan's Carryout");
+// deleteRestaurant("Sandovan's Restaurant and Lounge");
+// removeMenuItem("Johnny's Carryout", "Cheesesteak");
