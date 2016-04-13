@@ -13,8 +13,17 @@ var restaurantsController = {
       }
     });
   },
-  show: function(req){
+  showName: function(req){
     RestaurantModel.findOne({name: req.name}, function(err, restaurant){
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(restaurant);
+      }
+    });
+  },
+  showZip: function(req){
+    RestaurantModel.findOne({"address.zipcode": req.zipcode}, function(err, restaurant){
       if (err) {
         console.log(err);
       } else {
@@ -41,3 +50,7 @@ var restaurantsController = {
     });
   }
 };
+
+//restaurantsController.index();
+restaurantsController.showName({name: "Byblos Deli"});
+restaurantsController.showZip({"address.zipcode": 20008});
