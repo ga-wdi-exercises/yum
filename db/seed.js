@@ -16,7 +16,11 @@ var maketto = new RestaurantModel({name: 'Maketto'}),
     restaurantsRow = [maketto, toki, impala];
 
 restaurantsRow.forEach(function(restaurant){
-  restaurant.address = 111 + ' ' + restaurant.name + ' Street';
+  restaurant.address.street = 111 + ' ' + restaurant.name + ' Street';
+  restaurant.address.zipcode = 20009;
   restaurant.yelp = 'http://yelp/' + restaurant.name;
-  
+  var dish = new MenuItemModel({title: restaurant.name + ' dish'})
+  restaurant.items.push(dish)
+  restaurant.save();
+  console.log(restaurant);
 })
