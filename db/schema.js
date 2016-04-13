@@ -22,4 +22,9 @@ var RestaurantSchema = new Schema({
  });
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
-var MenuModel = mongoose.model("Item", MenuSchema);
+var MenuModel = mongoose.model("Menu Item", MenuSchema);
+
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuItemModel: MenuItemModel
+};
