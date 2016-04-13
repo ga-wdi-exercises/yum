@@ -24,3 +24,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
   console.log('db up!!!!');
 })
+
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuItemModel: MenuItemModel
+}
