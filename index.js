@@ -1,2 +1,2 @@
 var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
+var Schema = require("./controllers/restaurant.controller.js");
