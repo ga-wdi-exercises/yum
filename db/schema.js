@@ -5,6 +5,8 @@ var db = mongoose.connection;
 var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
+//menu schema must be defined before restaurant schema
+var MenuItemSchema = new Schema({title: String});
 var RestaurantSchema = new Schema({
   name: String,
   address: {
@@ -13,10 +15,7 @@ var RestaurantSchema = new Schema({
   },
   yelp: String,
   items: [MenuItemSchema]
-})
-var MenuItemSchema = new Schema({
-  title: String
-})
+});
 
 var RestaurantModel = mongoose.model('Restaurant', RestaurantSchema);
 var MenuItemModel = mongoose.model('MenuItem', MenuItemSchema)
