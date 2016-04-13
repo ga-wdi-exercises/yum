@@ -55,3 +55,13 @@ momofuku.menu.push(crack, milk, truffles, granola);
 
 
 var restaurants = [jacobspickles, momofuku];
+
+restaurants.forEach(function(restaurant) {
+   restaurant.save(function(err, docs) {
+     if (err) {
+       console.log(err);
+     } else {
+       console.log(docs);
+     }
+   });
+ });
