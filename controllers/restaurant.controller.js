@@ -1,4 +1,4 @@
-var Schema = require("../db/schema.js");
+var Schema = require("../db/schema");
 var RestaurantModel = Schema.RestaurantModel;
 var MenuModel = Schema.MenuModel;
 

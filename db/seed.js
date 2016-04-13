@@ -1,4 +1,4 @@
-var Schema = require("../db/schema.js");
+var Schema = require("./schema");
 
 var RestaurantModel = Schema.RestaurantModel
 var MenuModel = Schema.MenuModel
@@ -26,3 +26,12 @@ var merl = new RestaurantModel(
 );
 
 merl.menu_items = [ribs, latkes, tiramisu];
+
+merl.save(function(err, docs){
+  if(err){
+    console.log(err);
+  }
+  else{
+    console.log(docs);
+  }
+});
