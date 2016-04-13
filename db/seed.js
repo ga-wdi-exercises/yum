@@ -34,5 +34,13 @@ var johnnyCarryout = new RestaurantModel({
 
 var cheesesteak = new ItemModel({title: "Cheesesteak"});
 var jerkChicken = new ItemModel({title: "Jerk Chicken"});
-var plantains = new ItemModel({title: "Fried Plantains"});
 var wings = new ItemModel({title: "Wings with Mumbo Sauce"});
+var plantains = new ItemModel({title: "Fried Plantains"});
+
+var restaurants = [sandovan, johnnyCarryout];
+var items = [cheesesteak, jerkChicken, wings, plantains];
+
+for (i = 0; i < restaurants.length; i++) {
+  restaurants[i].items.push(items[i], items[i + 2]);
+  restaurants[i].save();
+}
