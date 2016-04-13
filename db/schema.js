@@ -6,7 +6,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var Schema = mongoose.Schema,
 ObjectId = Schema.ObjectId;
 
-var ItemsSchema = new Schema({
+var ItemSchema = new Schema({
   title: String
 });
 
@@ -17,5 +17,8 @@ var RestaurantSchema = new Schema({
     zipcode: Number
   },
   yelpUrl: String,
-  items: [ ItemsSchema ]
+  items: [ ItemSchema ]
 });
+
+var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
+var ItemModel = mongoose.model("Item", ItemSchema);
