@@ -23,3 +23,15 @@ function findByName(restaurant){
 }
 
 findByName("In and Out"); // this will show me that findByName is working
+
+// Update Restaurant
+function update(restaurant, update){
+  Restaurant.findOneAndUpdate({name: restaurant}, {name: update}, {new: true}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs);
+    }
+  })
+}
