@@ -26,3 +26,13 @@ function addToMenu(restaurant, food){
 
     });
   });
+function deleteRest(restaurant){
+  Restaurant.findOneAndRemove({name: restaurant}, function(err, docs){
+    if(err){
+      console.log(docs);
+    }
+    else{
+      console.log(docs + "removed");
+    }
+  });
+}
