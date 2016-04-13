@@ -37,7 +37,7 @@ var jerkChicken = new ItemModel({title: "Jerk Chicken"});
 var wings = new ItemModel({title: "Wings with Mumbo Sauce"});
 var plantains = new ItemModel({title: "Fried Plantains"});
 
-var restaurants = [sandovan, johnnyCarryout];
+var restaurants = [johnnyCarryout, sandovan];
 var items = [cheesesteak, jerkChicken, wings, plantains];
 
 for (i = 0; i < restaurants.length; i++) {
