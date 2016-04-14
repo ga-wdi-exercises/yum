@@ -1,15 +1,14 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/menu_items");
-
 var db = mongoose.connection;
+
+mongoose.connect("mongodb://localhost/menu_items");
 
 db.on("error", function(err){
   console.log(err);
 });
 
 db.once("open", function() {
-  console.log("Connected to MongoDB!");
-
+  console.log("mongoDB connected.");
 });
 
 var Schema = mongoose.Schema,

@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = require("../db/schema.js");
-
 var RestaurantModel = Schema.RestaurantModel;
 var MenuItemModel = Schema.MenuItemModel;
 
@@ -19,10 +18,10 @@ var lunettas = new RestaurantModel({name: "Lunetta's"});
 var busboysandpoets = new RestaurantModel({name: "Busboys and Poets"});
 var maywah = new RestaurantModel({name: "May Wah"});
 
-var menuItems = [pickles, salad, sandwich];
 var restaurants = [lunettas, busboysandpoets, maywah];
+var menuItems = [pickles, salad, sandwich];
 
-for(var = i; i < menuItems.length; i++){
+for(var i = 0; i < menuItems.length; i++){
   restaurants[i].menuItems.push(menuItems[i], menuItems[i+1])
   restaurants[i].save(function(err){
     if(err){
