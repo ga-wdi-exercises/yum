@@ -4,7 +4,7 @@ var Schema = require("./db/schema.js");
 var Restaurant = Schema.Restaurant;
 var MenuItem = Schema.Menu;
 
-// Find by name
+// Finds restaurant by name
 function findByName(restaurant){
   Restaurant.findOne({name: restaurant}, function(err, result){
     if(err){
@@ -27,7 +27,7 @@ function update(resturant, update){
   });
 }
 
-// Deleting resturant
+// Deletes resturant
 function destroy(resturant){
   Restaurant.findOneAndRemove({name: resturant}, function(err, docs){
     if(err){
@@ -39,7 +39,7 @@ function destroy(resturant){
   });
 }
 
-// Add sub document
+// Add menu reference
 function addMenu(resturant, foods){
   Restaurant.findOne({name: resturant}, function(err, docs){
     docs.items.push(new Menu({name: foods}))
