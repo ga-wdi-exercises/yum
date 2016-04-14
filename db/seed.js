@@ -56,8 +56,8 @@ for(var i = 0; i < restaurants.length; i++){
     } else {
       console.log("item saved");
     }
-  })
-}
+  });
+});
 //
 //
 // Post_Pub.save(function(err, restaurant){

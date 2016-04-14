@@ -10,7 +10,7 @@ var Schema = mongoose.Schema,
    name: String,
    address: {"street": String, "zipcode_property": Number},
    yelp_url: String,
-   items: []
+   items: [ItemSchema]
  })
 
 
