@@ -1,20 +1,30 @@
 var RestaurantModel = require("../db/schema.js").RestaurantModel;
 
-var RestaurantsController = {
-  index:  function() {
-    RestaurantModel.find({}, function(err, restaurants) {
-      console.log(restaurants);
-      return restaurants;
-    });
-  },
-  show:   function(req) {
-    RestaurantModel.findOne({name: req.name}, function(err, restaurant) {
-      console.log(restaurant);
-      return restaurant;
-    });
-  },
-  create: function() {
-  },
-  delete: function() {
+function modelHandler(err, property) {
+  console.log("property:", property);
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(property);
   }
+  return {property: property, err: err};
+}
+
+var RestaurantsController = {
+  index:   function() {
+    RestaurantModel.find({}, modelHandler);
+  },
+  show:    function(req) {
+    RestaurantModel.findOne({name: req.name}, modelHandler);
+  },
+  update:  function(req, update) {
+    RestaurantModel.findOneAndUpdate(req, update, {new: true}, modelHandler);
+  },
+  destroy: function(req) {
+    RestaurantModel.findOneAndRemove(req, modelHandler);
+  }
+};
+
+module.exports = {
+  Restaurants: RestaurantsController
 };
