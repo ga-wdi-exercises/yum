@@ -8,3 +8,14 @@ Restaurant.create({ name: 'Cookies-R-Us', "address.zipcode": 20001 }, function (
   if (err) return handleError(err);
   console.log("We created", restaurant.name, 'in', restaurant.address.zipcode);
 });
+
+function findByName(restaurant){
+  Restaurant.findOne({name: restaurant}, function(err, result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(result);
+    }
+  });
+}
