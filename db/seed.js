@@ -55,3 +55,6 @@ RestaurantModel.find({"address.zip":20037});
 RestaurantModel.findOneAndUpdate({name:"Alberto's"},{name:"Alberto's Pizzeria"});
 // Answer 7
 RestaurantModel.findOneAndRemove({name:"Taylor's"});
+// Answer 8
+RestaurantModel.findOneAndUpdate({name:"test"},{$push: {menuItems: {title:"test"}}});
+RestaurantModel.findOneAndUpdate({name:"test"},{$pull: {menuItems: {title:"test"}}});
