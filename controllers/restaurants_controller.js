@@ -22,15 +22,7 @@ var Schema = require("../db/schema.js");
        }
      });
    },
-   byZip: function(req){
-     RestaurantModel.findOne({name: req.name}, function(err, restaurant){
-       if (err) {
-         console.log(err);
-       } else {
-         console.log(restaurant);
-       }
-     });
-   },
+
    update: function(req, update){
      RestaurantModel.findOneAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err, restaurant){
        if (err){
