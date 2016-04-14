@@ -29,7 +29,8 @@ npm install
 
     * title (a string)
 
-3. Create a new restaurant
+3. Create a new restaurant:
+  
 
 4. Write a function or method that finds a restaurant by name
 
