@@ -1,13 +1,13 @@
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost/menu_items');
+mongoose.connect("mongodb://localhost/menu_items");
 
 var db = mongoose.connection;
 
-db.on('error', function(err){
+db.on("error", function(err){
   console.log(err);
 });
 
-db.once('open', function() {
+db.once("open", function() {
   console.log("Connected to MongoDB!");
 
 });
@@ -23,7 +23,7 @@ var RestaurantSchema = new Schema({
   name: String,
   address: {
     street: String,
-    zipcode: Number
+    zipCode: Number
   },
   yelp_url: String,
   items: [MenuItemSchema]
