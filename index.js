@@ -4,16 +4,16 @@ var Schema = require("./db/schema.js");
 var RestaurantModel = Schema.RestaurantModel;
 var ItemsModel = Schema.ItemsModel;
 
-var PostPub = new RestaurantModel({
-  name: "Post Pub",
+var LaCashina = new RestaurantModel({
+  name: "La Cashina",
   address: {
-    street: "L Street",
-    zipcode: "20010"
+    street: "Route 18",
+    zipcode: "07746"
   }
 }
 );
 
-PostPub.save(function(err, restaurant){
+LaCashina.save(function(err, restaurant){
   console.log(restaurant)
 })
 
@@ -47,7 +47,14 @@ deleteRestaurant = function(name, update){
   })
 }
 
-findRestaurant("Post Pub");
-findByZipcode("20010");
-updateRestaurant("Post Pub", "Barcode");
-deleteRestaurant("Barcode");
+updateZipcode = function(name, yelpUrl){
+  RestaurantModel.findOneAndUpdate({name: name}, {yelpUrl: yelpUrl}, {new: true}, function(err, results){
+    console.log("This is the updated URL: " + results)
+  })
+}
+
+findRestaurant("La Cashina");
+findByZipcode("07746");
+updateRestaurant("La Cashina", "Fiddleheads");
+deleteRestaurant("Fiddleheads");
+updateZipcode("Fiddleheads", "www.fiddleheadsjamesburg.com");
