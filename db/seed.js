@@ -40,3 +40,5 @@ MenuItem.remove({}, function(err){
       }
     });
   });
+
+process.exit();
