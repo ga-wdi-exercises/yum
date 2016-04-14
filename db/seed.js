@@ -44,3 +44,14 @@ var breakfast = new MenuItemModel({title: "Sausage & Cheese"});
 thatPlaceDownstairs.menuItems.push(breakfast);
 thatPlaceDownstairs.save();
 breakfast.save();
+
+// Answer 3
+RestaurantModel.create({name:"test"});
+// Answer 4
+RestaurantModel.findOne({name:"Alberto's"});
+// Answer 5
+RestaurantModel.find({"address.zip":20037});
+// Answer 6
+RestaurantModel.findOneAndUpdate({name:"Alberto's"},{name:"Alberto's Pizzeria"});
+// Answer 7
+RestaurantModel.findOneAndRemove({name:"Taylor's"});
