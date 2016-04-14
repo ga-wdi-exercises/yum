@@ -14,7 +14,7 @@ var RestaurantSchema = new Schema ({
   name: String,
   address:{
     street: String,
-    zipcode: Number,
+    zipcode: Number
   },
   yelp: String,
   items: [ItemSchema]
