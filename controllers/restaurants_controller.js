@@ -24,13 +24,6 @@ var Schema = require("../db/schema.js");
      });
    },
 
-   byZip: function(req){
-     RestaurantModel.findOne({zipcode: req.zipcode}, function(err, restaurant){
-       if (err) {
-
-       }
-   )};
- };
    update: function(req, update){
      RestaurantModel.findOneAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err, restaurant){
        if (err){
@@ -54,5 +47,6 @@ var Schema = require("../db/schema.js");
 var byZip = function(zipcode) {
   RestaurantModel.findOne({"address.zipcode:" zipcode}, function (err, restaurant){
     console.log(restaurants);
+    }
   });
 };
