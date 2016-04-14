@@ -1,7 +1,8 @@
+var mongoose = require("mongoose")
 var Schema = require("../db/schema.js");
 
-var Restaurant = Schema.Restaurant;
-var Item =  Schema.Item;
+var Restaurant = Schema.RestaurantModel;
+var Item =  Schema.ItemModel;
 
 Restaurant.remove({}, function(error){
   console.log("nope")
