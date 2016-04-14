@@ -4,9 +4,14 @@ var RestaurantsController = {
   index:  function() {
     RestaurantModel.find({}, function(err, restaurants) {
       console.log(restaurants);
+      return restaurants;
     });
   },
-  show:   function() {
+  show:   function(req) {
+    RestaurantModel.findOne({name: req.name}, function(err, restaurant) {
+      console.log(restaurant);
+      return restaurant;
+    });
   },
   create: function() {
   },
