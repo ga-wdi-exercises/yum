@@ -47,20 +47,35 @@ var restaurantsController = {
         console.log(restaurant);
       }
     });
+  },
+  removeMenuItem: function(req, menuItem){
+    RestaurantModel.findOneAndUpdate({name: req.name}, {
+      $pull: {items: {title: menuItem} }
+    },
+    {new: true}, function(err, docs){
+      if(err){
+        console.log(err)
+      }else{
+        console.log(docs)
+      }
+    });
   }
 }
 
 //index view
-// restaurantsController.index({});
+restaurantsController.index({});
 
 //find one by name
-// restaurantsController.show({name: "Thai Palace"});
+restaurantsController.show({name: "Thai Palace"});
 
 //finds all based on zip
-// restaurantsController.showZip({zipcode: 20815});
+restaurantsController.showZip({zipcode: 20815});
 
 //updates restaurant name
-// restaurantsController.updateName({name: "Thai Palace"}, {name: "New Thai House"})
+restaurantsController.updateName({name: "Thai Palace"}, {name: "New Thai House"})
 
 //removes restaurant
 restaurantsController.destroy({name: "New Thai House"})
+
+//removes menu item:
+// restaurantsController.removeMenuItem({name: "Thai Palace"},{title: "Panang Curry"}, {new: true})
