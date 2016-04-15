@@ -45,5 +45,5 @@ var restaurantsController = {
 
 restaurantsController.index();
 // restaurantsController.show({name: ""});
-// restaurantsController.update({address.zipcode: ""}, {address.zipcode: ""});
+// restaurantsController.update({address.zipCode: ""}, {address.zipCode: ""});
 // restaurantsController.destroy({name: ""});
