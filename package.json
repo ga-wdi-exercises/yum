@@ -9,6 +9,7 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
+    "express-handlebars": "^3.0.0",
     "mongoose": "^4.4.11"
   }
 }
