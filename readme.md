@@ -14,6 +14,8 @@ npm install
 
 ## Instructions:
 
+Try to complete as many of these as you can, going in order. Make sure to time-box yourself!
+
 1. Create schemas and corresponding models for a restaurant and for menu items
 
 2. Adds seeds data for the restaurant and menu items:
@@ -44,9 +46,19 @@ npm install
 ## Monitor your changes and test:
 
 ```
-nodemon index.js
+$ nodemon index.js
 ```
 
 ## After the Mongoose class:
 
 Turn YUM into an Express app, with routes that you can view in your browser and forms that manipulate your data with full CRUD.
+
+Your app should have the following two pages:
+
+- A page that lists all restaurants, on which a user can:
+  - Create a new restaurant
+- A page that lists one restaurant and all its menu items, on which a user can:
+  - Delete the restaurant
+  - Update the restaurant
+  - Create a new menu item for the restaurant
+  - Delete a menu item from the restaurant
