@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "WDI8",
+  "author": "WDI9",
   "license": "ISC",
   "dependencies": {
     "express-handlebars": "^3.0.0",
