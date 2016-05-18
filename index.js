@@ -23,8 +23,8 @@ app.get("/restaurants", function(req, res){
   .then(function(restaurants){
     res.render("restaurant-index", {
       restaurants: restaurants
-    })
-  })
+    });
+  });
 });
 
 app.get("/restaurants/:name", function(req, res){
@@ -33,29 +33,29 @@ app.get("/restaurants/:name", function(req, res){
     console.log(restaurant)
     res.render("restaurant-show", {
       restaurant: restaurant
-    })
-  })
-})
+    });
+  });
+});
 
 app.post("/restaurants", function(req, res){
   Restaurant.create(req.body.restaurant)
   .then(function(restaurant){
     res.redirect("/restaurants/" + restaurant.name);
-  })
-})
+  });
+});
 
 app.post("/restaurants/:name", function(req, res){
   Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true})
   .then(function(restaurant){
     res.redirect("/restaurants/" + restaurant.name);
-  })
-})
+  });
+});
 
 app.post("/restaurants/:name/delete", function(req, res){
   Restaurant.findOneAndRemove({name: req.params.name})
-  .then(function(){res.redirect("/restaurants")})
-})
+  .then(function(){res.redirect("/restaurants")});
+});
 
 app.listen(app.get("port"), function(){
   console.log("Here and running");
-})
+});

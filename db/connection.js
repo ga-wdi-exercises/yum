@@ -11,7 +11,7 @@ var RestaurantSchema = new mongoose.Schema(
     name: String,
     address: {street: String, zip: Number},
     yelpUrl: String,
-    items: Array
+    items: [MenuItemSchema]
   }
 );
 

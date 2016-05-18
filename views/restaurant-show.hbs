@@ -5,7 +5,7 @@
   <p>Menu:</p>
   <ul>
     {{#each restaurant.items as |item|}}
-      <li>{{item}}</li>
+      <li>{{item.title}}</li>
     {{/each}}
   </ul>
 </div>
@@ -15,7 +15,6 @@
   <input type="text" value="{{restaurant.address.street}}" name="restaurant[address][street]" /><br>
   <input type="number" value="{{restaurant.address.zip}}" name="restaurant[address][zip]" /><br>
   <input type="text" value="{{restaurant.yelpUrl}}" name="restaurant[yelpUrl]" /><br>
-  <input type="text" value="{{restaurant.items}}" name="restaurant[items]"><br>
   <button type="submit">Edit restaurant</button>
 </form>
 
