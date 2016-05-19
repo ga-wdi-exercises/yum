@@ -1,7 +1,13 @@
-var Schema = require("../db/schema.js");
-var mongoose = require('mongoose');
+var Schema     = require("../db/schema.js");
+var mongoose   = require('mongoose');
+var seedData   = require('./seeds');
+var Restaurant = mongoose.model("Restaurant")
 
-restaurants
+Restaurant.remove({}).then(function(){
+  Restaurant.collection.insert(seedData).then(function(){
+    process.exit();
+  })
+})
 
 
 var restaurant1 = new Restaurant({name: "Pho DC", address: "608 H St NW, Washington, DC" 20001, yelpUrl: "https://www.yelp.com/biz/pho-dc-washington-2", items: ["DC Spring Roll", "Curry Puff Roll", "Garden Roll"]});
