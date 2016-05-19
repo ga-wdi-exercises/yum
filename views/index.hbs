@@ -1,0 +1,13 @@
+{{#each restaurants as |restaurant index|}}
+<h4>
+  <a href="/{{restaurant.name}}">{{restaurant.name}}</a>
+  <p>
+    {{restaurant.address.street}}
+    {{restaurant.address.zipcode}}
+  </p>
+  <a href="{{restaurant.yelp}}">Yelp Page</a>
+  {{#each restaurant.items as |item index|}}
+  <p>{{item.title}}</p>
+  {{/each}}
+</h4>
+{{/each}}

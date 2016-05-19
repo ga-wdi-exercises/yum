@@ -1,0 +1,30 @@
+[
+  {
+    "name" : "Khepra’s Raw Food Juice Bar",
+    "address" : {
+      "street" : "402 H St NE",
+      "zipcode" : "20002"
+    },
+    "yelp" : "http://www.yelp.com/biz/khepras-raw-food-juice-bar-washington",
+    "items": [
+      { "title" : "Avocado Plantain Pie" },
+      { "title" : "Pizza" },
+      { "title" : "Fruity Kale" },
+      { "title" : "Green High Juice" }
+    ]
+  },
+  {
+    "name" : "Elizabeth's Gone Raw",
+    "address" : {
+      "street" : "1341 L St NW",
+      "zipcode" : "20005"
+    },
+    "yelp" : "http://www.yelp.com/biz/elizabeths-gone-raw-washington",
+    "items": [
+      { "title" : "Spring Tomato Water" },
+      { "title" : "Smoked King Trumpet Mushrooms" },
+      { "title" : "Almond Buttermilk Ice Cream" },
+      { "title" : "Paprika Cheese with Hempseed Cracker" }
+    ]
+  }
+]
