@@ -1,0 +1,6 @@
+<h2>Your town has {{restaurants.length}} restaurants</h2>
+{{#each restaurants as |restaurant|}}
+<h3>
+  <a href="/restaurants/{{restaurant.name}}">{{restaurant.name}} at {{restaurant.address.street}}</a>
+</h3>
+{{/each}}
