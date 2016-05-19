@@ -25,6 +25,10 @@ app.listen(4323, function(){     // makes the app listen to port 4444 from the b
   console.log("it works");      // at the moment, it works: http://127.0.0.1:4323/ and
 });                             // it shows "it works" in the terminal running nodemon.
 
+
+//  Code below came from a merge conflict -- must have downloaded the solution
+// branch to my local repo.  Not a happy camper.
+//
 // =======
 //
 // var Restaurant = Schema.Restaurant;
