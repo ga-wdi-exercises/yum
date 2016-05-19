@@ -1,19 +1,12 @@
-var Schema = require("../db/schema.js");
+var seedsOfData  = require("./seeds.json");
+var Schema       = require("../db/schema.js");
+var mongoose     = require('mongoose');
 
-var Restaurants = {
-  name: "Bob Pizza's Artisinal Apartment Sandwiches",
-  address: {
-    street: "666 Condos Ave",
-    zip: 90210
-  },
-  yelp_url: "http://www.yelp.com/Bob_Pizza",
-  items: bobPizzaItems
-};
+var Restaurant = Schema.Restaurant;
+var Item = Schema.Item;
 
-var bobPizzaItems = [
-  {title: "PizzaBurgs"},
-  {title: "Servo Motor Parts"},
-  {title: "PizzaBurgs"}
-]
-
-//module.export something?
+Restaurant.remove().then(function(){
+  Restaurant.collection.insert(seedsOfData).then(function(){
+    mongoose.disconnect();
+  });
+});
