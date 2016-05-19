@@ -10,11 +10,15 @@ app.engine('.hbs', hbs({
   extname:      '.hbs',
   partialsDir:  'views/',
   layoutsDir:   'views/',
-  defaultLyout: 'layout-main.hbs'
+  defaultLayout: 'layout-main.hbs'
 }))
 
 app.get("/", function(req, res){
-  res.send("hey dude");
+  res.render("layout-main");
+});
+
+app.get("/:restaurant", function(req, res){
+  res.render("index");
 });
 
 app.listen(4323, function(){     // makes the app listen to port 4444 from the browser
