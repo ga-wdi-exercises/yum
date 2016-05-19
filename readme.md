@@ -46,3 +46,7 @@ npm install
 ```
 nodemon index.js
 ```
+
+## After the Mongoose class:
+
+Turn YUM into an Express app, with routes that you can view in your browser and forms that manipulate your data with full CRUD.
