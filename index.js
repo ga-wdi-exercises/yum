@@ -2,6 +2,10 @@ var express   = require('express');
 var hbs       = require('express-handlebars');
 var mongoose  = require('mongoose');
 var Schema    = require('./db/schema.js');
+var parser    = require('body-parser');
+
+var Restaurant = mongoose.model("Restaurant");
+var Restaurant = Schema.Restaurant;
 
 var app = express();
 
@@ -15,7 +19,10 @@ app.engine(".hbs", hbs({
 }));
 
 app.get("/", function(req, res){
-  res.send("Yeahhhhh");
+  Restaurant.find({}).then(function(restaurants){
+    res.json(restaurants);
+  });
+  // res.render("restaurants-index"); 
 });
 
 app.listen(app.get("port"), function(){
