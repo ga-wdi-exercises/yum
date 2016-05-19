@@ -5,7 +5,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 var RestaurantSchema = new mongoose.Schema({
 	name: String,
-	address = {
+	address : {
 		line1: String,
 		line2: String,
 		city : String,
@@ -13,13 +13,18 @@ var RestaurantSchema = new mongoose.Schema({
 		zip  : Number
 	},
 	yelp_url : String,
-	MenuSchema = new mongoose.Schema({
-		title: String,
-		item : Array 
-	}),
+	menu : [Menu],
 });
 
+
 mongoose.model("Restaurant", RestaurantSchema);
+
+var MenuSchema = new mongoose.Schema({
+	title: String,
+	item : Array
+});
+
+mongoose.model("Menu", MenuSchema);
 
 
 module.exports = mongoose;
