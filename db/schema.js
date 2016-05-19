@@ -1,4 +1,20 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/yum');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+
+var mongoURI = "mongodb://localhost/yum";
+
+mongoose.connect(mongoURI)
+
+var Schema = mongoose.Schema;
+  ObjectId = Schema.ObjectId;
+
+var PizzaSchema = Schema({
+  title: String,
+  size: String,
+  toppings: Array
+})
+
+var PizzaModel = mongoose.model("Pizza", PizzaSchema);
+
+module.exports = {
+  pizza: PizzaModel
+};
