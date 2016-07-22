@@ -1,0 +1,14 @@
+[
+{
+  "restaurant": "Burger King",
+  "street": "1227 Mills Pointe Dr.",
+  "yelp_url": "http://www.yelp.com/biz/burger-king-washington-9",
+  "items": [
+    {"title": "Baker"},
+    {"title": "Zachary"},
+    {"title": "New Roads"},
+    {"title": "Slaughter"}
+  ]
+
+}
+]
