@@ -1,0 +1,23 @@
+<style>
+body{
+  text-align:center;
+  font-family: "helvetica";
+  font-size:25px;
+}
+</style>
+<h2> All Restaurants</h2>
+
+{{#each restaurants as |restaurant index|}}
+<h3>
+  <a href ="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
+</h3>
+{{/each}}
+
+<form action = "/" method = "post">
+  <input type = "text" name = "restaurant[name]" placeholder = "Name"/>
+  <!-- <input type = "text" name = "restaurant[address[street]]" placeholder = "Address - Street"/>
+  <input type = "text" name = "restaurant[address[state]]" placeholder = "Address - State"/>
+  <input type = "text" name = "restaurant[address[zip]]" placeholder = "Address - Zip"/>
+  <input type = "text" name = "restaurant[yelpUrl]" placeholder = "Yelp URL"/> -->
+  <button type = "submit"> Submit</button>
+</form>
