@@ -1,0 +1,11 @@
+<h2>Restuarants</h2>
+{{#each restaurants as |restaurant index|}}
+<h3>
+  <a href="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
+</h3>
+{{/each}}
+
+<form action="/restaurants" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name" />
+  <button type="submit">Save New Restaurant</button>
+</form>
