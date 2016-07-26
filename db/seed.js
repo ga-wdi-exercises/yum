@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = require("./schema.js");
 console.log("seeds starting");
 
-var Menu = Schema.MenuModelxxx;
+var Menu = Schema.MenuModel;
 var Restaurant = Schema.RestaurantModel;
 
 Restaurant.remove({}, function(err){
@@ -35,6 +35,7 @@ zipcode: "22203"
 },
 yelpUrl: "http://www.yelp.com/biz/uncle-julios-arlington-2?osq=Uncle+Julio%27s+Fine+Mexican+Food"
 })
+// console.log(rioGrande);
 
 var laCaraquena = new Restaurant  ({
   name: "La Caraquena",
@@ -56,7 +57,7 @@ var rioMenu2 = new Menu ({
 })
 
 var rioMenu3 = new Menu ({
-  title: "Quersadillas"
+  title: "Quesadillas"
 })
 
 var laCarMenu1 = new Menu ({
@@ -71,7 +72,7 @@ var laCarMenu3 = new Menu({
   title: "Fried Yucca"
 })
 // ok, how do i load these bad boys?
-rioGrande.Menu.push(rioMenu1, rioMenu2, rioMenu3);
+rioGrande.items.push(rioMenu1, rioMenu2, rioMenu3);
 rioGrande.save(function(err){
   if (err){
     console.log(err)
@@ -80,8 +81,8 @@ rioGrande.save(function(err){
   }
 })
 
-laCar.Menu.push(laCarMenu1, laCarMenu2, laCarMenu3);
-laCaraquena.save(function(err){
+laCaraquena.items.push(laCarMenu1, laCarMenu2, laCarMenu3);
+laCaraquena.save(function(err) {
   if (err){
     console.log(err)
   } else {
