@@ -1,0 +1,42 @@
+<h2>{{ShowViewModel.restaurant.name}}</h2>
+
+<p><a href="{{ShowViewModel.restaurant.yelpUrl}}">Yelp</a></p>
+
+<p>{{ShowViewModel.restaurant.address.street}}</p>
+<p>{{ShowViewModel.restaurant.address.zipcode}}</p>
+
+<div data-ng-hide="edit">
+    <button data-ng-click="edit=!edit">Edit</button>
+</div>
+
+<form>
+    <div data-ng-show="edit">
+        <input type="String" data-ng-model="ShowViewModel.restaurant.name" />
+        <input type="String" data-ng-model="ShowViewModel.restaurant.address.street" />
+        <input type="String" data-ng-model="ShowViewModel.restaurant.address.zipcode" />
+        <input type="String" data-ng-model="ShowViewModel.restaurant.yelpUrl" />
+        <button data-ng-click="ShowViewModel.update(); edit=!edit">Update</button>
+        <button data-ng-click="edit=!edit">Cancel Edit</button>
+        <button data-ng-click="ShowViewModel.destroy()">Delete</button>
+    </div>
+</form>
+
+<h4>Menu:</h4>
+<ul data-ng-repeat="item in ShowViewModel.restaurant.items">
+    <li>{{item.title}}</li>
+    <li style="list-style: none">&nbsp-&nbsp{{item.description}}</li>
+    <button data-ng-click="ShowViewModel.removeItem($index)">Remove from Menu</button>
+</ul>
+
+<div data-ng-hide="addItem">
+    <button data-ng-click="addItem=!addItem">Add Menu Item</button>
+</div>
+
+<form>
+    <div data-ng-show="addItem">
+        <input type="String" placeholder="Name" data-ng-model="title" />
+        <input type="String" placeholder="Description" data-ng-model="description" />
+        <button data-ng-click="ShowViewModel.addItem(title, description); addItem=!addItem">Add</button>
+        <button data-ng-click="addItem=!addItem">Cancel Add</button>
+    </div>
+</form>
