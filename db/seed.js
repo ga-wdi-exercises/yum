@@ -3,7 +3,6 @@ var Schema = require("../db/schema.js");
 var Restaurant = Schema.Restaurant
 var MenuItem = Schema.MenuItem
 
-
 Restaurant.remove({}, function(err){
   if (err) {
     console.log(err)
@@ -26,7 +25,7 @@ var menuitems = [steakfrites, ramen]
 var restaurants = [ledip, toki]
 
 restaurants.forEach(function(restaurant, i){
-  restaurant.items.push(menuitems[i], menuitems[i+1])
+  restaurant.items.push(menuitems[0], menuitems[1])
   restaurant.save(function(err, docs){
     if (err){
       console.log(err)

@@ -9,15 +9,16 @@ body{
 
 {{#each restaurants as |restaurant index|}}
 <h3>
-  <a href ="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
+  <a href ="/{{restaurant.name}}">{{restaurant.name}}</a>
 </h3>
+  <form action = "/{{restaurant.name}}/delete" method = "post"><button>Delete</button/></form>
 {{/each}}
 
-<form action = "/" method = "post">
+<form action = "/" method = "post" type = "submit">
   <input type = "text" name = "restaurant[name]" placeholder = "Name"/>
-  <!-- <input type = "text" name = "restaurant[address[street]]" placeholder = "Address - Street"/>
-  <input type = "text" name = "restaurant[address[state]]" placeholder = "Address - State"/>
-  <input type = "text" name = "restaurant[address[zip]]" placeholder = "Address - Zip"/>
-  <input type = "text" name = "restaurant[yelpUrl]" placeholder = "Yelp URL"/> -->
+  <input type = "text" name = "restaurant[address.street]" placeholder = "Address - Street"/>
+  <input type = "text" name = "restaurant[address.state]" placeholder = "Address - State"/>
+  <input type = "number" name = "restaurant[address.zipcode]" placeholder = "Address - Zip"/>
+  <input type = "text" name = "restaurant[yelpUrl]" placeholder = "Yelp URL"/>
   <button type = "submit"> Submit</button>
 </form>
