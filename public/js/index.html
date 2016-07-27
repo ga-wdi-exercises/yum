@@ -1,0 +1,9 @@
+<h2>{{indexVM.restaurants.length}} restaurants</h2>
+
+<div class="restaurants">
+  <div class="restaurant" data-ng-repeat="restaurant in indexVM.candidates">
+    <h3>
+      <a data-ui-sref="show({name: restaurant.name})">{{restaurant.name}} for President in {{candidate.year}}</a>
+    </h3>
+  </div>
+</div>
