@@ -9,6 +9,21 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.5.7"
+  },
+  "respository": {
+    "type": "git",
+    "url": "http://github.com/ga-wdi-exercises/yum.git"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinmaripasive/yum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kristinmaripasive/yum/issues"
+  },
+  "homepage": "https://github.com/kristinmaripasive/yum#readme"
 }
