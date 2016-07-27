@@ -1,1 +1,3 @@
-<h2>{{numRestaurants}} restaurants</h2>
+{{#each Restaurants as |restaurant index|}}
+<h1>{{restaurant.name}}</h1>
+{{/each}}

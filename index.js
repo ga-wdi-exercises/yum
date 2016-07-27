@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 var Schema = require("./db/schema.js");
 var app = express();
 
+var Restaurant = mongoose.model("Restaurant");
+
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
   extname: ".hbs",
@@ -18,9 +20,12 @@ app.get("/", function(req, res){
 });
 
 app.get("/restaurants", function(req, res){
-  res.render("restaurants-index", {
-    numRestaurants: 32
-  });
+  Restaurant.find({}).then(function(response){
+    var restaurants = response
+    res.render("restaurants-index", {
+      Restaurants: restaurants
+    });
+  })
 });
 
 app.listen(3001, function(){
