@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Bread Furst",
+    "address": {"street": "4434 Connecticut Ave", "zip": 20008},
+    "yelpUrl": "http://www.yelp.com/biz/bread-furst-washington",
+    "items": [{"title": "bread"}, {"title": "croissant"}]
+  },
+  {
+    "name": "Vace",
+    "address": {"street": "3315 Connecticut Ave NW", "zip": 20008},
+    "yelpUrl": "http://www.yelp.com/biz/vace-washington",
+    "items": [{"title": "pizza"}, {"title": "sandwich"}]
+  },
+  {
+    "name": "Open City",
+    "address": {"street": "2331 Calvert St NW", "zip": 20008},
+    "yelpUrl": "http://www.yelp.com/biz/open-city-washington",
+    "items": [{"title": "sandwich"}, {"title": "coffee"}]
+  },
+  {
+    "name": "Mama Ayesha's",
+    "address": {"street": "1967 Calvert St NW", "zip": 20009},
+    "yelpUrl": "http://www.yelp.com/biz/mama-ayeshas-washington",
+    "items": [{"title": "hummus"}, {"title": "kabob"}]
+  },
+  {
+    "name": "Tono Sushi",
+    "address": {"street": "2605 Connecticut Ave NW", "zip": 20008},
+    "yelpUrl": "http://www.yelp.com/biz/tono-sushi-washington",
+    "items": [{"title": "sushi"}]
+  }
+]

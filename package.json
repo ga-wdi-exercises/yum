@@ -9,6 +9,17 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.4.17"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marygriffus/yum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marygriffus/yum/issues"
+  },
+  "homepage": "https://github.com/marygriffus/yum#readme"
 }

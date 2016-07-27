@@ -1,0 +1,23 @@
+<h3>{{restaurant.name}}</h3>
+<div class="details">
+  <p>Find us at {{restaurant.address.street}}, {{restaurant.address.zip}}</p>
+  <p>Rate us on Yelp: <a href="{{restaurant.yelpUrl}}">{{restaurant.name}} on Yelp</a></p>
+  <p>Menu:</p>
+  <ul>
+    {{#each restaurant.items as |item|}}
+      <li>{{item.title}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <input type="text" value="{{restaurant.name}}" name="restaurant[name]" /><br>
+  <input type="text" value="{{restaurant.address.street}}" name="restaurant[address][street]" /><br>
+  <input type="number" value="{{restaurant.address.zip}}" name="restaurant[address][zip]" /><br>
+  <input type="text" value="{{restaurant.yelpUrl}}" name="restaurant[yelpUrl]" /><br>
+  <button type="submit">Edit restaurant</button>
+</form>
+
+<form action="/restaurants/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete restaurant</button>
+</form>
