@@ -1,8 +1,34 @@
-{{#unless candidate}}
+{{#unless restaurant}}
 <h2>That Restaurant is not in Our System</h2>
 {{else}}
-<h2>{{restaurant.name}} Restaurant</ht>
+
+<h2>{{restaurant.name}} Restaurant</h2>
 <form method="post" action="/restaurants/{{restaurant.name}}/delete">
-   <button type="submit">Delete</button>
+   <button type="submit">Delete Restaurant</button>
 </form>
+<div class="invisible"> . </div>
+<form action="/restaurants/{{restaurant.name}}/update" method="post">
+   <input type = "text" name="restaurant[name]" placeholder="Name" value="{{restaurant.name}}"/>
+    <input type="text" name="restaurant[yelpUrl]" placeholder="Yelp Url" value="{{restaurant.yelpUrl}}"/>
+    <button type="submit">Update Restaurant</button>
+</form>
+
+{{#each restaurant.address as |address index|}}
+  <form>
+      <form action="/restaurants/{{@root.restaurant.name}}/{{address}}/update" method="post">
+      <input type="text" name="address[street]" placeholder = "Street" value="{{address.street}}"/>
+      <input type="text" name="address[zipcode]" placeholder = "Zipcode" value="{{address.zipcode}}"/>
+      <button type="submit">Update Address</button>
+  </form>
+{{/each}}
+<h3>Menu Items</h3>
+{{#each restaurant.items as |item index|}}
+
+  <li>{{item.title}}</li>
+  <form method="post" action="/restaurants/{{@root.restaurant.name}}/{{item.title}}/delete">
+     <button type="submit">Delete</button>
+     <div class="invisible">.</div>
+  </form>
+{{/each}}
+
 {{/unless}}

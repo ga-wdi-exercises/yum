@@ -1,1 +1,1 @@
-cosole.log("Working");
+console.log("Working");

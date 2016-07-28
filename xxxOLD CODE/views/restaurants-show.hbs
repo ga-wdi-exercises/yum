@@ -1,8 +1,0 @@
-{{#unless candidate}}
-<h2>That Restaurant is not in Our System</h2>
-{{else}}
-<h2>{{restaurant.name}} Restaurant</ht>
-<form method="post" action="/restaurants/{{restaurant.name}}/delete">
-   <button type="submit">Delete</button>
-</form>
-{{/unless}}
