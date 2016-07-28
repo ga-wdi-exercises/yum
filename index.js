@@ -26,11 +26,42 @@ app.get("/", function(req, res){
   });
 });
 
+app.get("/restaurants/:name", function(req, res){
+  Restaurant.findOne({name: req.params.name}).then(function(restaurant){
+    res.render("restaurants-show", {
+      restaurant: restaurant
+    });
+  });
+});
+
 app.post("/restaurants", function(req, res){
   Restaurant.create(req.body.restaurant).then(function(restaurant){
     res.redirect("/restaurants/" + restaurant.name);
   })
 })
+
+app.post("/restaurants/:name", function(req, res){
+  Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then(function(restaurant){
+    res.redirect("/restaurants/" + restaurant.name);
+  });
+});
+
+app.post("/restaurants/:name/items", function(req, res){
+  Restaurant.findOne({name: req.params.name}).then(function(restaurant){
+    console.log(req.body.item)
+    restaurant.items.push(req.body.item)
+    restaurant.save(function(){
+      console.log(restaurant.items)
+      res.redirect("back")
+    });
+  })
+})
+
+app.post("/restaurants/:name/delete", function(req, res){
+  Restaurant.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/")
+  });
+});
 
 app.listen(app.get("port"), function(){
   console.log("It's aliiive!");

@@ -7,5 +7,9 @@
 
 <form action="/restaurants" method="post">
   <input type="text" name="restaurant[name]" placeholder="Name" />
+  <input type="text" name="restaurant[address.street]" placeholder="Street" />
+  <input type="number" name="restaurant[address.zipcode]" placeholder="Zipcode" />
+  <input type="text" name="restaurant[yelpUrl]" placeholder="yelpUrl" />
+
   <button type="submit">Save New Restaurant</button>
 </form>
