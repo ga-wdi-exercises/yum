@@ -1,0 +1,33 @@
+{{#unless restaurant}}
+<h2>That restaurant couldn't be found!</h2>
+{{else}}
+<h2>{{restaurant.name}}</h2>
+<h3>{{restaurant.address.street}}</h3>
+<h3>{{restaurant.address.zipcode}}</h3>
+<h3>{{restaurant.yelpUrl}}</h3>
+{{#each restaurant.items as |item index|}}
+<h3>{{item.title}}</h3>
+<form action="/restaurants/{{restaurant.name}}/items/:title/delete" method="post">
+  <button type="submit"> Delete</button>
+</form>
+<form
+{{/each}}
+
+<p> Add menu items </p>
+<form action="/restaurants/{{restaurant.name}}/items" method="post">
+  <input type="text" name="item[title]" placeholder="Menu Items" />
+  <button type="submit"> Add to Menu </button>
+</form>
+
+
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name" value="{{restaurant.name}}" />
+  <input type="string" name="restaurant[address.street]" placeholder="Address" value="{{restaurant.address.street}}" />
+  <input type="number" name="restaurant[address.zipcode]" placeholder="Zipcode" value="{{restaurant.address.zipcode}}" />
+  <input type="string" name="restaurant[yelpUrl]" placeholder="Address" value="{{restaurant.yelpUrl}}" />
+  <button type="submit">Edit</button>
+</form>
+<form method="post" action="/restaurants/{{restaurant.name}}/delete">
+  <button type="submit">Concede</button>
+</form>
+{{/unless}}
