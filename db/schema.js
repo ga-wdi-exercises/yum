@@ -20,3 +20,13 @@ var RestaurantSchema = new Schema({
   yelpUrl: String,
   items: [ItemSchema]
 })
+
+var ItemModel = mongoose.model("Item", ItemSchema);
+var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
+
+// module.exports = {
+//   Restaurant: RestaurantModel,
+//   Item: ItemModel
+// };
+
+module.exports = mongoose;
