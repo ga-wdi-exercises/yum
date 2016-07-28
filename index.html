@@ -5,6 +5,18 @@
     <title>YUM</title>
   </head>
   <body>
-    Yum is working
+  {{#unless restaurant}}
+  <h2>Restaurant does not exist.</h2>
+  {{else}}
+  <h2>{{restaurant.name}} in {{restaurant.address}}</h2>
+  <form method="post" action="/restaurants/{{restaurant.name}}/delete">
+    <button type="submit">Delete</button>
+  </form>
+    <form action="/restaurants/{{restaurant.name}}" method="POST">
+      <input type="text" name="restaurant[name]" placeholder="Name" value={{restaurant.name}}>
+      <input type="text" address="restaurant[address]" placeholder="Address" value={{restaurant.address}}>
+      <button type="submit">Submit</button>
+    </form>
+    {{/unless}}
   </body>
 </html>

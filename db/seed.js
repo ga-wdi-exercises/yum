@@ -25,5 +25,5 @@ var item2 = new MenuItem({title: "steak"});
 var item3 = new MenuItem({title: "shrimp"});
 var item4 = new MenuItem({title: "worms"});
 
-var restaurants = [chabubbly];
-var items = [item1, item2, item3, item4];
+var restaurants = [restaurant1, restaurant2, restaurant3, restaurant4, restaurant5];
+var menuItems = [item1, item2, item3, item4];
