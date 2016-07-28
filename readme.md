@@ -1,3 +1,6 @@
+GitHub:
+https://github.com/gandyland/yum
+
 # YUM!
 
 For Homework you will be writing a node application to practice using Mongoose. You task: create an app that tracks and stores Restaurants and Menu Items.
