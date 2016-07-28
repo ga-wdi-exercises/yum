@@ -31,3 +31,25 @@ function findByZip(zipcode){
     console.log(results);
   });
 }
+
+function update(resturant, update){
+  Restaurant.findOneAndUpdate({name: resturant}, {name: update}, {new: true}, function(err, docs){
+    if(err){
+      console.log(err)
+    }
+    else{
+      console.log(docs);
+    }
+  });
+}
+
+function destroy(resturant){
+  Restaurant.findOneAndRemove({name: resturant}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs + " was deleted!");
+    }
+  });
+}
