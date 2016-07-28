@@ -18,9 +18,22 @@ var MenuSchema = new Schema({
 })
 
  var Restraunt = mongoose.model("Restraunt", RestrauntSchema);
-// var Menu = mongoose.model("Menu", MenuSchema);
-// module.exports = {
-//   Menu: Menu,
-//   Restraunt: Restraunt
-// };
-var mikes = new Restraunt({name:"mikes",address:({street:"1245 15th, Alexandria, Va", zipcode: 23671}),yelpUrl:"yelp.com" })
+var Menu = mongoose.model("Menu", MenuSchema);
+
+var mikes = new Restraunt({name:"mikes",address:({street:"1245 25th, Alexandria, Va", zipcode: 23671}),yelpUrl:"yelp.com" })
+
+mikes.save(function(err,restraunt){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(restraunt);
+      }
+    })
+
+Restraunt.findOne({name:"ChickFila"})
+Restraunt.findOne({zipcode:23671})
+
+module.exports = {
+  Menu: Menu,
+  Restraunt: Restraunt
+};
