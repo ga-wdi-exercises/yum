@@ -23,3 +23,4 @@ var Schema = mongoose.Schema,
 module.exports = {
   Restaurant: RestaurantModel,
   MenuItem: MenuItemModel
+};

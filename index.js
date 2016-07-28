@@ -53,3 +53,31 @@ function destroy(resturant){
     }
   });
 }
+
+function addItem(resturant, item){
+  Restaurant.findOne({name: resturant}, function(err, docs){
+    docs.items.push(new MenuItem({title: item}))
+    docs.save(function(err, results){
+      if(err){
+        console.log(err)
+      }
+      else{
+        console.log(results);
+      }
+    })
+  });
+}
+
+function removeItem(resturant, item){
+  Restaurant.findOneAndUpdate({name: resturant}, {
+    $pull: { items: {title: item} }
+  },
+  {new: true}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs);
+    }
+  });
+}
