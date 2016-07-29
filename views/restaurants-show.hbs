@@ -14,8 +14,7 @@
 </form>
 
 {{#each restaurant.address as |address index|}}
-  <form>
-      <form action="/restaurants/{{@root.restaurant.name}}/{{address}}/update" method="post">
+  <form method="post" action="/restaurants/{{@root.restaurant.name}}/{{address}}/update"/>
       <input type="text" name="address[street]" placeholder = "Street" value="{{address.street}}"/>
       <input type="text" name="address[zipcode]" placeholder = "Zipcode" value="{{address.zipcode}}"/>
       <button type="submit">Update Address</button>

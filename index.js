@@ -60,12 +60,21 @@ app.post("/restaurants/:name/update", function(req, res){
   });
 });
 //update address
-app.post("/restaurants/:name/:street/:zipcode/update", function(req, res){
-  console.log({name: req.params.name})
-  console.log({street: req.params.street})
-  Restaurant.findOneAndUpdate({name: req.params.name}, {$update: { addresses: {street: req.params.street} } }, {new: true}).then(function(restaurant){
-    res.redirect("/restaurants");
-  });
+app.post("/restaurants/:name/:address/update", function(req, res){
+  console.log({name: req.params})
+  console.log({address: req.body})
+  Restaurant.findOne({name: req.params.name}).then(function (restaurant) {
+    restaurant.address = req.body.address
+    restaurant.save().then(function () {
+      res.redirect("/restaurants")
+    })
+  })
+
+
+  //   Restaurant.findOneAndUpdate({name: req.params.name}, {$pull: { address: req.body.address } }, {new: true}).then(function( restaurant){
+  //     console.log("restaurant",restaurant)
+  //   res.redirect("/restaurants");
+  // });
 });
 //delete menu item
 app.post("/restaurants/:name/:title/delete", function(req, res){
@@ -75,6 +84,21 @@ app.post("/restaurants/:name/:title/delete", function(req, res){
        res.redirect("/restaurants")
   });
 });
+// //add a menu item
+// app.post("/restaurants/:name/:title/new"), function(req, res) {
+// function addItem(resturant, item){
+//   Restaurant.findOne({name: resturant}, function(err, docs){
+//     docs.items.push(new MenuItem({title: item}))
+//     docs.save(function(err, results){
+//       if(err){
+//         console.log(err)
+//       }
+//       else{
+//         console.log(results);
+//       }
+//     })
+//   });
+
 
 
 
