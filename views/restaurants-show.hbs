@@ -29,5 +29,9 @@
      <div class="invisible">.</div>
   </form>
 {{/each}}
+<form method="post" action="/restaurants/{{restaurant.name}}/newitem">
+  <input type="text" name="restaurant[items]" placeholder = "Menu Item" />
+  <button type="submit">New Menu Item</button>
+</form>
 
 {{/unless}}

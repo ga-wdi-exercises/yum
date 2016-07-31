@@ -19,7 +19,7 @@ app.engine(".hbs", hbs({
   defaultLayout: "layout-main"
 }));
 app.use("/assets", express.static("public"));
-app.use(parser.urlencoded({exteded: true}));
+app.use(parser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
   res.render("app-welcome");
@@ -61,8 +61,6 @@ app.post("/restaurants/:name/update", function(req, res){
 });
 //update address
 app.post("/restaurants/:name/:address/update", function(req, res){
-  console.log({name: req.params})
-  console.log({address: req.body})
   Restaurant.findOne({name: req.params.name}).then(function (restaurant) {
     restaurant.address = req.body.address
     restaurant.save().then(function () {
@@ -84,22 +82,18 @@ app.post("/restaurants/:name/:title/delete", function(req, res){
        res.redirect("/restaurants")
   });
 });
-// //add a menu item
-// app.post("/restaurants/:name/:title/new"), function(req, res) {
-// function addItem(resturant, item){
-//   Restaurant.findOne({name: resturant}, function(err, docs){
-//     docs.items.push(new MenuItem({title: item}))
-//     docs.save(function(err, results){
-//       if(err){
-//         console.log(err)
-//       }
-//       else{
-//         console.log(results);
-//       }
-//     })
-//   });
+//add a menu item
+app.post("/restaurants/:name/newitem", function(req, res) {
+  console.log("newItem",req.body.restaurant.items)
+  console.log(req.params.name)
+  Restaurant.findOneAndUpdate({name: req.params.name},
+    {$push:  {items: {title: req.body.restaurant.items} } }, {new: true})
+    .then(function(){
+       res.redirect("/restaurants")
 
-
+ });
+ res.redirect("/restaurants")
+});
 
 
 app.listen(app.get("port"), function(){
