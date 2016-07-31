@@ -1,5 +1,6 @@
 var express  = require("express")
 var parser   = require("body-parser");
+// var phpStyleParser = bodyParser.urlencoded({ extended: true })
 var hbs      = require("express-handlebars");
 var mongoose = require("./db/schema");
 var Restaurant = require("./db/schema").Restaurant;
@@ -40,12 +41,18 @@ app.get("/restaurants/:name", function(req, res){
     });
   });
 });
-//create new
+
+//create new restaurant
 app.post("/restaurants", function(req, res){
-  Restaurant.create(req.body.restaurant).then(function(restaurant){
-    res.redirect("/restaurants/"+restaurant.name);
-  });
-});
+   Restaurant.create(req.body.restaurant).then(function(restaurant){
+     console.log("req ",req.body.restaurant)
+     res.redirect("/restaurants/"+restaurant.name);
+ });
+ });
+
+
+
+
 //delete restaurant
 app.post("/restaurants/:name/delete", function(req, res){
   Restaurant.findOneAndRemove({name: req.params.name}).then(function(){

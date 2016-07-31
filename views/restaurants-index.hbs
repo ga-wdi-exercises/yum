@@ -8,7 +8,7 @@
 <form action="/restaurants" method="post">
   <input type="text" name="restaurant[name]" placeholder="Name" />
   <input type="text" name="restaurant[yelpUrl]" placeholder="Yelp Url" />
-  <input type="text" name="restaurant[address[street]]" placeholder = "Street" />
-  <input type="text" name="restaurant[address[zipcode]]" placeholder = "Zipcode"/>
+  <input type="text" name="restaurant[addresses[address][street]]" placeholder = "Street" />
+  <input type="text" name="restaurant[adresses[address][zipcode]]" placeholder = "Zipcode"/>
   <button type="submit">New Restaurant</button>
 </form>

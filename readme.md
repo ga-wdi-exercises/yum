@@ -1,3 +1,28 @@
+var bodyParser = require("body-parser");
+var phpStyleParser = bodyParser.urlencoded({ extended: true })
+and
+
+app.post('/example', phpStyleParser, function(req, res) {
+    console.log(req.body);
+    res.json(req.body);
+});
+Does this still work with express 4.*? I've tried a similar approach but my array inputs get passed as strings: { 'user[last_name]': 'asd','user[first_name]': 'asd' } – Andrei Rosca Aug 24 '15 at 13:07
+4	 	
+@AndreiRosca, had the same issue. Fixed it by specifying {extended: true} option like: app.use(bodyParser.urlencoded({ extended: true })); – eye_mew Feb 14 at 20:59
+
+
+console.log("in Function street",newaddress)
+Restaurant.update({name: restaurant.name, newaddress},
+  {$push:  {addresses: {newaddress} } }, {new: true}).then(function(restaurant){
+
+
+
+Restaurant.create(req.body.restaurant), {yelpUrl: req.body.restaurant.yelpUrl} ,{address: [street: req.body.restaurant.street]}, {address: {zipcode: req.body.restaurant.zipcode}}}).then(function(restaurant){
+    res.redirect("/restaurants");
+  });
+});
+
+
 # YUM!
 
 For Homework you will be writing a node application to practice using Mongoose. You task: create an app that tracks and stores Restaurants and Menu Items.
