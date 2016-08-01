@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/yum');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 console.log("starting");
@@ -26,7 +25,8 @@ var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
 
 module.exports = {
   MenuModel: MenuModel,
-  RestaurantModel: RestaurantModel
+  RestaurantModel: RestaurantModel,
+  mongoose
 };
 
 

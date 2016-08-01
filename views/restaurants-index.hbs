@@ -1,0 +1,15 @@
+{{num}} bottles <a href=/{{next}}>Take one down pass it around</a>
+
+<h2>{{restaurants.length}} candidates</h2>
+{{#each resttaurant as |restaurant index|}}
+<h3>
+  <a href="/restaurant/{{restaurant.name}}">{{restaurant.name}}</a>
+</h3>
+{{/each}}
+
+<!-- Form   -->
+
+<form method="post" action="/restaurants">
+<input type="text" name="restaurant[name]" placeholder="Name">
+<button type="submit">Add a Restaurant</button>
+</form>

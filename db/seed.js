@@ -86,9 +86,21 @@ laCaraquena.save(function(err) {
   if (err){
     console.log(err)
   } else {
-    console.log("Rio Grande saved!");
+    console.log("la Caraquena saved!");
   }
 });
 
+// resturants.forEach(function(resturant, i){
+//     resturant.items.push(menuItems[i], menuItems[i+3]);
+//     resturant.save(function(err, docs){
+//       if(err){
+//         console.log(err);
+//       }
+//       else{
+//         console.log(docs);
+//       }
+//     });
+//   });
 
-process.exit();
+
+// process.exit();
