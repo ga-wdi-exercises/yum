@@ -4,7 +4,7 @@ var Item = Schema.Item
 
 var restaurantsController = {
   index: function(){
-      Restaurants.find({}, function(err, docs){
+      Restaurant.find({}, function(err, docs){
         console.log(docs)
       })
   },
@@ -26,8 +26,41 @@ var restaurantsController = {
         console.log(docs)
       }
     })
+  },
+  destroy: function(req){
+    Restaurant.findOneAndRemove(req, function(err,docs){
+      if(err){
+        console.log(err)
+      } else {
+        console.log(docs)
+      }
+    });
+  },
+  addItem: function(restaurant, item){
+    Restaurant.findOne({name: restaurant}, function(err, docs){
+      docs.items.push(new Item({title: item}))
+      docs.save(function(err,results){
+        if(err){
+          console.log(err)
+        } else {
+          console.log(results)
+        }
+      })
+    })
+  },
+  removeItem: function(restaurant, item){
+    Restaurant.findOneAndUpdate({name: restaurant}, {
+    $pull: { items: {title: item} }
+  },
+  {new: true}, function(err,docs){
+    if(err) {
+      console.log(err)
+    } else {
+      console.log(docs)
+    }
+    })
   }
 
 }
 
-restaurantsController.update({name: "Blue 44"}, {name: "Blue 45"})
+restaurantsController.removeItem("Blue 45", "Cheese");
