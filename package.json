@@ -1,14 +1,32 @@
 {
+<<<<<<< HEAD
+  "name": "menuItems_mongo",
+  "version": "1.0.0",
+  "description": "",
+=======
   "name": "yum",
   "version": "1.0.0",
   "description": "YUM!  Cookies!",
+>>>>>>> e31dd953459502f93e1ea32ad4e2908c5ce098ed
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< HEAD
+  "keywords": [],
+  "restuarant": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "hbs": "^4.0.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.10"
+=======
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
     "mongoose": "^4.4.11"
+>>>>>>> e31dd953459502f93e1ea32ad4e2908c5ce098ed
   }
 }
