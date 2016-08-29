@@ -63,4 +63,6 @@ var restaurantsController = {
 
 }
 
-restaurantsController.removeItem("Blue 45", "Cheese");
+mongoose.controller("restaurantsController", restaurantsController)
+
+module.exports = restaurants

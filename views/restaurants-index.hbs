@@ -1,0 +1,19 @@
+<h1> Restaurant Index </h1>
+{{#each restaurants as |restaurant index|}}
+
+<h3> {{restaurant.name}} </h3>
+<p> {{restaurant.address}}</p>
+<a href="{{restaurant.yelpUrl}}" target="_blank">Yelp URL</a>
+  {{#each restaurant.items as |item index|}}
+    <p> {{item.title}}</p>
+    {{/each}}
+
+{{/each}}
+
+<form action="/restaurants" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name">
+  <input type="text" name="restaurant[address]" placeholder="Address">
+  <input type="text" name="restaurant[yelpUrl]" placeholder="Yelp URL">
+  <input type="text" name="restaurant[items]" placeholder="Menu Items">
+  <button type="submit" name="button">Create</button>
+</form>
