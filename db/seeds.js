@@ -26,4 +26,5 @@ restaurants[0].items.push(items[0])
 restaurants[1].items.push(items[1])
 restaurants[1].items.push(items[2])
 
+console.log(Restaurant);
 console.log(restaurants[1]);
