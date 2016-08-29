@@ -12,8 +12,8 @@ MenuItem.remove({}, function(err) {
   console.log(err);
 });
 
-var cookieByte = new Restaurant({name: "Cookie Byte", address: {street: "123 Bakers lane", zipcode: 31337}, yelpUrl: "www.yelp.com/cookieByte"})
-var pooPalace = new Restaurant({name: "Poo Palace", address: {street: "123 Gastric Bypass", zipcode: 31337}, yelpUrl: "www.yelp.com/pooPalace"})
+var cookieByte = new Restaurant({name: "Cookie Byte", address: {street: "123 Bakers lane", zipcode: 313317}, yelpUrl: "www.yelp.com/cookieByte"})
+var pooPalace = new Restaurant({name: "Poo Palace", address: {street: "123 Gastric Bypass", zipcode: 99931337}, yelpUrl: "www.yelp.com/pooPalace"})
 
 var item1 = new MenuItem({title: "The Zeroeth Cookie"})
 var item2 = new MenuItem({title: "Hot Carl's Coffee"})
@@ -26,5 +26,8 @@ restaurants[0].items.push(items[0])
 restaurants[1].items.push(items[1])
 restaurants[1].items.push(items[2])
 
-console.log(Restaurant);
+restaurants[0].save()
+restaurants[1].save()
+
+//console.log(Restaurant);
 console.log(restaurants[1]);
