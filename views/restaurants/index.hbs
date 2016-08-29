@@ -1,0 +1,10 @@
+<a href="/restaurants/new">New Restaurant</a>
+<!-- Iterates through each restaurant -->
+{{#each restaurants}}
+  <div class="restaurant">
+    <div class="restaurantName"><a href="/restaurants/{{_id}}">{{name}}</a></div>
+    {{#each menus}}
+      <p class="menu">{{title}}</p>
+    {{/each}}
+  </div>
+{{/each}}

@@ -1,0 +1,26 @@
+<h2>Menu for {{restaurant.name}}</h2>
+<div>
+
+  {{#each restaurant.menus}}
+    <div class="menus-show-each">
+      <p>{{title}}</p>
+      <form method="post" action="/restaurants/{{../restaurant._id}}/menus/{{_id}}?_method=delete">
+          <input type="submit" value="Done!">
+      </form>
+    </div>
+  {{/each}}
+</div>
+
+<div id="menu-new">
+  <h3>New Menu Item</h3>
+  <form action="/restaurants/{{restaurant._id}}/menus" method="post">
+    <label>Item</label>
+    <input type="text" name="title">
+    <input type="submit">
+  </form>
+</div>
+
+<div id="restaurant-edit">
+  <a href="/restaurants/{{restaurant._id}}/edit">Edit Restaurant</a>
+  <a href="/restaurants">Back</a>
+</div>
