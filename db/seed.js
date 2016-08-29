@@ -25,3 +25,5 @@ var items = [item1,item2, item3];
 restaurants[0].items.push(items[0])
 restaurants[1].items.push(items[1])
 restaurants[1].items.push(items[2])
+
+console.log(restaurants[1]);
