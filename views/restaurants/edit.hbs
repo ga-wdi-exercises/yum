@@ -1,0 +1,11 @@
+<!-- form to update restuarant -->
+<h2>Edit {{restuarant.name}}</h2>
+<form action="/restuarants/{{restuarant._id}}?_method=put" method="post">
+<label>Name:</label>
+<input type="text" name="name" value="{{restuarant.name}}">
+<input type="submit">
+</form>
+
+<form method="post" action="/restuarants/{{../restuarant._id}}?_method=delete">
+    <input type="submit" value="Delete Restaurant!!">
+</form>
