@@ -22,13 +22,17 @@ app.use(methodOverride('_method'));
 
 app.get("/restaurants", restaurantsController.index)
 app.get("/restaurants/:id", restaurantsController.show)
-
+app.get("/restaurants/:id/edit", restaurantsController.edit)
 app.post("/restaurants", function(req,res){
-  Restaurant.create(req.body.restaurant).then(function(){
-    res.redirect(`/`);
+  Restaurant.create(req.body.restaurant).then(function(restaurant){
+    res.redirect(`/restaurants/`)
   })
 })
 
+app.put("/restaurants/:id", restaurantsController.update)
+app.delete("/restaurants/:id", restaurantsController.delete)
+
+
 app.listen(app.get("port"), function(){
-  console.log("It's aliiive!");
+  console.log("Hey Im awake!");
 });

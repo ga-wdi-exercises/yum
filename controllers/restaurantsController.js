@@ -12,28 +12,39 @@ var restaurantsController = {
       res.render("restaurants/show", {restaurant: doc} )
     })
   },
-  showByZip: function(req){
-    Restaurant.find({"address.zipcode": req.zipcode}, function(err, docs){
-      console.log(docs)
-    })
-  },
-  update: function(req, update){
-    Restaurant.findOneAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err,docs){
-      if(err){
-        console.log(err)
-      } else {
-        console.log(docs)
+  create: function(req, res){
+    var restaurant = new RestaurantModel({name: req.body.name})
+    restaurant.save(function(err){
+      if(!err){
+        res.redirect("restaurants")
       }
     })
   },
-  destroy: function(req){
-    Restaurant.findOneAndRemove(req, function(err,docs){
-      if(err){
-        console.log(err)
-      } else {
-        console.log(docs)
+  edit: function(req,res){
+    RestaurantModel.findById(req.params.id, function(err,doc){
+      res.render("restaurants/edit", {restaurant: doc})
+    })
+  },
+  update: function(req, res){
+    console.log(req.body)
+    RestaurantModel.findById(req.params.id, function(err, docs){
+      docs.name = req.body.name
+      docs.address.zipcode = req.body.address.zipcode
+      docs.address.street = req.body.address.street
+      docs.yelpUrl = req.body.yelpUrl
+      docs.save(function(err){
+        if(!err){
+          res.redirect("/restaurants/" + req.params.id)
+        }
+      })
+    })
+  },
+  delete: function(req, res){
+    RestaurantModel.remove({_id: req.params.id}, function(err){
+      if(!err){
+        res.redirect("/authors")
       }
-    });
+    })
   },
   addItem: function(restaurant, item){
     Restaurant.findOne({name: restaurant}, function(err, docs){
