@@ -18,9 +18,14 @@ var RestaurantSchema = new Schema({
         zipcode: Number
     },
     yelpUrl: String,
-    items: [MenuItemSchema]
+    menuItems: [{type: Schema.ObjectId, ref: "MenuItem"}]
 })
 
 var MenuItemSchema = new Schema({
-    title: String
+    title: String,
 })
+
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+var MenuItem = mongoose.model("MenuItem", MenuItemSchema);
+
+
