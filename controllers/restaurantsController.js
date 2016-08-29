@@ -1,16 +1,15 @@
-var Schema = require("../db/schema.js")
-var Restaurant = Schema.Restaurant
-var Item = Schema.Item
+var RestaurantModel = require("../models/restaurant")
+var ItemMode = require("../models/item")
 
 var restaurantsController = {
-  index: function(){
-      Restaurant.find({}, function(err, docs){
-        console.log(docs)
+  index: function(req, res){
+      RestaurantModel.find({}, function(err, docs){
+        res.render("restaurants/index", {restaurants:docs})
       })
   },
-  showByName: function(req){
-    Restaurant.findOne({"name": req.name}, function(err, docs) {
-      console.log(docs);
+  show: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, doc) {
+      res.render("restaurants/show", {restaurant: doc} )
     })
   },
   showByZip: function(req){
@@ -63,6 +62,5 @@ var restaurantsController = {
 
 }
 
-mongoose.controller("restaurantsController", restaurantsController)
 
-module.exports = restaurants
+module.exports = restaurantsController

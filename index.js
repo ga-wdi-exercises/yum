@@ -3,6 +3,8 @@ var Schema = require("./db/schema.js");
 var express = require("express");
 var hbs     = require("express-handlebars");
 var parser = require("body-parser");
+var methodOverride = require("method-override")
+var restaurantsController = require("./controllers/restaurantsController")
 var app = express();
 var Restaurant = mongoose.model("Restaurant");
 
@@ -14,15 +16,12 @@ app.engine(".hbs", hbs({
   layoutsDir:     "views/",
   defaultLayout:  "layout-main"
 }));
-app.use(parser.urlencoded({extended: true}));
+app.use(parser.json());
+app.use(parser.urlencoded({extended: true}))
+app.use(methodOverride('_method'));
 
-app.get("/restaurants", function(req, res){
-  Restaurant.find({}).then(function(restaurants){
-    res.render("restaurants-index", {
-      restaurants: restaurants
-    });
-  })
-});
+app.get("/restaurants", restaurantsController.index)
+app.get("/restaurants/:id", restaurantsController.show)
 
 app.post("/restaurants", function(req,res){
   Restaurant.create(req.body.restaurant).then(function(){

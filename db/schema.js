@@ -22,16 +22,5 @@ var RestaurantSchema = new Schema({
   items: [ItemSchema]
 })
 
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var Item = mongoose.model("Item", ItemSchema);
-
-module.exports = {
-  Restaurant: Restaurant,
-  Item: Item
-};
-
-//
-// * `name` - a string
-// * `address` - an object with a `street` (string) and `zipcode` property (number)
-// * `yelpUrl` - a string
-// * `items` - an array containing your MenuItems schema
+mongoose.model("Restaurant", RestaurantSchema);
+mongoose.model("Item", ItemSchema);
