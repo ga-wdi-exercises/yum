@@ -10,6 +10,25 @@ db.once('open', function(){
 var Schema = mongoose.Schema
 var ObjectId = Schema.ObjectId
 
-var RestaurantSchema = newSchema({
+var RestaurantSchema = new mongoose.Schema({
+  name: String,
+  address: {
+    street: String,
+    zipcode: Number
+  },
+  yelpUrl: String,
+  Items: [{type: Schema.ObjectId, ref: "Item"}]
+});
+
+var ItemSchema = new Schema({
   title: String
 });
+
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+var Item = mongoose.model("Item", ItemSchema);
+
+
+module.exports = {
+  Restaurant: Restaurant,
+  Item: Item
+};
