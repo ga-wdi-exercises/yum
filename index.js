@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // express dependency for our application
 var express = require('express')
 // loads mongoose dependency
@@ -35,3 +36,7 @@ app.get("/restuarants/:id", restuarantsController.show)
 app.get("/restuarants/:id/edit", restuarantsController.edit)
 app.put("/restuarants/:id", restuarantsController.update)
 app.delete("/restuarants/:id", restuarantsController.delete)
+=======
+var mongoose = require('mongoose');
+var Schema = require("./db/schema.js");
+>>>>>>> e31dd953459502f93e1ea32ad4e2908c5ce098ed

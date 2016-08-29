@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // requiring mongoose dependency
 var mongoose = require('mongoose')
 
@@ -20,3 +21,9 @@ var RestaurantSchema = new Schema({
 // these frequently throughout our app
 mongoose.model("Restaurant", RestaurantSchema)
 mongoose.model("MenuItem", MenuItemSchema)
+=======
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/yum');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+>>>>>>> e31dd953459502f93e1ea32ad4e2908c5ce098ed
