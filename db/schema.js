@@ -35,3 +35,6 @@ Restaurant.find({ name: "McDonald's"}, function(err, doc) {
 console.log(Restaurant.find({}, function(err, doc){}));
 // Restaurant.remove({ name: "Burger King"}, function(err, doc) {
 // });
+
+
+module.exports = Restaurant;
