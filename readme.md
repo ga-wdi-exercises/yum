@@ -23,7 +23,7 @@ You'll begin by creating an app that performs CRUD functionality on a database u
     * `yelpUrl` - a string
     * `items` - an array containing your MenuItems schema
 
-  - A menu item should contain the followin...
+  - A menu item should contain the following...
 
     * `title` - a string
 
