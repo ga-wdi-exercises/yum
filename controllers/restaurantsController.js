@@ -14,7 +14,7 @@ var restaurantsController = {
     RestaurantModel.findById(req.params.id, function(err, doc){
       res.render("restaurants/show", {restaurant: doc})
     })
-
+  },
 }
 
 module.exports = restaurantsController;

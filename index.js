@@ -20,3 +20,4 @@ app.listen(4000, function(){
 app.get("/restaurants", restaurantsController.index)
 app.get("/restaurants/new", restaurantsController.new)
 app.get("/restaurants/:id", restaurantsController.show)
+app.get("/restaurants/:id/edit", restaurantsController.edit)
