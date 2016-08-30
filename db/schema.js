@@ -9,7 +9,7 @@ db.once("open", function() {
 var Schema = mongoose.Schema;
 var objectId = Schema.objectId;
 
-var MenuItemsSchema = new Schema({
+var MenuItemSchema = new Schema({
   title: String
 });
 
@@ -20,10 +20,10 @@ var RestaurantSchema = new Schema({
     zicpode: Number
   },
   yelpUrl: String,
-  items: [MenuItemsSchema]
+  items: [MenuItemSchema]
 });
 
-var MenuItems = mongoose.model("MenuItem", MenuItemsSchema);
+var MenuItems = mongoose.model("MenuItem", MenuItemSchema);
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
 
 var restaurant1 = new Restaurant({name: "McDonald's", address: {street: "123 street", zipcode: 22182}, yelpUrl: "www.google.com"});
@@ -37,4 +37,7 @@ console.log(Restaurant.find({}, function(err, doc){}));
 // });
 
 
-module.exports = Restaurant;
+module.exports = {
+  Restaurant: Restaurant,
+  MenuItems: MenuItems,
+}
