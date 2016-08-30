@@ -11,6 +11,9 @@ var restaurantsController = {
       res.render("restaurants/index", {restaurants: docs})
     });
   },
+  new: function(req, res){
+    res.render("restaurants/new")
+  },
   showByName: function(req) {
 
     Restaurant.findOne({"name": req.name}, function(err, docs){
