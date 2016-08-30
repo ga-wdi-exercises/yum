@@ -25,6 +25,6 @@ app.get("/", restaurantController.index);
 app.get("/new", restaurantController.new);
 app.get("/:id/edit", restaurantController.edit);
 app.post("/", restaurantController.create);
-app.put("/:id", restaurantController.update);
 app.get("/:id", restaurantController.show);
+app.put("/:id", restaurantController.update);
 app.delete("/:id", restaurantController.delete);

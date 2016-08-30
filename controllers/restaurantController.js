@@ -51,12 +51,12 @@ var restaurantController = {
         doc.street= req.body.street,
         doc.state= req.body.state,
         doc.zipcode= req.body.zipcode,
-        doc.yelp= req.body.yelp
-    })
-    doc.save(function(err){
-      if(!err){
-        res.redirect("/")
-      }
+        doc.yelp= req.body.yelp;
+        doc.save(function(err){
+            if(!err){
+              res.redirect("/")
+            }
+          })
     })
   }
 }
