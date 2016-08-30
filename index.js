@@ -1,85 +1,39 @@
-// var mongoose = require('mongoose');
-// var bodyParser = require('body-parser')
-// var methodOverride = require('method-override')
-// var restaurantsController = require("./controllers/restaurantsController")
-// mongoose.connect('mongodb://localhost/reminders')
-// // var Schema = require("./db/schema.js");
-//
-// var app = express()
-//
-// // app.set("port", process.env.PORT || 3001);
-// app.set("view engine", "hbs");
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended:true}))
-// app.use(methodOverride('_method'))
-// app.use(express.static(__dirname + '/public'))
-// app.listen(4000, function(){
-//   console.log("app listening on port 4000")
-// })
-// app.get("/restaurants", restaurantsController.index)
-// // app.engine(".hbs", hbs({
-// //   app.get("/", function(req, res){
-// //   });
-// //   app.get("/restaurants", function(req, res){
-// //       Restaurant.find({}).then(function(restaurants){
-// //         res.render("restaurants-index", {
-// //           restaurants: restaurants
-// //       });
-// //     });
-// //   });
-//
-//
-//
-//   // require model definitions
-//   var RestaurantModel = require("Restaurant");
-//   var MenuModel = require("Menu");
-//
-// // //Find a restaurant by name
-// // function findName(restaurant){
-// //   Restaurant.findOne({name: restaurant};
-// // }
-// //
-// // // //Find all restaurants by zipCode
-// // // function findZip(restaurants, zipCode){
-// // //   Restaurant.find({"address.zipCode": 20006});
-// // // }
-// // // Create a function that updates a restaurant.
-// //
-// // db.restaurants.updateOne({"name": "Bertucci's"},
-// // {
-// //   $set: {"name": "Bertuccis"}
-// // }
-// // );
-// //
-// // //Write a function or method that deletes a restaurant.
-// //
-// // db.restaurants.remove({"name": "Bertuccis"})
-// //
-// // // Write methods to add and remove embedded menu item documents for a restaurant of your choosing.
-// // // iterate through the restaurants to save them to the database after 2 menu items  have been added as subdocuments to the restaurant
-// //
-// //
-// //
-// // // //Find a restaurant by name
-// // // function findName(restaurants){
-// // //   db.restaurants.findOne({"name": "Bertucci's"});
-// // // }
-// // //
-// // // //Find all restaurants by zipCode
-// // // function findZip(restaurants, zipCode){
-// // //   db.restaurants.find({"address.zipCode": 20006});
-// // // }
-// // // // Create a function that updates a restaurant.
-// // //
-// // // db.restaurants.updateOne({"name": "Bertucci's"},
-// // // {
-// // //   $set: {"name": "Bertuccis"}
-// // // }
-// // // );
-// // //
-// // // //Write a function or method that deletes a restaurant.
-// // //
-// // // db.restaurants.remove({"name": "Bertuccis"})
-// // //
-// // // // Write methods to add and remove embedded menu item documents for a restaurant of your choosing.
-// // // // iterate through the restaurants to save them to the database after 2 menu items  have been added as subdocuments to the restaurant
+//express dependency for application
+var express = require('express')
+//loads mongoose dependency
+var mongoose = require('mongoose');
+//loads dependency for middleware for parameters
+var bodyParser = require('body-parser')
+//loads dependency that allows put and delete where not supported in html
+var methodOverride = require('method-override')
+//loads module containing all restaurants controller actions. Not yet defined
+var restaurantsController = require("./controllers/restaurantsController")
+
+//connect mongoose interfaces to menus mongo db
+mongoose.connect('mongodb://localhost/restaurants')
+
+// var Schema = require("./db/schema.js");
+
+//invokes express dependency and sets namespace to the app
+var app = express()
+
+// app.set("port", process.env.PORT || 3001);
+//sets view engine to handlebars
+app.set("view engine", "hbs");
+//allows for parameters in JSON and html
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+//allows for put/delete request in html form
+app.use(methodOverride('_method'))
+//connects assets like stylesheets
+app.use(express.static(__dirname + '/public'))
+
+//app server located on port 4000
+app.listen(4000, function(){
+  console.log("app listening on port 4000")
+})
+// routes for all requests to this express app that map to an action/function
+// in our restaurantsController
+app.get("/restaurants", restaurantsController.index)
+app.get("/restaurants/new", restaurantsController.new)
+app.get("/restaurants/:id", restaurantsController.show)

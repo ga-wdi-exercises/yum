@@ -3,14 +3,14 @@
 var mongoose = require('mongoose')
 // var seedData = require("./seeds")
 // connects us to the reminders database in mongo
-var conn = mongoose.connect('mongodb://localhost/menus')
+var conn = mongoose.connect('mongodb://localhost/restaurants')
 // require model definitions
-var RestaurantModel = require("../models/restaurant")
-var MenuModel = require("../models/menu")
-
-RestaurantModel.remove({}, function(err){
+var Restaurant = require("../models/restaurant")
+var Menu = require("../models/menu")
+//remove any existing restaurants and menus
+Restaurant.remove({}, function(err){
 })
-MenuModel.remove({}, function(err){
+Menu.remove({}, function(err){
 })
 
 //remove any existing restaurants and menus
@@ -25,19 +25,13 @@ MenuModel.remove({}, function(err){
 //   });
 // });
 
-var restaurant1 = new RestaurantModel({
-  name: "Bertucci's",
-  address: {
-    street: "2000 Pennsylvania Ave",
-    zipCode:  20006
-  },
-  yelpUrl: "yelp.com/Bertuccis"
-})
+var restaurant1 = new Restaurant({ name: "Bertucci's", address: { street: "2000 Pennsylvania Ave", zipCode: 20006 }, yelp: "yelp.com/Bertuccis" })
 
-var menu1 = new MenuModel({title: "Shrimp Alfredo"})
+var menu1 = new Menu({title: "Shrimp Alfredo"})
+var menu2 = new Menu({title: "chicken"})
 
 var restaurants = [restaurant1]
-var menus = [menu1]
+var menus = [menu1, menu2]
 
 for(var i = 0; i < restaurants.length; i++){
   restaurants[i].menus.push(menus[i], menus[i+1])

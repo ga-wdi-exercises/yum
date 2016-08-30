@@ -20,23 +20,13 @@ var RestaurantSchema = new Schema({
     street: String,
     zipCode: Number
   },
-  yelpUrl: String,
+  yelp: String,
   menus: [MenuSchema]
 })
-
 
 //setting models in mongoose using schemas defined above
 mongoose.model("Restaurant", RestaurantSchema)
 mongoose.model("Menu", MenuSchema)
-
-// restaurants.menus.push(restaurant1);
-// restaurants.save(function(err, restaurant){
-//   if (err){
-//     console.log(err);
-//   } else {
-//     console.log("restaurant was saved");
-//   }
-// })
 
 //connects Restaurants and Menus (like a join table)
 // module.exports = {
