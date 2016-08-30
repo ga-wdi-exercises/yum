@@ -1,0 +1,17 @@
+<h2>Edit {{restaurant.name}}</h2>
+<form action="/restaurants/{{restaurant._id}}?_method=put" method="post">
+<label>Name:</label>
+<input type="text" name="name" placeholder= "name" value="{{restaurant.name}}">
+<input type="text" name="street" placeholder="street" value={{restaurant.address.street}}>
+<input type="text" name="zipcode" placeholder="zip" value={{restaurant.address.zipcode}}>
+<input type="text" name="yelpUrl" placeholder="Yelp" value={{restaurant.yelp}}>
+
+<button type="submit">Edit Restaurant</button>
+</form>
+
+<input type="submit">
+</form>
+
+<form method="post" action="/restaurants/{{../restaurant._id}}?_method=delete">
+    <input type="submit" value="Delete Restaurant">
+</form>
