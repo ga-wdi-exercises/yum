@@ -22,11 +22,12 @@ var restaurantsController = {
   update: function(req, res){
     Restaurant.findById(req.params.id, function(err, doc){
       docs.name = req.params.name
-      docs.save(fucntion(err)
+      docs.save(function(err){
         if(!err){
-          res.redirect("/restaurants/`$(req.params.id)`")
+          res.redirect("/restaurants/" + req.params.id)
         }
-    )}
+      })
+    })
   },
   delete: function(req, res){
     Restaurant.remove({_id:req.params.id}, function(err){

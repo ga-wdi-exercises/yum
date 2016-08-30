@@ -1,0 +1,7 @@
+<form action="/restaurants/{{restaurant._id}}" method="post">
+  <p><input type="text" name="name" value="{{restaurant.name}}"></input></p>
+  <p><input type="text" name="address.Street" value="{{restaurant.address.Street}}"></p>
+  <p><input type="text" name="address.Zipcode" value="{{restaurant.address.Zipcode}}"></p>
+  <p><input type="text" name="yelp" value="{{restaurant.yelp}}"></p>
+  <p><input type="submit"></p>
+</form>
