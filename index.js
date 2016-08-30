@@ -22,4 +22,7 @@ app.listen(4000, function(){
   console.log("app listening on 4000")
 })
 
-app.get("/restaurants", restaurantsController)
+app.get("/restaurants", restaurantsController.index)
+//app.use("/restaurants/new", restaurantsController.new)
+//app.use("/restaurants/:id", restaurantsController.show)
+app.use(require("better-express-errors")(app))

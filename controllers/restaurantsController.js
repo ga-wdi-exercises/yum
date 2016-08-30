@@ -6,10 +6,9 @@ var MenuItem = Schema.MenuItem
 //console.log(Restaurant);
 
 var restaurantsController = {
-  index: function() {
+  index: function(req, res) {
     Restaurant.find({}, function(err, docs){
-      console.log("Err: ", err);
-      console.log(docs);
+      res.render("restaurants/index", {restaurants: docs})
     });
   },
   showByName: function(req) {
@@ -74,9 +73,4 @@ var restaurantsController = {
   }
 
 }
-// console.log("INDEX");
-// restaurantsController.index();
-// console.log("");
-// console.log("SHOW");
-//restaurantsController.showByName({"name":"Poo Palace"});
-//restaurantsController.showByZip({"zipcode": 99931337});
+module.exports = restaurantsController;
