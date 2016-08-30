@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Root",
+    "address": {
+      "street": "3612 Soil Rd",
+      "zipcode": 10001
+    },
+    "yelpUrl": "www.yahoo.com"
+  },
+  {
+    "name": "Cherry",
+    "address": {
+      "street": "8743 Grape St",
+      "zipcode": 10002
+    },
+    "yelpUrl": "www.google.com"
+  },
+  {
+    "name": "Wild",
+    "address": {
+      "street": "1684 Crazy Tr",
+      "zipcode": 10003
+    },
+    "yelpUrl": "www.ask.com"
+  }
+]
