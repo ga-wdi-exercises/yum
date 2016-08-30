@@ -1,5 +1,9 @@
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+
 var restaurantsController = require("./controllers/restaurantsController.js");
 
 app.set("view engine", "hbs")
@@ -13,3 +17,5 @@ app.get("/restaurants", restaurantsController.index);
 
 //restaurant show controller//
 app.get("/restaurant/:id", restaurantsController.show);
+
+app.post("/restaurants", restaurantsController.create);

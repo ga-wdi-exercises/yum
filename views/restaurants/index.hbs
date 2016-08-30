@@ -1,8 +1,16 @@
 <!-- Iterates through each author -->
+<form action="/restaurants" method="post">
+  <input type="text" placeholder="Restaurant Name" name="name" />
+  <input type="text" placeholder="Restaurant Street" name="address.street" />
+  <input type="text" placeholder="Restaurant Zipcode" name="address.zipcode" />
+  <input type="text" placeholder="Yelp URL" name="yelpUrl" />
+  <button type="submit">Submit</button>
+</form>
+
 {{#each restaurants}}
   <div class="restaurant">
     <div class="restaurantName"><a href="/restaurant/{{_id}}">{{name}}</a></div>
     <!-- For each author, it will iterate through their reminders -->
-  
+
   </div>
 {{/each}}
