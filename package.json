@@ -9,6 +9,20 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "hbs": "^4.0.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.10"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedelk91/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ahmedelk91/yum/issues"
+  },
+  "homepage": "https://github.com/ahmedelk91/yum#readme"
 }
