@@ -1,0 +1,28 @@
+{{#unless restaurant}}
+<h2>Oh nos, no restaurant!</h2>
+{{else}}
+<h2>{{restaurant.name}}</h2>
+<p><strong>Address:</strong> {{restaurant.address.street}}<br>
+{{restaurant.address.zipcode}}</p>
+{{#unless restaurant.items}}
+<h2>Oh nos, no menu items!</h2>
+{{else}}
+<p><strong>Items on the Menu:</strong></p>
+<ul>
+{{#each restaurant.items}}
+   <li>{{this.title}}</li>
+ {{/each}}
+</ul>
+{{/unless}}
+<p><a href="{{restaurant.yelpUrl}}">Yelp it</a></p>
+<form method="post" action="/{{restaurant.name}}/delete?_method=delete">
+  <button type="submit">Delete</button>
+</form>
+<form action="/{{restaurant.name}}?_method=put" method="post">
+  <input type="text" name="name" placeholder="Name" value={{restaurant.name}}>
+  <input type="text" name="street" placeholder="Street" value={{restaurant.address.street}}>
+  <input type="text" name="zipcode" placeholder="Zipcode" value={{restaurant.address.zipcode}}>
+  <input type="text" name="yelpUrl" placeholder="Yelp URL" value={{restaurant.yelpUrl}}>
+  <button type="submit">Edit</button>
+</form>
+{{/unless}}

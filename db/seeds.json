@@ -1,0 +1,26 @@
+[
+  {
+    "name": "yummy",
+    "address": {
+      "street": "200 Way St",
+      "zipcode": 20007
+      },
+    "yelpUrl": "http://www.yelp.com/yummy",
+    "items": [
+      {"title": "Burger"},
+      {"title": "Soup of the Day"}
+      ]
+  },
+  {
+    "name": "delish",
+    "address": {
+      "street": "400 Way St",
+      "zipcode": 20001
+      },
+    "yelpUrl": "http://www.yelp.com/delish",
+    "items": [
+      {"title": "Mac and Cheese"},
+      {"title": "Shrimp and Grits"}
+      ]
+  }
+]
