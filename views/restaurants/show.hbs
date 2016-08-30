@@ -1,0 +1,35 @@
+<h1> The Restaurant You are Looking For! </h1>
+
+<h3> {{restaurant.name}} </h3>
+<p> {{restaurant.address}} </p>
+<a href="{{restaurant.yelpUrl}}">Yelp URL </a>
+
+<h3> Menu Items </h3>
+{{#each restaurant.items}}
+  <p> {{title}} </p>
+
+  <form method="post" action="/restaurants/{{../restaurant._id}}/items/{{_id}}?_method=delete">
+    <input type="submit" value="Delete!">
+  </form>
+{{/each}}
+
+<h3> New Menu Item </h3>
+  <form action="/restaurants/{{restaurant._id}}/items" method="post">
+    <label>Title</label>
+    <input type="text" name="title">
+    <input type="submit">
+  </form>
+
+<a href="/restaurants/{{restaurant._id}}"> Edit Restaurant </a>
+<h1> Edit {{restaurant.name}} </h1>
+<form action="/restaurants/{{restaurant._id}}?_method=put" method="post">
+  <input type="text" name="name" value="{{restaurant.name}}">
+    <input type="text" name="address[zipcode]" value="{{restaurant.address.zipcode}}">
+    <input type="text" name="address[street]" value="{{restaurant.address.street}}">
+      <input type="text" name="yelpUrl" value="{{restaurant.yelpUrl}}">
+      <button type="submit" name="button">Update</button>
+      </form>
+
+    <form method="post" action="/restaurants/{{restaurant._id}}?_method=delete">
+      <input type="submit" value="Delete Restaurant">
+    </form>

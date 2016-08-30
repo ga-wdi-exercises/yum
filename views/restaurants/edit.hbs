@@ -1,0 +1,7 @@
+<h1> Edit {{restaurant.name}} </h1>
+<form action="/restaurants/{{restaurant._id}}?_method=put" method="post">
+  <input type="text" name="name" value="{{restaurant.name}}">
+    <input type="text" name="address.zipcode" value="{{restaurant.address.zipcode}}">
+    <input type="text" name="address.street" value="{{restaurant.address.street}}">
+      <input type="text" name="name" value="{{restaurant.yelpUrl}}">
+      </form>
