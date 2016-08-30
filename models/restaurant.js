@@ -1,6 +1,6 @@
 require("../db/schema");
 var mongoose = require("mongoose");
 
-var RestuarantModel = mongoose.model("Restaurant");
+var RestaurantModel = mongoose.model("Restaurant");
 
-module.exports = RestuarantModel;
+module.exports = RestaurantModel;
