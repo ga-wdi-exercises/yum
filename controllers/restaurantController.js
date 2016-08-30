@@ -44,6 +44,20 @@ var restaurantController = {
     RestaurantModel.findById(req.params.id, function(err, doc){
       res.render("restaurant/edit", {restaurant: doc})
     })
+  },
+  update: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, doc){
+        doc.name = req.body.name,
+        doc.street= req.body.street,
+        doc.state= req.body.state,
+        doc.zipcode= req.body.zipcode,
+        doc.yelp= req.body.yelp
+    })
+    doc.save(function(err){
+      if(!err){
+        res.redirect("/")
+      }
+    })
   }
 }
 

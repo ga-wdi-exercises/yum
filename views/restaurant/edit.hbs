@@ -1,0 +1,14 @@
+<h2>Update Restaurant</h2>
+
+<form action="/{{restaurant._id}}?_method=put" method="post">
+<label>Name:</label>
+<input type="text" name="{{restaurant.name}}">
+<label>street:</label>
+<input type="text" name="{{restaurant.street}}">
+<label>state:</label>
+<input type="text" name="{{restaurant.state}}">
+<label>zipcode:</label>
+<input type="text" name="{{restaurant.zipcode}}">
+<label>yelp link:</label>
+<input type="text" name="{{restaurant.yelp}}">
+<input type="submit">
