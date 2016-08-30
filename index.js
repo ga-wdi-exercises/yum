@@ -30,8 +30,9 @@ app.post("/restaurants", function(req,res){
 })
 
 app.put("/restaurants/:id", restaurantsController.update)
-app.delete("/restaurants/:id", restaurantsController.delete)
-
+// app.delete("/restaurants/:id", restaurantsController.delete)
+app.post("/restaurants/:id/items", restaurantsController.addItem)
+// app.delete("/restaurants/:restaurantId/items/:id", restaurantsController.removeReminder)
 
 app.listen(app.get("port"), function(){
   console.log("Hey Im awake!");

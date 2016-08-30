@@ -42,34 +42,32 @@ var restaurantsController = {
   delete: function(req, res){
     RestaurantModel.remove({_id: req.params.id}, function(err){
       if(!err){
-        res.redirect("/authors")
+        res.redirect("/restaurants/")
       }
     })
   },
-  addItem: function(restaurant, item){
-    Restaurant.findOne({name: restaurant}, function(err, docs){
-      docs.items.push(new Item({title: item}))
-      docs.save(function(err,results){
-        if(err){
-          console.log(err)
-        } else {
-          console.log(results)
+  addItem: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, docs){
+      docs.items.push(new ItemModel({title: req.body.title}))
+      docs.save(function(err){
+        if(!err){
+          res.redirect("/restaurants/" + req.params.id)
         }
       })
     })
   },
-  removeItem: function(restaurant, item){
-    Restaurant.findOneAndUpdate({name: restaurant}, {
-    $pull: { items: {title: item} }
-  },
-  {new: true}, function(err,docs){
-    if(err) {
-      console.log(err)
-    } else {
-      console.log(docs)
-    }
+  removeItem: function(req, res){
+    RestaurantModel.findByIdAndUpdate(req.params.restaurantId, {
+      $pull: {
+        items: {_id: req.params.id}
+      }
+    }, function(err,docs){
+      if(!err){
+        res.redirect("/restaurants/" + req.params.restaurantId)
+      }
     })
   }
+
 
 }
 
