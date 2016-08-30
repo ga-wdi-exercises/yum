@@ -1,0 +1,12 @@
+<h2>Restaurants in Town</h2>
+
+{{#each restaurants}}
+
+<div>
+  <p><strong><a href="/restaurants/{{_id}}">{{name}}</a></strong></p>
+  <p>{{address.Street}}, {{address.Zipcode}}</p>
+  <p><a href = "{{yelp}}">Reviews</a></p>
+</div>
+
+{{/each}}
+<a href="/restaurants/new">New Restaurant</a>
