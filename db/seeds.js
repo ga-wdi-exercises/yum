@@ -1,22 +1,24 @@
 // requires mongoose dependencies
-var mongoose = require('mongoose')
+//connection to our database
+var mongoose = require('./connection')
+var seedData = require("./seeds")
 // connects us to the reminders database in mongo
-var conn = mongoose.connect('mongodb://localhost/yums')
+// var conn = mongoose.connect('mongodb://localhost/yum')
 // require model definitions
-var RestaurantModel = require("../models/restaurant")
-var MenuModel = require("../models/menu")
-
-//setting models in mongoose using schemas defined above
-var Restaurant = mongoose.model("Restaurant");
-var Menu = mongoose.model("Menu");
+var RestaurantModel = require("Restaurant")
+var MenuModel = require("Menu")
 
 //remove any existing restaurants and menus
-RestaurantModel.remove({}, function(err){
-  console.log(err);
-})
-MenuModel.remove({}, function(err){
-  console.log(err);
-})
+Restaurant.remove({}).then(function(){
+  Restaurant.collection.insert(seedData).then(function(){
+    process.exit();
+  });
+});
+Menu.remove({}).then(function(){
+  Menu.collection.insert(seedData).then(function(){
+    process.exit();
+  });
+});
 
 var restaurant1 = new RestaurantModel({
   name: "Bertucci's",

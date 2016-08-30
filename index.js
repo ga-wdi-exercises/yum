@@ -1,5 +1,38 @@
 var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
+var bodyParser = require('body-parser')
+var methodOverride = require('method-override')
+var restaurantsController = require("./controllers/restaurantsController")
+mongoose.connect('mongodb://localhost/reminders')
+// var Schema = require("./db/schema.js");
+
+var app = express()
+
+// app.set("port", process.env.PORT || 3001);
+app.set("view engine", "hbs");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
+app.use(express.static(__dirname + '/public'))
+app.listen(4000, function(){
+  console.log("app listening on port 4000")
+})
+app.get(/restaurants, restaurantsController.index)
+// app.engine(".hbs", hbs({
+//   app.get("/", function(req, res){
+//   });
+//   app.get("/restaurants", function(req, res){
+//       Restaurant.find({}).then(function(restaurants){
+//         res.render("restaurants-index", {
+//           restaurants: restaurants
+//       });
+//     });
+//   });
+
+
+
+  // require model definitions
+  var RestaurantModel = require("Restaurant");
+  var MenuModel = require("Menu");
 
 // //Find a restaurant by name
 // function findName(restaurant){
