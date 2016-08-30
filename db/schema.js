@@ -1,19 +1,12 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/yum');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function(){
-  console.log("db connected and working");
-});
-
-var Schema = mongoose.Schema;
-var ObjectId = Schema.objectId;
+//name space for schema constructor, defined by mongoose
+var Schema = mongoose.Schema
+var ObjectId = Schema.ObjectId
 
 var ItemSchema = new Schema({
   title: String
-});
-
+})
+//define schema for restaurants and items
 var RestaurantSchema = new Schema({
   name: String,
   address: {
@@ -22,12 +15,10 @@ var RestaurantSchema = new Schema({
   },
   yelpUrl: String,
   items: [ItemSchema]
-});
+})
 
-var Item = mongoose.model("Item", ItemSchema);
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+//setting models in mongoose with schemas defined above to use throughout app
+mongoose.model("Restaurant", RestaurantSchema)
+mongoose.model("Item", ItemSchema)
 
-module.exports = {
-  Restaurant: Restaurant,
-  Item: Item
-};
+// module.exports = mongoose

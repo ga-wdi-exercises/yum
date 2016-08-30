@@ -1,64 +1,81 @@
-var Schema = require("../db/schema.js");
-var Restaurant = Schema.Restaurant;
-var Item = Schema.Item;
+//req our model definitions from schema (instead of redefining)
+var RestaurantModel = require("../models/restaurant")
+var ItemModel = require("../models/item")
 
+// Schema.connect('mongodb://localhost/restaurant_db')
+
+//instantiate controller that will contain all the actions
 var restaurantsController = {
-  index: function(){
-    Restaurant.find({}, function(err, docs){
-      console.log(docs);
+  //index action will make query, find all restaurants, render the index view and pass objects to the template
+  index: function(req, res){
+    RestaurantModel.find({}, function(err, docs){
+      res.render("restaurants/index", {restaurants: docs})
     });
   },
-  showName: function(req){
-    Restaurant.findOne({"name": req.name}, function(err, docs){
-      console.log(docs);
-    })
+  //just rendering a view here, no query needed from db
+  new: function(req, res){
+    res.render("restaurants/new")
   },
-  showZip: function(req){
-    Restaurant.find({"address.zipcode": req.zipcode}, function(err, docs){
-      console.log(docs);
-    })
-  },
-  update: function(req, update){
-    Restaurant.findAndUpdate({name: req.name}, {name: update.name}, {new: true}, function(err, docs){
-      if(err){
-        console.log(err);
-      } else {
-        console.log(docs);
+  create: function(req, res){
+    var restaurant = new RestaurantModel({name: req.body.name})
+    restaurant.save(function(err){
+      if(!err){
+        res.redirect("restaurants")
       }
     })
   },
-  destroy: function(req){
-    Restaurant.findAndRemove(req, function(err, docs){
-       if(err){
-         console.log(err)
-       } else {
-         console.log(docs)
-       }
-     });
-   },
-   addItem: function(restaurant, item){
-     Restaurant.findOne({name: restaurant}, function(err, docs){
-       docs.items.push(new Item( {title: item} ))
-       docs.save(function(err, results){
-         if(err){
-           console.log(err)
-         } else {
-           console.log(results)
-         }
-       })
-     })
-   },
-   removeItem: function(restaurant, item){
-     Restaurant.findAndUpdate({name: restaurant}, {
-     $pull: { items: {title: item} }
-   },
-   {new: true}, function(err,docs){
-     if(err) {
-       console.log(err)
-     } else {
-       console.log(docs)
-     }
-     })
-   }
+  //query to find single restaurant by id and render the view and pass object to template
+  show: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, doc){
+      res.render("restaurants/show", {restaurant: doc})
+    })
+  },
+  //query to find restaurant docs by id, render in the edit view, pass that object to the template
+  edit: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, doc){
+      res.render("restaurants/edit", {restaurant: doc})
+    })
+  },
+  //query to find author doc by id, set the name to value specified in form. if saved, redirect to restaurants page
+  update: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, docs){
+      docs.name = req.body.name
+      docs.save(function(err){
+        if(!err){
+          console.log("updated")
+          res.redirect("/restaurants/" + req.params.id)
+        }
+      })
+    })
+  },
+  //will remove restaurant doc by id and redirect to index page
+  delete: function(req, res){
+    RestaurantModel.remove({_id: req.params.id}, function(err){
+      if(!err){
+        res.redirect("/restaurants")
+      }
+    })
+  },
+  //will make query to find an author doc by id in the restaurant's collection, create a new item and push it to restaurants subdocs.
+  addItem: function(req, res){
+    RestaurantModel.findById(req.params.id, function(err, docs){
+      docs.items.push(new ItemModel( {title: req.body.title} ))
+      docs.save(function(err){
+        if(!err){
+          res.redirect("/restaurants/" + req.params.id)
+        }
+      })
+    })
+  },
+  removeItem: function(req, res){
+    RestaurantModel.findByIdAndUpdate(req.params.restaurantId, {
+      $pull: { items: {_id: req.params.id} }
+    }, function(err, docs){
+      if(!err) {
+        res.redirect("/restaurants/" + req.params.restaurantId)
+      }
+    })
+  }
+}
 
- }
+module.exports = restaurantsController;

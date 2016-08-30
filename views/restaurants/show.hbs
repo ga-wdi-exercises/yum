@@ -1,0 +1,22 @@
+<h2>Items on the {{restaurant.name}} menu</h2>
+
+<!-- iterates through each item that belong to this place -->
+{{#each restaurant.items}}
+<p>{{title}}</p>
+<!-- form to delete item from this restaurant-->
+<form method="post" action="/restaurants/{{../restaurant._id}}/items/{{_id}}?_method=delete">
+  <input type="submit" value="Take off menu!">
+</form>
+{{/each}}
+
+
+<h3>New Menu Item</h3>
+<form action="/restaurants/{{restaurant._id}}/items" method="post">
+  <label>Title: </label>
+  <input type="text" name="title">
+  <input type="submit">
+</form>
+
+<!-- edit or delete restaurant -->
+  <a href="/restaurants/{{restaurant._id}}/edit">Edit Restaurant</a>
+  <a href="/restaurants">Back</a>
