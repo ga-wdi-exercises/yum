@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+var bodyParser = require("body-parser")
+
+
 mongoose.connect('mongodb://localhost/yum')
 var Schema = require("./db/schema.js");
 
