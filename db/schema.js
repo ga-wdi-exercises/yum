@@ -15,7 +15,7 @@ var ObjectId = Schema.ObjectId
 
 var MenuItemSchema = new Schema({
   title: String
-})
+});
 
 var RestaurantSchema = new Schema({
   name: String,

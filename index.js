@@ -1,15 +1,12 @@
-var mongoose = require('mongoose');
-var bodyParser = require("body-parser")
+var express = require("express")
+var mongoose = require('./db/connection');
+var Restaurant = mongoose.model("Restaurant");
 
+var bodyParser = require("body-parser");
+var app = express();
 
-mongoose.connect('mongodb://localhost/yum')
-var Schema = require("./db/schema.js");
+app.set("port", process.env.PORT || 8000);
 
-var db = mongoose.connection;
-db.on('error', function(err){
-  console.log(err);
-});
-
-  db.once('open', function() {
-    console.log("database has been connected");
+app.get("/", function(req, res){
+  res.json()
 });

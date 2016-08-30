@@ -1,5 +1,10 @@
 var mongoose = require("mongoose");
 
+var MenuItemSchema = new mongoose.Schema(
+  {
+  title: String
+});
+
 var RestaurantSchema = new mongoose.Schema(
   {
   name: String,
@@ -7,6 +12,7 @@ var RestaurantSchema = new mongoose.Schema(
   yelpUrl: String,
   items: [MenuItemSchema]
 });
+
 
 mongoose.model("Restaurant", RestaurantSchema);
 mongoose.connect("mongodb://localhost/yum")
