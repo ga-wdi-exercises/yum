@@ -21,36 +21,25 @@ var RestaurantSchema = new Schema({
     zipCode: Number
   },
   yelpUrl: String,
-  items: [MenuSchema]
+  menus: [MenuSchema]
 })
 
 
 //setting models in mongoose using schemas defined above
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var Menu = mongoose.model("Menu", MenuSchema);
+mongoose.model("Restaurant", RestaurantSchema)
+mongoose.model("Menu", MenuSchema)
 
-var restaurant1 = new Restaurant({
-  name: "Bertucci's",
-  address: {
-    street: "2000 Pennsylvania Ave",
-    zipCode:  20006
-  },
-  yelpUrl: "yelp.com/Bertuccis"
-})
-
-var item1 = new Menu({title: "Shrimp Alfredo"})
-
-restaurant.items.push(restaurant1);
-restaurant.save(function(err, restaurant){
-  if (err){
-    console.log(err);
-  } else {
-    console.log("restaurant was saved");
-  }
-})
+// restaurants.menus.push(restaurant1);
+// restaurants.save(function(err, restaurant){
+//   if (err){
+//     console.log(err);
+//   } else {
+//     console.log("restaurant was saved");
+//   }
+// })
 
 //connects Restaurants and Menus (like a join table)
-module.exports = {
-  Restaurant: Restaurant,
-  Menu: Menu
-}
+// module.exports = {
+//   Restaurant: Restaurant,
+//   Menu: Menu
+// }

@@ -1,24 +1,29 @@
 // requires mongoose dependencies
 //connection to our database
-var mongoose = require('./connection')
-var seedData = require("./seeds")
+var mongoose = require('mongoose')
+// var seedData = require("./seeds")
 // connects us to the reminders database in mongo
-// var conn = mongoose.connect('mongodb://localhost/yum')
+var conn = mongoose.connect('mongodb://localhost/menus')
 // require model definitions
-var RestaurantModel = require("Restaurant")
-var MenuModel = require("Menu")
+var RestaurantModel = require("../models/restaurant")
+var MenuModel = require("../models/menu")
+
+RestaurantModel.remove({}, function(err){
+})
+MenuModel.remove({}, function(err){
+})
 
 //remove any existing restaurants and menus
-Restaurant.remove({}).then(function(){
-  Restaurant.collection.insert(seedData).then(function(){
-    process.exit();
-  });
-});
-Menu.remove({}).then(function(){
-  Menu.collection.insert(seedData).then(function(){
-    process.exit();
-  });
-});
+// Restaurant.remove({}).then(function(){
+//   Restaurant.collection.insert(seedData).then(function(){
+//     process.exit();
+//   });
+// });
+// Menu.remove({}).then(function(){
+//   Menu.collection.insert(seedData).then(function(){
+//     process.exit();
+//   });
+// });
 
 var restaurant1 = new RestaurantModel({
   name: "Bertucci's",
@@ -29,18 +34,18 @@ var restaurant1 = new RestaurantModel({
   yelpUrl: "yelp.com/Bertuccis"
 })
 
-var item1 = new MenuModel({title: "Shrimp Alfredo"})
+var menu1 = new MenuModel({title: "Shrimp Alfredo"})
 
 var restaurants = [restaurant1]
-var menus = [item1]
+var menus = [menu1]
 
-for(var i = 0; restaurants.length; i++){
+for(var i = 0; i < restaurants.length; i++){
   restaurants[i].menus.push(menus[i], menus[i+1])
   restaurants[i].save(function(err){
     if (err){
-      console.log(err);
+      console.log(err)
     } else {
-      console.log("restaurant was saved");
+      console.log("restaurant was saved")
     }
   })
 }
