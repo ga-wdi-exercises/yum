@@ -39,7 +39,7 @@ app.get("/", function(req, res){
   })
 });
 
-app.post("/restaurants"),function (req,res){
+app.post("/myrestaurant"),function (req,res){
   console.log("Post after form submitted")
   res.json(req.body)
 }
