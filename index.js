@@ -8,6 +8,13 @@ var Schema = require("./db/schema.js");
 var Restaurant=Schema.Restaurant
 var Menu=Schema.Menu
 
+String.prototype.toObjectId = function() {
+  var ObjectId = (require('mongoose').Types.ObjectId);
+  return new ObjectId(this.toString());
+};
+
+// Every String can be casted in ObjectId now
+console.log('545f489dea12346454ae793b'.toObjectId());
 
 app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs");
@@ -19,8 +26,6 @@ app.engine(".hbs", hbs({
 }));
 app.use("/assets", express.static("public"));
 app.use(parser.urlencoded({extended: true}))
-
-
 
 
 app.get("/", function(req, res){
@@ -44,6 +49,19 @@ app.get("/restaurants/new", function (req,res){
     var restaurant = new Restaurant
     res.render("restaurant-new",{restaurant});
 });
+
+app.get("/restaurant/:id", function (req,res) {
+  console.log("SHOW ",req.params.id)
+  Restaurant.findOne({_id: req.params.id.toObjectId()} , function (err,restaurant) {
+    if (err) {
+      console.log(err)}
+    else {
+      console.log(restaurant.name, "found")
+      res.render("restaurant-show",{restaurant});
+    }
+  })})
+
+
 
 app.listen(app.get("port"), function(){
   console.log("Yum is Listening!");

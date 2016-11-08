@@ -27,3 +27,20 @@ restaurant1.save((err, restaurant) => {
     process.exit()
   }
 })
+
+var restaurant2 = new Restaurant ( {
+  name: "China King",
+  address: {street: "2415 Centreville Rd Ste B6 Herndon, VA", zipcode:
+  20171},
+  yelpurl: "https://www.yelp.com/biz/china-king-herndon",
+  items: [menu1]
+});
+
+restaurant2.save((err, restaurant) => {
+  if(err){
+    console.error(err)
+  } else {
+    console.log(restaurant)
+    process.exit()
+  }
+})

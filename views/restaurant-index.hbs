@@ -3,7 +3,8 @@
 
 {{#each restaurants as |rest|}}
 <h3>
-  <a href="/restaurants/{{rest.name}}">{{rest.name}} </a>
+  <a href="/restaurant/{{rest._id}}">{{rest.name}} </a>
+  <p> {{rest._id}} </p>
   <p> {{rest.address.street}} {{rest.address.zipcode}} </p>
   <a href="{{rest.yelpurl}}">CLICK for YELP</a>
 </h3>
