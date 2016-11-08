@@ -1,0 +1,10 @@
+<h2>{{restaurants.length}} # of restaurants </h2>
+<h2> <a href="/restaurants/new">Add A New Restaurant</a></h2>
+
+{{#each restaurants as |rest|}}
+<h3>
+  <a href="/restaurants/{{rest.name}}">{{rest.name}} </a>
+  <p> {{rest.address.street}} {{rest.address.zipcode}} </p>
+  <a href="{{rest.yelpurl}}">CLICK for YELP</a>
+</h3>
+{{/each}}

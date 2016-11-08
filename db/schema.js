@@ -32,28 +32,10 @@ var RestaurantSchema = new Schema({
 });
 
 
+mongoose.Promise = global.Promise;  // to remove warnings about Deprecation
+
 var Restaurant = mongoose.model("Restaurant",  RestaurantSchema);
 var Menu = mongoose.model("Menu", MenuSchema);
 
-
 module.exports = { Restaurant: Restaurant,
                    Menu: Menu };  //es6 format  make this available to seeds
-
-console.log("Now Running Schema.js")
-var menu1 = new Menu({title:"Dinner Menu"});
-var restaurant1 = new Restaurant ( {
-  name: "Glory Days Grill",
-  address: {street: " Fox Mill Center, 2567 John Milton Dr, Herndon, VA", zipcode:
-  20171},
-  yelpurl: "https://www.yelp.com/biz/glory-days-grill-herndon",
-  items: [menu1]
-});
-
-restaurant1.save((err, restaurant) => {
-  if(err){
-    console.error(err)
-  } else {
-    console.log(restaurant)
-    // process.exit()
-  }
-})

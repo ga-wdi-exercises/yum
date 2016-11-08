@@ -9,6 +9,20 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "hbs": "^4.0.1",
     "mongoose": "^4.6.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merubin/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/merubin/yum/issues"
+  },
+  "homepage": "https://github.com/merubin/yum#readme"
 }
