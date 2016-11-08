@@ -62,6 +62,18 @@ app.get("/restaurant/:id", function (req,res) {
   })})
 
 
+  app.get("/restaurant/delete/:id", function (req,res) {
+    console.log("delete",req.params.id)
+    Restaurant.remove({_id: req.params.id.toObjectId()} , function (err,restaurant) {
+      if (err) {
+        console.log(err)}
+      else {
+        console.log(restaurant.name, "found")
+         res.redirect('/');;
+      }
+    })})
+
+
 
 app.listen(app.get("port"), function(){
   console.log("Yum is Listening!");
