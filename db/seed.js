@@ -16,3 +16,6 @@ resturant3 = new Restaurant({ name: "Birch & Barley", address: { street: "1337 1
 var item1 = new MenuItem({title: "Chocolate croissant"})
 var item1 = new MenuItem({title: "Strawberry tarts"})
 var item3 = new MenuItem({title: "Peanut butter cookie"})
+
+var menuItems = [item1, item2, item3]
+var resturants = [resturant1, resturant2, resturant3]
