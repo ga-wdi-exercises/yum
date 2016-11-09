@@ -1,1 +1,18 @@
 var Schema = require("../db/schema.js");
+var Restaurant = Schema.Restaurant;
+var MenuItem = Schema.MenuItem;
+
+Restaurant.remove({}, function(err){
+  console.log(err)
+})
+MenuItem.remove({}, function(err){
+  console.log(err)
+})
+
+resturant1 = new Restaurant({ name: "Panera Bread", address: { street: "1400 Irving St NW", zipcode: 20009, }, yelp: "https://www.yelp.com/biz/panera-bread-washington-3?osq=Panera+Bread"})
+resturant2 = new Restaurant({ name: "Teds Bulletin", address: { street: "1800 14th St NW", zipcode: 20009 }, yelp: "https://www.yelp.com/biz/teds-bulletin-washington-3"})
+resturant3 = new Restaurant({ name: "Birch & Barley", address: { street: "1337 14th St NW", zipcode: 20005}, yelp: "http://www.yelp.com/biz/birch-and-barley-washington?osq=Restaurants+cookies"})
+
+var item1 = new MenuItem({title: "Chocolate croissant"})
+var item1 = new MenuItem({title: "Strawberry tarts"})
+var item3 = new MenuItem({title: "Peanut butter cookie"})
