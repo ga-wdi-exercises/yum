@@ -4,9 +4,9 @@ For Homework you will be writing a node application to practice using Mongoose. 
 
 ## Setup
 
-Fork and clone this repo. Then run `$ npm install` to install all the modules listed in `package.json`.
+- [x] Fork and clone this repo. Then run `$ npm install` to install all the modules listed in `package.json`.
+- [x] You can test your code by running `$ nodemon index.js` in the Terminal.
 
-You can test your code by running `$ nodemon index.js` in the Terminal.
 
 ## Part I: Mongoose
 
