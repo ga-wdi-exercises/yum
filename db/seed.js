@@ -18,9 +18,13 @@ Restaurant.remove({}).then(() => {
           }).then(() => {
             Restaurant.find({"address.zipcode": 20850}).then((restaurant) => {  //to find an object value thats nested in an object we put it in quotes
               console.log(restaurant)
+            }).then((restaurant) => {
+              Restaurant.update({name: "Wingstop"}, {$set: {"name": "Wings"}}).then((restaurant) => {
+                console.log(restaurant)
+                })
+              })
             })
           })
         })
       })
   })
-})
