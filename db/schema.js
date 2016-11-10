@@ -11,6 +11,8 @@ db.once('open', function() {
 
 });
 
+mongoose.Promise = global.Promise
+
 var Schema = mongoose.Schema
 
 var MenuItemSchema = new Schema ({

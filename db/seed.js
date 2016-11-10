@@ -3,6 +3,10 @@ var Schema = require("./schema.js");
 var Restaurant = Schema.Restaurant
 var MenuItem =  Schema.MenuItem
 
+// var Restaurant = mongoose.model("Restaurant")
+// var MenuItem =  mongoose.model("MenuItem")
+
+
 Restaurant.remove({}, err => {
   if (err){
     console.log(err)
