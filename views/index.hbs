@@ -1,0 +1,17 @@
+{{#each restaurants as |restaurant i|}}
+  <a href="/{{restaurant.name}}">{{restaurant.name}}</a>
+<!-- {{restaurant.items}} -->
+  <ul>
+    {{#each restaurant.items as |item i|}}
+      <li>{{item.title}}</li>
+    {{/each}}
+  </ul>
+{{/each}}
+
+<form action="/" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name">
+
+  <input type="text" name="restaurant[items][title]" placeholder="Item title">
+
+  <input type="submit">
+</form>
