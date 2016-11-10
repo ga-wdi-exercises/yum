@@ -9,8 +9,11 @@ var RestaurantSchema = new Schema ({
       name: String,
       address: {street: String, zipcode: Number},
       yelpUrl: String,
-      items: Array,
+      items: [MenuSchema],
 })
 var MenuSchema = new Schema ({
   title: String
 })
+
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema)
+var Menu = mongoose.model("Menu", MenuSchema)
