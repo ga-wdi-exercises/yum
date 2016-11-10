@@ -15,3 +15,11 @@ var RestaurantSchema = mongoose.Schema({
   yelp: String,
   items: [MenuItemSchema]
 });
+
+var MenuItemModel = mongoose.model("MenuItemSchema", MenuItemSchema);
+var RestaurantModel = mongoose.model('Restaurant', RestaurantSchema);
+
+module.exports = {
+  Restaurant: RestaurantModel,
+  MenuItem: MenuItemModel
+};

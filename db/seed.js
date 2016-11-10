@@ -19,3 +19,16 @@ var item3 = new MenuItem({title: "Peanut butter cookie"})
 
 var menuItems = [item1, item2, item3]
 var resturants = [resturant1, resturant2, resturant3]
+
+
+resturants.forEach(function(resturant, i){
+    resturant.items.push(menuItems[i], menuItems[i+3]);
+    resturant.save(function(err, docs){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log(docs);
+      }
+    });
+  });
