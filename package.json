@@ -9,6 +9,18 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishP33/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/manishP33/yum/issues"
+  },
+  "homepage": "https://github.com/manishP33/yum#readme"
 }
