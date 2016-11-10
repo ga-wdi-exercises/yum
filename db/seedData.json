@@ -1,0 +1,17 @@
+"Restaurant": [
+    {"name": "El Chucho",
+      "address": {
+        "street": "3313 11th St NW",
+        "zipcode": "20010"}
+    },
+    {"name": "Chaplin's",
+      "address": {
+        "street": "1501 9th St NW",
+        "zipcode": "20001"}
+    }
+]
+
+"Menu": [
+    {"title": "A.S.S Ramen"},
+    {"title": "Tacos de Pollo"}
+]
