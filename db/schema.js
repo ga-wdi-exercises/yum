@@ -27,8 +27,8 @@ var RestaurantSchema = new Schema({
 })
 
 
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema)
-var MenuItem = mongoose.model("MenuItem", MenuItemSchema)
+ mongoose.model("Restaurant", RestaurantSchema)
+mongoose.model("MenuItem", MenuItemSchema)
 
 // var bluejacket = new Restaurant({name: "Bluejacket", address:{street:"300 Tingey St SE", zipcode: 20003}, yelpUrl:"https://www.yelp.com/biz/bluejacket-washington",})
 //
@@ -37,4 +37,4 @@ var MenuItem = mongoose.model("MenuItem", MenuItemSchema)
 
 
 
-module.exports = {Restaurant, MenuItem}
+module.exports = mongoose
