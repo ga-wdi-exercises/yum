@@ -43,6 +43,11 @@ app.post("/", (req,res) => {
   })
 })
 
+app.post("/:name"), (req, res) => {
+  Restaurant.findOneAndUpdate({name: req.params.name},req.body.restaurant,{new:true}).then(restaurant =>{
+    res.redirect("/" + restaurant.name)
+  })
+}
 
 app.post("/:name/delete", (req, res) => {
   Restaurant.findOneAndRemove({name:req.params.name}).then( _ => {
