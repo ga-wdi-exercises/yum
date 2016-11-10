@@ -1,0 +1,29 @@
+[
+  {
+    "name": "El Rinconcito",
+    "address": {
+      "street": "1100 M St NW",
+      "zipcode": 20005
+    },
+    "yelpUrl": "www.yelp.com/1",
+    "items": []
+  },
+  {
+    "name": "Copycat",
+    "address": {
+      "street": "1300 H St NE",
+      "zipcode": 20003
+    },
+    "yelpUrl": "www.yelp.com/1",
+    "items": []
+  },
+  {
+    "name": "Maketto",
+    "address": {
+      "street": "1111 H St NE",
+      "zipcode": 20003
+    },
+    "yelpUrl": "www.yelp.com/1",
+    "items": []
+  }
+]
