@@ -1,0 +1,10 @@
+<h2>Edit Restaurant {{restaurant.name}}</h2>
+
+<form action="/restaurant/update" method = "post">
+<input type="hidden" name="restaurant[id]" value="{{restaurant._id}}" />
+<input type="text" name="restaurant[name]" placeholder="Name" value="{{restaurant.name}}" />
+<input type="text" name="restaurant[address[street]]" placeholder="Street" value="{{restaurant.address.street}}"  />
+<input type="number" name="restaurant[address[zipcode]]" placeholder="Zipcode" value="{{resturant.address.zipcode}}"/>
+<input type="text" name="restaurant[yelpurl]" placeholder="Yelp URL" value="{{restaurant.yelpurl}}" />
+<button type="submit"> Update Restaurant</button>
+</form>

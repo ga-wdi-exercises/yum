@@ -1,0 +1,9 @@
+o fix this:
+
+Reboot your Mac into safe mode  Hold Shif while restarting
+goto Terminal and issue: csrutil disable
+Reboot your Mac to normal mode
+Change restricted flag to nonrestricted for that location. In Terminal: sudo chflags norestricted /private/tmp. And sudo chflags norestricted /tmp (not sure if this one is needed)
+Change permissions as well if needed: sudo chmod 1777 /tmp and sudo chmod 1777 /private/tmp
+Reboot to safe mode again, and do a csrutil enable back
+That solved my problem.

@@ -1,0 +1,15 @@
+<h2> VIEW RESTAURANT </h2>
+<h2> <a href="/">All Restaurants</a></h2>
+<h2> <a href="/restaurant/delete/{{restaurant._id}}" >Delete This Restaurant</a></h2>
+<h2> <a href="/restaurant/edit/{{restaurant._id}}">Edit This Restaurant</a></h2>
+
+<h3>
+  <p> {{restaurant._id}} </p>
+    <p> {{restaurant.name}} </p>
+  <p> {{restaurant.address.street}} {{restaurant.address.zipcode}} </p>
+  <a href="{{restaurant.yelpurl}}">CLICK for YELP</a>
+</h3>
+
+{{#each restaurant.items as |item|}}
+  <p> {{item.title}} </p>
+{{/each}}
