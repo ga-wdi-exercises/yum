@@ -14,7 +14,7 @@ resturant2 = new Restaurant({ name: "Teds Bulletin", address: { street: "1800 14
 resturant3 = new Restaurant({ name: "Birch & Barley", address: { street: "1337 14th St NW", zipcode: 20005}, yelp: "http://www.yelp.com/biz/birch-and-barley-washington?osq=Restaurants+cookies"})
 
 var item1 = new MenuItem({title: "Chocolate croissant"})
-var item1 = new MenuItem({title: "Strawberry tarts"})
+var item2 = new MenuItem({title: "Strawberry tarts"})
 var item3 = new MenuItem({title: "Peanut butter cookie"})
 
 var menuItems = [item1, item2, item3]
