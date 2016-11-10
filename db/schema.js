@@ -2,12 +2,18 @@
 var mongoose = require('mongoose');
 //connects to mongodb
 mongoose.connect('mongodb://localhost/yum');
+mongoose.Promise = global.Promise
 
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
 //defines the schemas
+var MenuSchema = new mongoose.Schema(
+  {
+    title: String,
+  }
+)
 var RestaurantSchema = new mongoose.Schema(
   {
     name: String,
@@ -20,11 +26,9 @@ var RestaurantSchema = new mongoose.Schema(
   }
 );
 
-var MenuSchema = new mongoose.Schema(
-  {
-    title: String,
-  }
-)
 //defines the models
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var Menu = mongoose.model("Menu", MenuSchema);
+module.exports = {
+  mongoose,
+  Restaurant: mongoose.model("Restaurant", RestaurantSchema),
+  Menu: mongoose.model("Menu", MenuSchema)
+}
