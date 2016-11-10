@@ -13,3 +13,15 @@ var restaurantsController = {
   }
 }
  restaurantsController.show({name: "Bluejacket"})
+
+ var restaurantsController = {
+   show(req){
+     Restaurant.findOne({zipcode: req.zipcode}, (err, restaurant) => {
+       restaurant.items.forEach(item => {
+         console.log(item.title);
+       })
+       process.exit()
+     })
+   }
+ }
+  restaurantsController.show({zipcode: 20003})
