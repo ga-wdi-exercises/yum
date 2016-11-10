@@ -24,7 +24,7 @@ var RestaurantSchema = new Schema({
 
 // Declare models
 var ItemModel = mongoose.model("ItemSchema", ItemSchema)
-var RestaurantModel = mongoose.model("RestaurantModel", RestaurantModel)
+var RestaurantModel = mongoose.model("RestaurantSchema", RestaurantSchema)
 
 // Export models
 module.exports = {
