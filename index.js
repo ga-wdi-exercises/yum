@@ -39,10 +39,50 @@ app.get("/", function(req, res){
   })
 });
 
-app.post("/myrestaurant"),function (req,res){
+app.post("/restaurant",function (req,res){
   console.log("Post after form submitted")
-  res.json(req.body)
-}
+  console.log(req.body)
+  Restaurant.create(req.body.restaurant , function (err,restaurant){
+    if (err){
+      console.log(err)
+    }
+    else {
+      console.log("Success")
+      res.redirect('/');
+    }
+  })
+})
+
+
+app.post("/restaurant/update",function (req,res){
+  console.log("Post after form submitted")
+  console.log("name:",req.body.restaurant.name)
+  console.log("address:",req.body.restaurant.street.address)
+  console.log("zip:",req.body.restaurant.street.zipcode)
+  // res.json(req.body);
+
+
+  // This method takes two arguments: (1) the old instance and (2) what we want to update it with.
+
+  Restaurant.findOneAndUpdate({_id: req.body.restaurant.id} ,req.body.restaurant
+  // {name: req.body.name},
+  // {address: {street: req.body.address.street},
+  // address: {zipcode: req.body.address.zipcode},
+  // yelpurl: req.body.yelpurl}
+  ,{new: true}
+  , (err, restaurant) => {
+    if(err) {
+      console.log(err)
+    }
+    else {
+      console.log(restaurant);
+       res.redirect('/');
+    }
+  });
+
+
+})
+
 
 app.get("/restaurants/new", function (req,res){
     console.log("New Restaurant")
@@ -69,10 +109,21 @@ app.get("/restaurant/:id", function (req,res) {
         console.log(err)}
       else {
         console.log(restaurant.name, "found")
-         res.redirect('/');;
+         res.redirect('/');
       }
     })})
 
+    app.get("/restaurant/edit/:id", function (req,res) {
+      console.log("edit",req.params.id)
+      Restaurant.findOne({_id: req.params.id.toObjectId()} , function (err,restaurant) {
+        if (err) {
+          console.log(err)}
+        else {
+          console.log(restaurant.name, "found")
+          res.render("restaurant-edit",{restaurant});
+        }
+      })
+    })
 
 
 app.listen(app.get("port"), function(){

@@ -1,9 +1,9 @@
 <h2>Add a New Restaurant</h2>
 
-<form action="/myrestaurant" method = "post">
-<input type "text" name = "restaurant[name]" placeholder="Name" />
-<input type "text" street = "restaurant[address[street]]" placeholder="Street" />
-<input type "number" street = "restaurant[address[zip]]" placeholder="Zipcode" />
-<input type "text" yelpurl = "restaurants[yelpurl]" placeholder="Yelp URL" />
+<form action="/restaurant" method = "post">
+<input type="text" name="restaurant[name]" placeholder="Name" />
+<input type="text" name="restaurant[address[street]]" placeholder="Street" />
+<input type="number" name="restaurant[address[zipcode]]" placeholder="Zipcode" />
+<input type="text" name="restaurant[yelpurl]" placeholder="Yelp URL" />
 <button type="submit"> Add New Restaurant</button>
 </form>
