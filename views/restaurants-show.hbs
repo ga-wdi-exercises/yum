@@ -1,0 +1,11 @@
+<h3>{{restaurant.name}}</h3>
+
+<p>
+  <a href={{restaurant.yelpUrl}}>{{restaurant.yelpUrl}}</a>
+</p>
+
+<form class="" action="/restaurants/{{restaurant.name}}" method="post">
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}" />
+  <input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}" />
+  <button type="submit" name="button">Edit Restaurant Information</button>
+</form>
