@@ -1,0 +1,25 @@
+{{#each restaurants as |restaurant i|}}
+  <a href="/{{restaurant.name}}">{{restaurant.name}}</a>
+  <p>{{restaurant.address.street}} {{restaurant.address.zipcode}}</p>
+  <p>yelpurl:{{restaurant.yelpurl}}</p>
+
+
+  <ul>
+    {{#each restaurant.items as |item i|}}
+      <li>{{item.title}}</li>
+    {{/each}}
+  </ul>
+
+{{/each}}
+
+
+<form action="/" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name">
+
+  <input type="text" name="restaurant[address][street]" placeholder="street">
+  <input type="text" name="restaurant[address][zipcode]" placeholder="zipcode">
+  <input type="text" name="restaurant[yelpurl]" placeholder="yelpurl">
+  <input type="text" name="restaurant[items][title]" placeholder="items">
+
+  <input type="submit">
+</form>

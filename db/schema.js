@@ -2,7 +2,6 @@
 var mongoose = require('mongoose');
 //connects to mongodb
 mongoose.connect('mongodb://localhost/yum');
-mongoose.Promise = global.Promise
 
 var db = mongoose.connection;
 
@@ -26,9 +25,10 @@ var RestaurantSchema = new mongoose.Schema(
   }
 );
 
+mongoose.Promise = global.Promise
+
 //defines the models
 module.exports = {
-  mongoose,
   Restaurant: mongoose.model("Restaurant", RestaurantSchema),
   Menu: mongoose.model("Menu", MenuSchema)
 }

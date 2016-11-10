@@ -1,0 +1,26 @@
+<h1>{{restaurant.name}}</h1>
+
+<p>
+  Menu
+</p>
+<ul>
+  {{#each restaurant.items as |item i|}}
+    <li>{{item.title}}</li>
+  {{/each}}
+</ul>
+
+<p>{{restaurant.address.street}} {{restaurant.address.zipcode}}</p>
+<p>yelpurl:{{restaurant.yelpurl}}</p>
+
+
+<form action="/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete {{restaurant.name}}</button>
+</form>
+
+
+
+
+
+
+
+<a href="/">Back</a>
