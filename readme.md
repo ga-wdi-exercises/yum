@@ -47,7 +47,9 @@ Turn YUM into an Express app with routes that you can view in your browser and f
 
 Your app should have two pages...
 
-- A page that lists all restaurants, on which a user can create a new restaurant.
+- A page that lists all restaurants, on which a
+
+ can create a new restaurant.
 - A page that lists one restaurant and all its menu items, on which a user can...
   - Delete the restaurant.
   - Update the restaurant.
