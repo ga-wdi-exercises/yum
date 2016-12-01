@@ -60,5 +60,5 @@ restaurantsController.update({
     nameReplace: "Blah"
 });
 restaurantsController.delete({
-  name: "Blah"cedscd
+  name: "Blah"
 });
