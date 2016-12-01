@@ -12,16 +12,14 @@
   <input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}">
   <input type="text" name="restaurant[yelpUrl]" value="yelpUrl">
 
-////
+
 <h3>Edit the Restaurant's Menu</h3>
+
   {{#each restaurant.items as |item|}}
-
   <input type="text" name="restaurant[items][title]" value="{{item.title}}">
-
   <p><form action="/{{restaurant.items.title}}" method="post">
     <button type="submit">Delete this item</button>
   </form></p>
-
   {{/each}}
 
   <input type="text" name="restaurant[name]" placeholder="Name">
