@@ -13,7 +13,7 @@ Menu.remove({}, (err) => {
 
 var rest1 = new Restaurant({name: "bob's", address: {street: "10 Elm St", zip: 20010}, yelp: "www.yelp.com/bob's"})
 var rest2 = new Restaurant({name: "dan's", address: {street: "15 Elm St", zip: 20050}, yelp: "www.yelp.com/dan's"})
-var rest1 = new Restaurant({name: "Julie's", address: {street: "20 Elm St", zip: 20060}, yelp: "www.yelp.com/julie's"})
+var rest3 = new Restaurant({name: "Julie's", address: {street: "20 Elm St", zip: 20060}, yelp: "www.yelp.com/julie's"})
 
 
 var item1 = new Menu({title:"pork" })
