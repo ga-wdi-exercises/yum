@@ -1,0 +1,10 @@
+Ha ha hey what's up this is the restaruats
+
+{{#each restaurants as |restaurant index|}}
+<hr>
+<h3><a href="/{{restaurant.name}}">{{restaurant.name}}</a></h3>
+  <p>address:</p>
+  <ul>
+    <li>{{restaurant.address.street}}</li>
+<li>{{restaurant.address.zipCode}}</li></ul>
+{{/each}}
