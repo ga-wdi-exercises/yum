@@ -1,0 +1,15 @@
+{{#unless restaurant}}
+<h2>That restaurant couldn't be found!</h2>
+{{else}}
+<h2>{{restaurant.name}}!</h2>
+<form method="post" action="/restaurants/{{restaurant.name}}/delete">
+  <button type="submit">Delete</button>
+</form>
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name" value="{{restaurant.name}}" />
+  <input type="text" name="restaurant.address[street]" placeholder="Street" value="{{restaurant.address.street}}" />
+  <input type="text" name="restaurant.address[zipcode]" placeholder="Year" value="{{restaurant.address.zipcode}}" />
+  <input type="text" name="restaurant[yelpUrl]" placeholder="Year" value="{{restaurantyelpUrl}}" />
+  <button type="submit">Edit Restaurant</button>
+</form>
+{{/unless}}

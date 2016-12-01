@@ -1,7 +1,7 @@
-var Schema = require("../db/schema.js");
+var mongoose = require("../db/connection.js");
 
-var Restaurant = Schema.Restaurant
-var MenuItem = Schema.MenuItem
+var Restaurant = mongoose.model("Restaurant");
+var MenuItem = mongoose.model("MenuItem");
 
 Restaurant.remove({}, err => {
   if(err){
@@ -40,3 +40,11 @@ for(var i=0; i<restaurants.length; i++){
     }
   })
 }
+
+// PART 3-8
+// 4. db.restaurants.find({name: "Restaurant1"}).pretty();
+// 5. db.restaurants.find({"address.zipcode": 63141});
+// 6. db.restaurants.update({name: "Restaurant1"}, {$set: {"yelpUrl": "www.google.com"}});
+// 7. db.restaurants.remove({name: "Restaurant1"});
+// 8. db.restaurants.items.update({title: "Steak"}, {$set: {"title": "Meat"}})
+// I spent an hour trying to figure #8 out and thats the best I could come up with. Whats the solution here?

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/yum');
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -20,10 +21,7 @@ var RestaurantSchema = new Schema({
   items: [{type: ObjectId, ref: "MenuItemSchema"}]
 })
 
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var MenuItem = mongoose.model("MenuItem", MenuItemSchema);
+mongoose.model("Restaurant", RestaurantSchema);
+mongoose.model("MenuItem", MenuItemSchema);
 
-module.exports = {
-  Restaurant,
-  MenuItem
-}
+module.exports = mongoose;
