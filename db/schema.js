@@ -17,8 +17,8 @@ var RestSchema = mongoose.Schema({
   items: [MenuSchema]
 })
 
-mongoose.model("MenuSchema", MenuSchema);
-mongoose.model("Restaurant", RestaurantSchema)
+var MenuModel = mongoose.model("MenuSchema", MenuSchema);
+var RestaurantModel = mongoose.model("Restaurant", RestSchema)
 
 module.exports = {
   Restaurant: RestaurantModel,
