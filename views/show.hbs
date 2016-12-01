@@ -6,7 +6,7 @@
 {{/each}}
 
 <h3>Edit the Restaurant's Information</h2>
-<form action="/" method="post">
+<form action="/{{restaurant.name}}" method="post">
   <input type="text" name="restaurant[name]" value="{{restaurant.name}}">
   <input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}">
   <input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}">
@@ -28,7 +28,7 @@
     <button type="submit">Create a new item</button>
   </form></p> -->
 
-  <input type="submit" value="Submit changes">
+  <input type="submit">
 </br>
 
 </form>

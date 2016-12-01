@@ -35,7 +35,7 @@ app.get("/:name", (req, res) => {
 })
 
 app.post("/:name", (req, res) => {
-  Restaurant.findOneAndUpdate({name: req.params.name}).then(function(){
+  Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new:true}).then(restaurant =>{
     res.redirect("/");
   });
 })
