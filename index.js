@@ -27,3 +27,21 @@ app.post("/", (req, res) => {
     res.redirect("/");
   });
 })
+
+app.get("/:name", (req, res) => {
+  Restaurant.findOne({name: req.params.name}).then(restaurant =>{
+    res.render("show", {restaurant});
+  });
+})
+
+app.post("/:name", (req, res) => {
+  Restaurant.findOneAndUpdate({name: req.params.name}).then(function(){
+    res.redirect("/");
+  });
+})
+
+app.post("/:name/delete", (req, res) => {
+  Restaurant.findOneAndRemove({name:req.params.name}).then(function(){
+    res.redirect("/");
+  });
+})

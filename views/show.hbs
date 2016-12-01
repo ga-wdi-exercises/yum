@@ -1,0 +1,44 @@
+<h1>{{restaurant.name}}</h1>
+
+<h2>Menu</h2>
+{{#each restaurant.items as |item|}}
+  <p>{{item.title}}</p>
+{{/each}}
+
+<h3>Edit the Restaurant's Information</h2>
+<form action="/" method="post">
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}">
+  <input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}">
+  <input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}">
+  <input type="text" name="restaurant[yelpUrl]" value="yelpUrl">
+
+////
+<h3>Edit the Restaurant's Menu</h3>
+  {{#each restaurant.items as |item|}}
+
+  <input type="text" name="restaurant[items][title]" value="{{item.title}}">
+
+  <p><form action="/{{restaurant.items.title}}" method="post">
+    <button type="submit">Delete this item</button>
+  </form></p>
+
+  {{/each}}
+
+  <input type="text" name="restaurant[name]" placeholder="Name">
+
+  <p><form action="/{{restaurant.items.title}}" method="post">
+    <button type="submit">Create a new item</button>
+  </form></p>
+
+  <input type="submit" value="Submit changes">
+</br>
+
+</form>
+
+<br>
+
+<form action="/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete This Restaurant</button>
+</form>
+
+<h2><a href="/">Main Listing</a></h2>
