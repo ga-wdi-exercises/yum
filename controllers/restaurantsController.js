@@ -12,11 +12,13 @@ var restaurantsController = {
             } else {
                 console.log(restaurant);
             }
-        })
+        });
     },
     indexByZipcode(req) {
         Restaurant.find({
-            zipcode: req.zipcode
+            address: {
+              zipcode: req.zipcode
+            }
         }, (err, restaurants) => {
             if (err) {
                 console.log(err);
@@ -51,7 +53,7 @@ var restaurantsController = {
 
 restaurantsController.show({
     name: "Keren Restaurant"
-});
+})
 restaurantsController.indexByZipcode({
     zipcode: 20009
 });
