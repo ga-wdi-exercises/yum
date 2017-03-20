@@ -3,8 +3,12 @@ mongoose.connect("mongodb://localhost/yum")
 const db = mongoose.connection
 
 db.on("error", err => {
-  console.error.bind(console, "connection error:")
+  console.log(err)
 }
+
+db.once("open", _ => {
+  console.log("The database is connected!")
+})
 
 const Schema = mongoose.Schema
 
@@ -15,17 +19,17 @@ const RestaurantSchema = new Schema({
     zipcode: Number
   },
   yelpUrl: String,
-  items: [MenuItemSchema]
+  items: [ItemSchema]
 })
 
-const MenuItemSchema = new Schema({
+const ItemSchema = new Schema({
   title: String
 })
 
 const Restaurant = mongoose.model("Restaurant", RestaurantSchema)
-const MenuItem = mongoose.model("MenuItem", MenuItemSchema)
+const Item = mongoose.model("Item", ItemSchema)
 
 module.exports = {
   Restaurant,
-  MenuItem
+  Item
 }
