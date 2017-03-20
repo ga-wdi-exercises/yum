@@ -1,23 +1,7 @@
-You can test your code by running `$ nodemon index.js` in the Terminal.
-
-## Part I: Mongoose
-
-You'll begin by creating an app that performs CRUD functionality on a database using Mongoose queries. You should not be using Express yet.
-
-1. Create schemas and corresponding models for a restaurant and for menu items.
+Test with `nodemon index.js`
+Full CRUD functionality with Mongoose queries (no Express yet)
 
 2. Adds seed data for the restaurant and menu items...
-
-  - A restaurant should have the following field names...
-
-    * `name` - a string
-    * `address` - an object with a `street` (string) and `zipcode` property (number)
-    * `yelpUrl` - a string
-    * `items` - an array containing your MenuItems schema
-
-  - A menu item should contain the followin...
-
-    * `title` - a string
 
 3. Create a new restaurant.
 
