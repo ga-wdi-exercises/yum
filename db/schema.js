@@ -4,13 +4,17 @@ const db = mongoose.connection
 
 db.on("error", err => {
   console.log(err)
-}
+})
 
-db.once("open", _ => {
+db.once("open", () => {
   console.log("The database is connected!")
 })
 
 const Schema = mongoose.Schema
+
+const ItemSchema = new Schema({
+  title: String
+})
 
 const RestaurantSchema = new Schema({
   name: String,
@@ -20,10 +24,6 @@ const RestaurantSchema = new Schema({
   },
   yelpUrl: String,
   items: [ItemSchema]
-})
-
-const ItemSchema = new Schema({
-  title: String
 })
 
 const Restaurant = mongoose.model("Restaurant", RestaurantSchema)

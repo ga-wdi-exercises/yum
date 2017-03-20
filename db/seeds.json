@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Bedig's",
+    "address": {
+      "street": "123 Fictional Street",
+      "zipcode": 20016
+    },
+    "yelpUrl": "https://www.yelp.com/not-a-real-url",
+    "items": [
+      {"title": "Bedig's Burger"},
+      {"title": "House Salad"}
+    ]
+  },
+  {
+    "name": "Savraj's",
+    "address": {
+      "street": "456 Fictional Street",
+      "zipcode": 20016
+    },
+    "yelpUrl": "https://www.yelp.com/also-not-a-real-url",
+    "items": [
+      {"title": "Savraj's Sandwich"},
+      {"title": "Signature Apple Martini"}
+    ]
+  }
+]

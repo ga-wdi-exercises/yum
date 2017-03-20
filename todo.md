@@ -1,8 +1,6 @@
 Test with `nodemon index.js`
 Full CRUD functionality with Mongoose queries (no Express yet)
 
-2. Adds seed data for the restaurant and menu items...
-
 3. Create a new restaurant.
 
 4. Write a function or method that finds a restaurant by `name`.
