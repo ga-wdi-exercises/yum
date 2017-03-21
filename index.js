@@ -34,6 +34,12 @@ app.get('/restaurants', (req, res) => {
   })
 })
 
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body.restaurant).then(restaurant => {
+    res.redirect('/restaurants/' + restaurant.name)
+  })
+})
+
 app.get('/restaurants/:name', (req, res) => {
   Restaurant.findOne({name: req.params.name}).then(restaurant => {
     res.render('show', {restaurant})
