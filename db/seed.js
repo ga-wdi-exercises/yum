@@ -1,5 +1,5 @@
-const models = require("./models")
-const seeds = require("./seeds.json")
+const models = require('./models.js')
+const seeds = require('./seeds.json')
 
 const Restaurant = models.Restaurant
 const Item = models.Item
