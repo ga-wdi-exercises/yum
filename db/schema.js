@@ -15,7 +15,7 @@ db.once('open', () => {
 var Schema = mongoose.Schema;
   ObjectId = Schema.ObjectId
 
-var MenuItemsSchema = new Schema({
+var MenuSchema = new Schema({
   title: String
 });
 
@@ -29,15 +29,5 @@ var RestaurantSchema = new Schema({
   items: [ {type: Schema.ObjectId, ref: "Menu"}]
 })
 
-var Menu = mongoose.model("Menu", MenuItemsSchema )
+var Menu = mongoose.model("Menu", MenuSchema )
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema )
-
-var astro = new Restaurant({name: "Astro Doughnuts", address: {street: "Leesburg Pike", zipcode: 22043 }, yelpUrl: "https://www.yelp.com/biz/astro-doughnuts-and-fried-chicken-falls-church"})
-
-astro.save((err, restaurant) => {
-  if(err) {
-    console.log(err);
-  } else {
-    console.log(restaurant);
-  }
-})
