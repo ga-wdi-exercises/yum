@@ -30,3 +30,11 @@ app.get("/restaurants", (req, res) => {
     })
   })
 })
+
+app.get("/restaurants/:name", (req, res) => {
+  Restaurant.find({name: req.params.name}).then(restaurant => {
+    res.render("show", {
+      restaurant
+    })
+  })
+})
