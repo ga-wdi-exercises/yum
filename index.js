@@ -30,16 +30,12 @@ app.get('/', (req, res) => {
 
 app.get('/restaurants', (req, res) => {
   Restaurant.find({}).then(restaurants => {
-    res.render('index', {
-      restaurants
-    })
+    res.render('index', {restaurants})
   })
 })
 
 app.get('/restaurants/:name', (req, res) => {
-  Restaurant.find({name: req.params.name}).then(restaurant => {
-    res.render('show', {
-      restaurant
-    })
+  Restaurant.findOne({name: req.params.name}).then(restaurant => {
+    res.render('show', {restaurant})
   })
 })
