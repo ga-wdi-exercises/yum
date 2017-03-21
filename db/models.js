@@ -1,14 +1,5 @@
 const mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost/yum")
-const db = mongoose.connection
-
-db.on("error", err => {
-  console.log(err)
-})
-
-db.once("open", () => {
-  console.log("The database is connected!")
-})
 
 const ItemSchema = mongoose.Schema({
   title: String
@@ -24,7 +15,10 @@ const RestaurantSchema = mongoose.Schema({
   items: [ItemSchema]
 })
 
-mongoose.model("Restaurant", RestaurantSchema)
-mongoose.model("Item", ItemSchema)
+const Restaurant = mongoose.model("Restaurant", RestaurantSchema)
+const Item = mongoose.model("Item", ItemSchema)
 
-module.exports = mongoose
+module.exports = {
+  Restaurant,
+  Item
+}

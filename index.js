@@ -1,14 +1,13 @@
 const express = require("express")
 const hbs = require("express-handlebars")
 const parser = require("body-parser")
-const mongoose = require("./db/connection")
+const models = require("./db/models")
 
 const app = express()
 
-const Restaurant = mongoose.model("Restaurant")
-const Item = mongoose.model("Item")
-
-app.set("port", process.env.PORT || 3001)
+app.listen(4000)
+app.use(express.static(__dirname + '/public'))
+app.use(parser.urlencoded({extended: true}))
 app.set("view engine", "hbs")
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -17,12 +16,8 @@ app.engine(".hbs", hbs({
   defaultLayout:  "layout"
 }))
 
-app.use(express.static(__dirname + '/public'))
-app.use(parser.urlencoded({extended: true}))
-
-app.listen(app.get("port"), () => {
-  console.log("It's aliiive!")
-})
+const Restaurant = models.Restaurant
+const Item = models.Item
 
 app.get("/", (req, res) => {
   res.redirect("/restaurants")

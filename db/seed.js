@@ -1,11 +1,11 @@
-const mongoose = require("./connection")
-const seedData = require("./seeds.json")
+const models = require("./models")
+const seeds = require("./seeds.json")
 
-const Restaurant = mongoose.model("Restaurant")
-const Item = mongoose.model("Candidate")
+const Restaurant = models.Restaurant
+const Item = models.Item
 
 Restaurant.remove({}).then(() => {
-  Restaurant.collection.insert(seedData).then(() => {
+  Restaurant.collection.insert(seeds).then(() => {
     process.exit()
   })
 })
