@@ -1,8 +1,8 @@
-const Schema = require("./schema.js")
+const mongoose = require("./connection")
 const seedData = require("./seeds.json")
 
-const Restaurant = Schema.Restaurant
-const Item = Schema.Item
+const Restaurant = mongoose.model("Restaurant")
+const Item = mongoose.model("Candidate")
 
 Restaurant.remove({}).then(() => {
   Restaurant.collection.insert(seedData).then(() => {

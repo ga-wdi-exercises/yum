@@ -10,13 +10,11 @@ db.once("open", () => {
   console.log("The database is connected!")
 })
 
-const Schema = mongoose.Schema
-
-const ItemSchema = new Schema({
+const ItemSchema = mongoose.Schema({
   title: String
 })
 
-const RestaurantSchema = new Schema({
+const RestaurantSchema = mongoose.Schema({
   name: String,
   address: {
     street: String,
@@ -26,10 +24,7 @@ const RestaurantSchema = new Schema({
   items: [ItemSchema]
 })
 
-const Restaurant = mongoose.model("Restaurant", RestaurantSchema)
-const Item = mongoose.model("Item", ItemSchema)
+mongoose.model("Restaurant", RestaurantSchema)
+mongoose.model("Item", ItemSchema)
 
-module.exports = {
-  Restaurant,
-  Item
-}
+module.exports = mongoose
