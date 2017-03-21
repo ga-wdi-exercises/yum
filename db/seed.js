@@ -1,19 +1,25 @@
+const mongoose = require('./connection')
+
+const MenuItem = mongoose.model('MenuItem')
+const Restaurant = mongoose.model('Restaurant')
+
+MenuItem.remove({}).then(()=>{
+  MenuItem.collection.insert().then(()=>{
+    process.exit()
+})
+})
+
+Restaurant.remove({}).then(()=>{
+  Restaurant.collection.insert().then(()=>{
+    process.exit()
+})
+})
+
+
 var Schema = require("../db/schema.js");
 
 var MenuItem = Schema.MenuItem
 var Restaurant = Schema.Restaurant
-
-MenuItem.remove({}, err => {
-  if(err){
-    console.log(err)
-  }
-})
-
-Restaurant.remove({}, err => {
-  if(err){
-    console.log(err)
-  }
-})
 
 
 var restaurant1 = new Restaurant({name: "Church Key", address: {street: "1337 14th St NW", zipcode: 20005}, yelpUrl: "https://www.yelp.com/biz/churchkey-washington"})
