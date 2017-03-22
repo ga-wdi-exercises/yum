@@ -8,8 +8,8 @@ db.once('open', () => {
 });
 
 
-var Schema = mongoose.Schema,
-ObjectId = Schema.ObjectId
+var Schema = mongoose.Schema;
+ObjectId = Schema.ObjectId;
 
 var MenuItemSchema = new Schema({
   title: String
