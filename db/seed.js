@@ -32,46 +32,46 @@ var items = [menuitem1, menuitem2, menuitem3, menuitem4, menuitem5, menuitem6]
 var restaurants = [restaurant1, restaurant2]
 
 //Seeding items
-menuitem1.save((err, menuitems) => {
+menuitem1.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
-menuitem2.save((err, menuitems) => {
+menuitem2.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
-menuitem3.save((err, menuitems) => {
+menuitem3.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
-menuitem4.save((err, menuitems) => {
+menuitem4.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
-menuitem5.save((err, menuitems) => {
+menuitem5.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
-menuitem5.save((err, menuitems) => {
+menuitem5.save((err, menuitem) => {
   if(err){
     console.error(err)
   } else {
-    console.log(menuitems)
+    // console.log(menuitem)
   }
 })
 
@@ -86,6 +86,3 @@ for(var i = 0; i < restaurants.length; i++){
     }
   })
 };
-
-
-//
