@@ -14,6 +14,7 @@
 {{/each}}
 </ul>
 
+<!-- edit restaurant info -->
 <div class="form">
   <form action="/restaurants/{{restaurant.name}}" method="post">
     <input  type='text' name="restaurant[name]" placeholder="Name" value="{{restaurant.name}}"/>
@@ -21,6 +22,10 @@
     <input type='number' name="restaurant[address][zipcode]" placeholder="Zip Code" value="{{restaurant.address.zipcode}}" />
     <input type='text' name="restaurant[yelpUrl]" placeholder="Yelp URL"  value="{{restaurant.yelpUrl}}"/>
     <button type='submit'> Submit</button>
+  </form>
+  <!-- Deletes restaurant -->
+  <form  action="/restaurants/{{restaurant.name}}/delete" method="post">
+    <button type="submit"> Delete </button>
   </form>
 </div>
 {{else}}

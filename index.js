@@ -22,7 +22,7 @@ app.use(parser.urlencoded({extended: true}));
 app.get('/', function(req, res){
   Restaurant.find({}).then( (restaurants) => {
   res.render("index", {restaurants})
-  })
+  });
 });
 
 
@@ -30,23 +30,29 @@ app.get('/', function(req, res){
 app.post('/', function(req, res){
   Restaurant.create(req.body.restaurant).then( (err, restaurant) => {
     res.redirect("/");
-  })
+  });
 });
 
 // show individual restaurant and their info
 app.get('/restaurants/:name', function(req, res){
   Restaurant.findOne({name: req.params.name}).then(function(restaurant){
     res.render('show', {restaurant})
-  })
+  });
 });
 
 // update individual restaurant
 app.post('/restaurants/:name', function(req, res){
   Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then((restaurant) =>{
     res.redirect(`/restaurants/${restaurant.name}`)
-  })
-})
+  });
+});
 
+// delete individual restaurant
+app.post('/restaurants/:name/delete', function(req, res){
+  Restaurant.findOneAndRemove({name: req.params.name}).then(() => {
+    res.redirect('/');
+  });
+});
 
 // references to activate when this port get visited
 app.listen(app.get("port"), function(){
