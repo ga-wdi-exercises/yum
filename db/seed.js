@@ -31,3 +31,14 @@ var beans = new Item(title: "Beans")
 
 var restaurants = [chipotle, moes, albertos]
 var items = [burrito, nacho, taquito, enchilada, papusa, tamale, rice, beans]
+
+for(var i = 0; i < restaurants.length; i++){
+  restaurants[i].items.push(items[i], items[i+1])
+  restaurants[i].save((err, restaurant) => {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(restaurant)
+    }
+  })
+};
