@@ -8,19 +8,20 @@ db.once('open', () => {
 });
 
 
-var Schema = mongoose.Schema
+var Schema = mongoose.Schema,
+ObjectId = Schema.ObjectId
 
-var menuItemSchema = new Schema({
+var MenuItemSchema = new Schema({
   title: String
 })
 
-var restaurantSchema = new Schema({
+var RestaurantSchema = new Schema({
   name: String,
   address: { street: String,
     zipcode: Number
   },
   yelpUrl: String,
-  items: [menuItems]
+  items: [MenuItemSchema]
 })
 
 var MenuItem = mongoose.model("MenuItem", MenuItemSchema)
