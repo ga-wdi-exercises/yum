@@ -1,8 +1,51 @@
+//Dependencies
+var express = require("express");
+var hbs     = require("express-handlebars");
+var parser = require("body-parser");
 var mongoose = require('mongoose');
+
+//Initializing an Express app
+var app     = express();
+
+//Schema and Models
 var Schema = require("./db/schema.js");
 
 var Menuitem = mongoose.model('MenuItem');
 var Restaurant= mongoose.model('Restaurant');
+
+//Setting the server, handle bars, and body parser
+app.set("port", process.env.PORT || 3001);
+app.set("view engine", "hbs");
+app.engine(".hbs", hbs({
+  extname:        ".hbs",
+  partialsDir:    "views/",
+  layoutsDir:     "views/",
+  defaultLayout:  "layout-main"
+}));
+app.use("/assets", express.static("public"));
+
+//configure the parser to support html forms
+app.use(parser.urlencoded({extended: true}))
+
+//Setting the sever
+app.listen(app.get("port"), function(){
+  console.log("It's aliiive!");
+});
+
+//Routes
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------
+//Part 1
 
 //Create a new restaurant.
 Restaurant.create({name: "Mike's Backery"}, (err, restaurant) => {
@@ -70,4 +113,4 @@ function removeItem(resturant, item){
     }
   });
 }
-removeItem("Busboys and Poets", "Beef")          
+removeItem("Busboys and Poets", "Beef")
