@@ -16,7 +16,7 @@ db.once('open', () => {
 //Schema
 var Schema = mongoose.Schema;
 
-var MenuItemSchema = new Schema({
+var MenuitemSchema = new Schema({
   title: String,
 });
 
@@ -26,15 +26,15 @@ var RestaurantSchema = new Schema({
     street: String,
     zipcode: Number
   },
-  yelpUrl: String
-  items: [MenuItemSchema]
+  yelpUrl: String,
+  items: [MenuitemSchema]
 });
 
 //Models
+var Menuitem = mongoose.model('MenuItem', MenuitemSchema);
 var Restaurant= mongoose.model('Restaurant', RestaurantSchema);
-var MenuItem = mongoose.model('MenuItem', MenuItemSchema);
 
 module.exports = {
-  Restaurant: Restaurant,
-  MenuItem: MenuItem
+    Menuitem: Menuitem,
+    Restaurant: Restaurant
 };
