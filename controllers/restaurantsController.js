@@ -14,7 +14,16 @@ var restaurantsController = {
       console.log(docs);
       return docs;
     });
-  }
+  },
+  update: function(req, update){[
+    Restaurant.findOneAndUpdate(req, update, {new: true}, function(err, docs){
+      if(err){
+        console.log(err)
+      } else{
+        console.log(docs)
+      }
+    })
+  ]}
 
 }
 
