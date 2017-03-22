@@ -9,7 +9,10 @@ const MenuItem = require('./db/models.js').MenuItem;
 
 const app = express();
 
+// allows us to view on local host using handlebars/hbs
 app.set('view engine', 'hbs');
+
+// the port that gets visited
 app.set("port", process.env.PORT || 3001);
 
 app.use("/assets", express.static("public"));
@@ -37,7 +40,11 @@ app.get('/restaurants/:name', function(req, res){
   })
 });
 
+// update individual restaurant
 
+
+
+// references to activate when this port get visited
 app.listen(app.get("port"), function(){
   console.log('Alive and Active');
 });
