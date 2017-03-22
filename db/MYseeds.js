@@ -52,12 +52,6 @@ db.restaurants.find().forEach(function() {
 
 
 
-
-
-
-
-
-
 // db.restaurants.insert( {name: "The Partisan"} )
 
 // MenuItem.remove({}, (err) => {

@@ -5,7 +5,7 @@ var Restaurant = Schema.Restaurant;
 var MenuItem = Schema.MenuItem;
 
 
-
+// UN COMMENT CREATE, also put inside a function
 
 // Restaurant.create({
 //     name: 'Insomnia Cookies',
@@ -40,3 +40,16 @@ function findByZip(zip) {
 }
 
 // findByZip(20009);
+
+function updateRestaurantName(restaurant, updatedName) {
+    Restaurant.findOneAndUpdate({
+        name: restaurant
+    }, {
+        name: updatedName
+    }, {
+        new: true
+    }, (err, rest) => {
+        (err) ? console.log(err): console.log(rest); // found here
+    })
+}
+updateRestaurantName("Insomnia Cookies", "Insomniac");
