@@ -41,7 +41,11 @@ app.get('/restaurants/:name', function(req, res){
 });
 
 // update individual restaurant
-
+app.post('/restaurants/:name', function(req, res){
+  Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then((restaurant) =>{
+    res.redirect(`/restaurants/${restaurant.name}`)
+  })
+})
 
 
 // references to activate when this port get visited
