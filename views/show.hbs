@@ -1,0 +1,19 @@
+{{#if restaurant}}
+<h1>{{restaurant.name}}</h1>
+
+<h3> Address: {{restaurant.address.street}} {{restaurant.address.zipcode}}</h3>
+
+<h3><a href="{{yelpUrl}}"> Yelp Page </a></h3>
+
+<h2> Menu </h2>
+{{#each restaurant.items as | item |}}
+
+<p>{{item.title}}</p>
+
+{{/each}}
+
+{{else}}
+
+<h1> This Restaurant doesn't exist yet.</h1>
+
+{{/if}}
