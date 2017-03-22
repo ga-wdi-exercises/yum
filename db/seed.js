@@ -46,20 +46,3 @@ for(var i = 0; i < restaurants.length; i++){
     }
   })
 };
-
-
-
-
-
-
- // Assign menus to each restaurant using forEach
-  //  restaurants.forEach((restaurant, i) => {
-  //    restaurant.menus.push(menus[i], menus[i+1])
-  //    restaurant.save((err, restaurant) => {
-  //      if (err) {
-  //        console.log(err)
-  //      } else {
-  //        console.log(restaurant);
-  //      }
-  //    })
-  //  })
