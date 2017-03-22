@@ -2,9 +2,6 @@
 
 Turn YUM into an Express app with routes that you can view in your browser and forms that manipulate your data with full CRUD.
 
-- A page that lists one restaurant and all its menu items, on which a user can...
-  - Delete the restaurant.
-  - Update the restaurant.
   - Create a new menu item for the restaurant.
   - Delete a menu item from the restaurant.
 

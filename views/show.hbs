@@ -13,3 +13,19 @@
     <p>{{item.title}}</p>
   {{/each}}
 </section>
+
+<h3>Edit Restaurant</h3>
+
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <p><input type="text" name="restaurant[name]" value="{{restaurant.name}}" placeholder="name"></p>
+  <p><input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}" placeholder="street address"></p>
+  <p><input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}" placeholder="zipcode"></p>
+  <p><input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}" placeholder="yelp url"></p>
+  <p><button type="submit">Update Restaurant</button></p>
+</form>
+
+<h3>Delete Restaurant</h3>
+
+<form action="/restaurants/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete Restaurant</button>
+</form>

@@ -45,3 +45,19 @@ app.get('/restaurants/:name', (req, res) => {
     res.render('show', {restaurant})
   })
 })
+
+app.post('/restaurants/:name', (req, res) => {
+  Restaurant.findOneAndUpdate(
+    {name: req.params.name},
+    req.body.restaurant,
+    {new: true}
+  ).then(restaurant => {
+    res.redirect('/restaurants/' + restaurant.name)
+  })
+})
+
+app.post('/restaurants/:name/delete', (req, res) => {
+  Restaurant.findOneAndRemove({name: req.params.name}).then(() => {
+    res.redirect('/restaurants')
+  })
+})
