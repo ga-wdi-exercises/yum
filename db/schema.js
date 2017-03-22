@@ -1,4 +1,13 @@
 const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/yum');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+var ItemSchema = new mongose.Schema(
+  {
+    title: String
+  }
+)
 
 var RestaurantSchema = new mongoose.Schema(
   {
@@ -8,16 +17,12 @@ var RestaurantSchema = new mongoose.Schema(
       zipcode: Number,
       }
     yelpUrl: String
-    items: Array
+    items: [ItemSchema]
   }
 )
 
-var MenuSchema = new mongose.Schema(
-  {
-    title: String
-  }
-)
+var Item = mongoose.model("Item", ItemSchema)
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema)
 
-mongoose.connect('mongodb://localhost/yum');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+
+module.exports = mongoose
