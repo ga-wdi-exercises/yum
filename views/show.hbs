@@ -1,0 +1,33 @@
+{{#if restaurant}}
+<h1>{{restaurant.name}}</h1>
+
+<h3>Address: {{restaurant.address.street}} {{restaurant.address.zipcode}}</h3>
+
+<h3><a href="{{yelpUrl}}">Yelp Page</a></h3>
+
+<ul>
+  {{#each restaurant.items as | item |}}
+  <li>{{item.title}}</li>
+  {{/each}}
+</ul>
+
+<!-- edit restaurant -->
+<div class="form">
+  <form action="/restaurant/{{restaurant.name}}" method="post">
+    <input type="text" name="restaurant[name]" value="{{restaurant.name}}"/>
+    <input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}"/>
+    <input type="number" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}"/>
+    <input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}"/>
+    <button type="submit" name="button">Submit</button>
+  </form>
+  <!-- Delete -->
+  <form action="/restaurants/{{restaurant.name}}/delete" method="post">
+    <button type="submit" name="button">Delete</button>
+  </form>
+</div>
+
+{{else}}
+
+<h1> This Restaurant Doesn't Exist Yet.</h1>
+
+{{/if}}

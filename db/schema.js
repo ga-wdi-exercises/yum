@@ -41,6 +41,6 @@ var MenuItem = mongoose.model("MenuItem", MenuItem);
 // });
 
 module.exports = {
-  Restaurant: Restaurant,
-  MenuItem: MenuItem
+  Restaurant,
+  MenuItem
 };

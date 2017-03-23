@@ -1,26 +1,10 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+mongoose.connect('mongodb://localhost/yum');
+const db = mongoose.connection;
 
-var RestaurantSchema = new mongoose.Schema(
-  {
-    name: String,
-    address: {
-      street: String,
-      zipcode: Number
-    },
-    yelp: String,
-    items: [MenuSchema]
-  }
-);
+db.on('error', console.error.bind(console, 'connection error:'));
 
-var MenuSchema = new Schema(
-{
-  title: String
-}
-);
-
-mongoose.model("Restaurant", RestaurantSchema);
-mongoose.model("Menu", MenuSchema);
-mongoose.connect("mongod://localhost/resturants");
-
-
+db.once('open', function(){
+  console.log("db connected");
+});
 module.exports = mongoose;
