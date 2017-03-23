@@ -37,6 +37,6 @@ var MenuModel = mongoose.model("Menu", MenuSchema)
 
 
 module.exports = {
-  RestaurantModel: RestaurantModel,
-  MenuModel: MenuModel
+  RestaurantModel,
+  MenuModel
 };

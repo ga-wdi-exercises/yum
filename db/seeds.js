@@ -65,8 +65,8 @@ var Restaurant2 = new RestaurantModel({
 
 var restaurants = [Restaurant1, Restaurant2, Restaurant3, Restaurant4]
 var menus = [menu1, menu2, menu3, menu4, menu5]
-// console.log(menus)
-// console.log(restaurants)
+console.log(menus)
+console.log(restaurants)
 
 for (var i =0; i< restaurants.length; i++){
   restaurants[i].items.push(menus[i], menus[i+1] )
