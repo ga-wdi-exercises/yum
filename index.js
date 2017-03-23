@@ -52,4 +52,14 @@ function updateRestaurantName(restaurant, updatedName) {
         (err) ? console.log(err): console.log(rest); // found here
     })
 }
-updateRestaurantName("Insomnia Cookies", "Insomniac");
+// updateRestaurantName("Insomnia Cookies", "Insomniac");
+
+function deleteRestaurant(restaurant) {
+    Restaurant.deleteOne({
+        name: restaurant
+    }, (err) => {
+        (err) ? console.log(err): console.log("Success");
+    })
+}
+
+deleteRestaurant("Insomniac");
