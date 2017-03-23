@@ -1,2 +1,2 @@
-var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
+const mongoose = require('mongoose');
+const Schema = require("./db/schema.js");
