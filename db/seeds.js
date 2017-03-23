@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = require("../db/schema.js");
 
-
+var Restaurant = mongoose.model("Restaurant")
+var Menu = mongoose.model("Menu")
 
 var RestaurantModel = Schema.RestaurantModel
 var MenuModel = Schema.MenuModel
@@ -79,3 +80,4 @@ for (var i =0; i< restaurants.length; i++){
    }
  });
 }
+module.exports = mongoose
