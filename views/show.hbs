@@ -1,0 +1,38 @@
+<h2>{{restaurant.name}}</h2>
+
+<address>
+  {{restaurant.address.street}}<br>
+  Washington, DC {{restaurant.address.zipcode}}
+</address>
+
+<p><a href="{{restaurant.yelpUrl}}">Yelp</a></p>
+
+<section class="menu">
+  <h3>Menu</h3>
+  {{#each items as |item|}}
+    <form action="/restaurants/{{../restaurant.name}}/items/{{item.title}}/delete" method="post">
+      {{item.title}}
+      <button type="submit">Delete</button>
+    </form>
+  {{/each}}
+  <form action="/restaurants/{{restaurant.name}}/new-item" method="post">
+    <p><input type="text" name="item[title]" placeholder="new menu item" autocomplete="off"></p>
+    <p><button type="submit">Add Menu Item</button></p>
+  </form>
+</section>
+
+<h3>Edit Restaurant</h3>
+
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <p><input type="text" name="restaurant[name]" value="{{restaurant.name}}" placeholder="name"></p>
+  <p><input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}" placeholder="street address"></p>
+  <p><input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}" placeholder="zipcode"></p>
+  <p><input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}" placeholder="yelp url"></p>
+  <p><button type="submit">Update Restaurant</button></p>
+</form>
+
+<h3>Delete Restaurant</h3>
+
+<form action="/restaurants/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete Restaurant</button>
+</form>
