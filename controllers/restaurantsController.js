@@ -1,8 +1,8 @@
+// Mongoose CRUD
 var Schema = require("../db/schema.js");
 var Restaurant = Schema.Restaurant
 var MenuItem = Schema.MenuItem
 
-// Mongoose CRUD
 var restaurantsController = {
   index() {
     Restaurant.find({}, (err, restaurants) => {
@@ -40,5 +40,5 @@ restaurantsController.index();
 restaurantsController.show({name: "Astro Doughnuts"});
  // update a restaurant
 restaurantsController.update({name: "Taco Bamba"}, {name: "Taco Mamba"});
- delete
+ // delete
  restaurantsController.destroy({name: "Astro Doughnuts"});
