@@ -16,10 +16,23 @@ var BbPizza = new Restaurant({
   yelpUrl: "https://www.yelp.com/",
 });
 
-var BbPizza = new Restaurant({
+var BbsPizza = new Restaurant({
   name: "BB's English",
   address: {street: "14th Street", zipcode: 000000},
   yelpUrl: "https://www.yelp.com/"
 });
 
-var foodRestaurants = [BbPizza, BbEnglish];
+var foodRestaurants = [BbPizza, BbsPizza];
+var foodLists = [BbPizza, BbEnglish];
+
+for(var i=0; i<foodRestaurants.length; i++;{
+  foodRestaurants[i].items.push(foodLists[i],foodLists[i+1]);
+    foodRestaurants[i].save((err, foodRestaurants) => {
+      if(err) {
+        console.log(err);
+      } else {
+        console.log(foodRestaurants)
+      }
+      }
+    })
+})
