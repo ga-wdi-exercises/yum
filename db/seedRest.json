@@ -1,0 +1,30 @@
+[{
+        "name": "The Partisan",
+        "address": {
+            "street": "709 D St",
+            "zipcode": 20004
+        },
+        "yelpUrl": "'https://www.yelp.com/biz/the-partisan-washington'"
+    }, {
+        "name": "The Passenger",
+        "address": {
+            "street": "1539 7th St NW",
+            "state": 20001
+        },
+        "yelpUrl": "'https://www.yelp.com/biz/the-passenger-washington'"
+    }, {
+        "name": "Espita Mezcalaria",
+        "address": {
+            "street": "1250 9th St NW",
+            "zipcode": 20001
+        },
+        "yelpUrl": "https://www.yelp.com/biz/espita-mezcaleria-washington"
+    },
+    {
+        "name": "Tacos El Chilango",
+        "address": {
+            "street": "1119 V St NW",
+            "zipcode": 20009
+        },
+        "yelpUrl": "https://www.yelp.com/biz/tacos-el-chilango-washington"
+    }]
