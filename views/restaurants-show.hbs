@@ -21,6 +21,12 @@
   </ul>
   {{/each}}
 
+  <form action="/restaurants/{{restaurant.name}}" method="post">
+    <label for="new_menuitem">Add new deliciousness</label>
+    <input type="text" name="restaurant.items[title]" placeholder="Item">
+    <button type="submit"> Submit Yum </button>
+  </form>
+
 
 {{else}}
 <h3> Sorry, that restaurant couldn't be found!</h3>

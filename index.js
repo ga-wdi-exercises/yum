@@ -41,19 +41,25 @@ app.get("/restaurants/:name", function(req,res) {
     });
   })
 });
-
+// create restaurant
 app.post("/restaurants", function(req,res) {
   Restaurant.create(req.body.restaurant).then( (restaurant) => {
     res.redirect("/restaurants/" + restaurant.name)
   })
 });
-
+// create menu item
+app.post("/restaurants/:name", function(req,res) {
+  Restaurant.items.create(req.body.restaurant.items).then( (restaurant) => {
+    res.redirect("/restaurants/" + restaurant.name)
+  })
+});
+// delete restaurant
 app.post("/restaurants/:name/delete", function(req,res) {
   Restaurant.findOneAndRemove({name: req.params.name}).then(() => {
     res.redirect("/restaurants")
   })
 })
-
+// update restaurant
 app.post("/restaurants/:name", function(req,res) {
   Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then( (restaurant) => {
     res.redirect("/restaurants/" + restaurant.name)
