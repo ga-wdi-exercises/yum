@@ -1,13 +1,13 @@
 var Schema = require("../db/schema.js");
 
-var RestaurantSchema = new mongoose.Schema({
-  name: String,
-  address: {
-    street: String,
-    zipcode: Number
-  },
-  yelpUrl: String,
-  items: [MenuItemSchema]
+var Restaurant = Schema.Restaurant
+var MenuItem = Schema.MenuItem
+
+Restaurant.remove({}, (err) => {
+  console.log(err)
+})
+MenuItem.remove({}, (err) => {
+  console.log(err)
 })
 
 var cava = new Restaurant({
