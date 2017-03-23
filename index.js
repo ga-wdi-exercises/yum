@@ -27,7 +27,7 @@ app.engine(".hbs", hbs({
 
 // Root
 app.get("/", function(req, res) {
-  Restaurant.find({}).then((restaurants) => {
+  Restaurant.find({}).then(() => {
     res.render("restaurants-index", {
       restaurants
     });
@@ -36,7 +36,7 @@ app.get("/", function(req, res) {
 
 // NEW
 app.post("/", function(req, res) {
-  Restaurant.create(req.body.restaurant).then(function(restaurant) {
+  Restaurant.create(req.body.restaurant).then(function() {
     res.redirect("/${restaurant.name}");
   });
 });
