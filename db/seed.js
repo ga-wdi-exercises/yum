@@ -27,7 +27,7 @@ var item5 = new Item({title: "French Fries"})
 var item6 = new Item({title: "Apple Pie"})
 var item7 = new Item({title: "Chicken Nuggets"})
 
-var restaurants = [restaurant1]
+var restaurants = [restaurant1, restaurant2, restaurant3]
 var items = [item1, item2, item3, item4, item5, item6, item7]
 
 for(var i=0; i < restaurants.length; i++){

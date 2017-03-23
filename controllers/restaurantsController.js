@@ -34,4 +34,4 @@ var restaurantsController = {
 }
 
 restaurantsController.index();
-restaurantsController.show({name: "mcdonalds"});
+restaurantsController.show({name: "Chik-Fil-A"});
