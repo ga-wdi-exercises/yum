@@ -1,12 +1,11 @@
 const mongoose  = require('./db/connection.js');
-var Schema =
 const express   = require('express');
 const parser    = require('body-parser');
 const hbs       = require('express-handlebars');
 
 //schema
 const Item = require('./db/models.js').Item;
-const Restaurant = require('./db/models.js').Restaurant;
+const Restaurant =  require('./db/models.js').Restaurant;
 
 const app = express();
 
