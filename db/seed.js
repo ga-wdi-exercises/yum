@@ -1,7 +1,5 @@
-const Schema = require("../db/schema.js");
-
-const Item = Schema.Item;
-const Restaurant = Schema.Restaurant;
+const Item = require('./models.js').Item;
+const Restaurant = require('./models.js').Restaurant;
 
 const seedData = require("./seed.js");
 
@@ -12,6 +10,8 @@ Item.remove({}).then((err) => {
 Restaurant.remove({}).then((err) => {
   process.exit();
 });
+
+//seedData
 
 var burrito = new Item({title: "Burrito"});
 var nacho = new Item({title: "Nacho"});

@@ -1,15 +1,13 @@
-var mongoose  = require('mongoose');
-var Schema    = require("./db/schema.js");
-
-var express   = require("express");
-var parser    = require("body-parser");
-var hbs       = require("express-handlebars");
-
-var app = express();
+const mongoose  = require('./db/connection.js');
+const express   = require('express');
+const parser    = require('body-parser');
+const hbs       = require('express-handlebars');
 
 //schema
-var Item = mongoose.model("Item")
-var Restaurant = mongoose.model("Restaurant")
+const Item = require('./db/models.js').Item;
+const Restaurant = require('./db/models.js').Restaurant;
+
+const app = express();
 
 app.set("port", process.env.PORT || 3001)
 app.set("view engine", "hbs")
