@@ -1,8 +1,8 @@
+ // Express CRUD
 const express  = require("express");
 const parser   = require("body-parser");
 const hbs      = require("express-handlebars");
 const mongoose = require("./db/connection");
-// var Schema = require("./db/schema.js");
 
 const app = express();
 
@@ -20,16 +20,46 @@ app.engine(".hbs", hbs({
 app.use("/assets", express.static("public"));
 app.use(parser.urlencoded({extended: true}))
 
+ // welcome page
 app.get("/", function(req,res){
   res.render("welcome");
 });
+// show all restaurants
+app.get("/restaurants", function(req,res) {
+  Restaurant.find({}).then( (restaurants) => {
+    res.render("restaurants-index", {
+      restaurants: restaurants
+    });
+  })
+});
 
+// show each restaurant
+app.get("/restaurants/:name", function(req,res) {
+  Restaurant.findOne({name: req.params.name}).then( (restaurant) => {
+    res.render("restaurants-show", {
+      restaurant: restaurant
+    });
+  })
+});
 
-// app.get("/", function(req,res) {
-//   Restaurant.find({}).then( (restaurants) => {
-//     res.render()
-//   })
-// })
+app.post("/restaurants", function(req,res) {
+  Restaurant.create(req.body.restaurant).then( (restaurant) => {
+    res.redirect("/restaurants/" + restaurant.name)
+  })
+});
+
+app.post("/restaurants/:name/delete", function(req,res) {
+  Restaurant.findOneAndRemove({name: req.params.name}).then(() => {
+    res.redirect("/restaurants")
+  })
+})
+
+app.post("/restaurants/:name", function(req,res) {
+  Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then( (restaurant) => {
+    res.redirect("/restaurants/" + restaurant.name)
+  })
+});
+
 app.listen(app.get("port"), function() {
   console.log("It's Aliiivee!!")
 })
