@@ -14,17 +14,17 @@ db.once('opne', function() {
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId
 
-var ItemSchema = new Schema {
+var ItemSchema = new Schema ({
   title: String
-}
+})
 
 var RestaurantSchema = new Schema({
   name: String,
-  address: [
+  address: {
     street: String,
     zipcode: Number
-  ],
-  yelpUrl: String
+  },
+  yelpUrl: String,
   items: [ItemSchema]
 })
 
