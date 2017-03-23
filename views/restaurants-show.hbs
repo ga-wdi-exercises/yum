@@ -1,0 +1,27 @@
+{{#if restaurant}}
+<h2>{{restaurant.name}}</h2>
+
+  <div class="menu_view">
+    <h3>menus</h3>
+    {{#each restaurant.items as |item index|}}
+      <p>{{item.title}}</p>
+    {{/each}}
+  </div>
+
+
+<form class="" action="/restaurants/{{restaurant.name}}" method="post">
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}"/>
+  <input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}"/>
+  <input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}"/>
+  <input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}"/>
+  <input type="text" name="restaurant[items][title]" value="{{restaurant.items}}"/>
+  <button type="submit">Update </button>
+</form>
+
+{{else}}
+<h2>No restaurant with that name</h2>
+{{/if}}
+
+<form action="/restaurants/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>

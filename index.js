@@ -32,7 +32,32 @@ app.get("/restaurants", function(req, res){
 
 });
 
+app.post("/restaurants", function(req, res){
+    Restaurant.create(req.body.restaurant).then((restaurant) =>{
+      res.redirect("/restaurants/" + restaurant.name )
+    })
+})
 
+app.get("/restaurants/:name", function(req, res){
+Restaurant.findOne({name: req.params.name}).then((restaurant) => {
+      res.render("restaurants-show", {
+        restaurant: restaurant
+      });
+    })
+});
+
+app.post("/restaurants/:name" , function(req, res){
+  Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then((restaurant) => {
+    res.redirect("/restaurants/" + restaurant.name )
+
+})
+})
+
+app.post("/restaurants/:name/delete", function(req, res){
+  Restaurant.findOneAndRemove({name: req.params.name}).then(() => {
+    res.redirect("/restaurants")
+  })
+})
 
 app.listen(app.get("port"), function(){
   console.log("It's aliiive!");
