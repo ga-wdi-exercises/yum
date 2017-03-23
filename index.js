@@ -17,12 +17,12 @@ if (err){
 
 // Find restaurant by name
 function findByName(restaurant){
-Restaurant.findOne({name: restaurant}, function(err, restaurant){
+Restaurant.findOne({name: restaurant}, function(err, thisrestaurant){
   if(err){
     console.log(err);
   }
   else{
-    console.log(restaurant);
+    console.log(thisrestaurant);
   }
 });
 }
@@ -33,9 +33,64 @@ resaurantsWithSameZipcode = [];
 Restaurant.find({}, function(err, restaurants){
   restaurants.forEach(function(restaurant){
     if(restaurant.address.zipcode === zipcode){
-      resaurantsWithSameZipcode.push(rest);
+      resaurantsWithSameZipcode.push(restaurant);
     }
   });
-  console.log(results);
+  console.log(restaurant);
 });
+}
+
+// Update a restaurant
+function updateRestaurant(restaurant, update){
+  Restaurant.findOneAndUpdate({name: restaurant}, {name: update}, {new: true}, function(err, docs){
+    if(err){
+      console.log(err)
+    }
+    else{
+      console.log(docs);
+    }
+  });
+}
+
+// Delete a restaurant
+function destroyRestaurant(restaurant){
+  Restaurant.findOneAndRemove({name: restaurant}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs + "deleted!");
+    }
+  });
+}
+
+
+// Add items
+function addItem(restaurant, item){
+  Restaurant.findOne({name: restaurant}, function(err, docs){
+    docs.items.push(new MenuItem({title: item}))
+    docs.save(function(err, results){
+      if(err){
+        console.log(err)
+      }
+      else{
+        console.log(results);
+      }
+    })
+  });
+}
+
+// Remove items
+function removeItem(restaurant, item){
+  Restaurant.findOneAndUpdate({name: restaurant}, {
+    $pull: { items: {title: item} }
+  },
+  {new: true}, function(err, docs){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log(docs);
+    }
+  });
 }
