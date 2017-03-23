@@ -1,25 +1,24 @@
-//Dependencies
+                                    // #################################
+                                    // 201703232019L   EL MIERCOLES   JAY                                                //Inject Dependencies
 var express = require("express");
+var parser  = require("body-parser");
 var hbs     = require("express-handlebars");
-var parser = require("body-parser");
+// var session = require("express-session");
+// var cmongo  = require("connect-mongo");
 var mongoose = require('mongoose');
-
-//Initializing an Express app
+// var request = require("request");
+var qstring = require("qs");
+// var mongoose= require("./db/connection");
 var app     = express();
+// var env;
 
-//Schema and Models
+                                                  //Schema and Models
 var Schema = require("./db/schema.js");
-
 var Menuitem = mongoose.model('MenuItem');
 var Restaurant= mongoose.model('Restaurant');
 
 app.set("port", process.env.PORT || 3001);
-app.engine(".hbs", hbs({
-  extname:        ".hbs",
-  partialsDir:    "views/",
-  layoutsDir:     "views/",
-  defaultLayout:  "layout-main"
-}));
+app.engine(".hbs", hbs({ extname:  ".hbs", partialsDir:  "views/", layoutsDir:  "views/", defaultLayout:  "layout-main" }));
 
 
 
