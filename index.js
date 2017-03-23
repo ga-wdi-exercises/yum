@@ -16,3 +16,10 @@ app.set("view engine", "hbs");
 
 app.use("/assets", "express.static("public"));
 app.use(parser.urlencoded({extended:true});
+
+app.engine(".hbs", hbs({
+  extname: ".hbs",
+  partialsDir ".views/",
+  layoutsDir ".views/",
+  defaultLayout "layout-main",
+}));
