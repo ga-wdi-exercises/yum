@@ -36,3 +36,16 @@ function deleteRestaurant(name) {
 }
 
 // 8. Write methods to add and remove embedded menu item documents for a restaurant of your choosing.
+function addItem(restaurantName, itemTitle) {
+  Restaurant.findOneAndUpdate(
+    {name: restaurantName},
+    {$push: {items: {title: itemTitle}}}
+  )
+}
+
+function removeItem(restaurantName, itemTitle) {
+  Restaurant.findOneAndUpdate(
+    {name: restaurantName},
+    {$pull: {items: {title: itemTitle}}}
+  )
+}
