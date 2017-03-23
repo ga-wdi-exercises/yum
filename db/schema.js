@@ -1,9 +1,6 @@
-var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/yum');
 var db = mongoose.connection;
-db.on('error', err => {
-  console.log("Connection error.");
-});
+db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log("Database connected!");
 });
