@@ -1,5 +1,12 @@
+const express = require('express');
+const parser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = require("./db/schema.js");
+
+const app = express()
+
+var Restaurant = mongoose.model("Restaurant")
+
 
 //create new
 const fogo = Restaurant.create({name: "Fogo Du Chao", address: {street: "123 Eata Way", zipcode: 12345}, yelpUrl: "yelp.com/fogoduchao"})
@@ -61,3 +68,12 @@ app.get("/restaurants", function(req, res){
     restaurants: restaurants
   })
 })
+
+
+
+// // app.get("/api/restaurants", function(req, res){
+//   app.get("/restaurants", function(req, res){
+//  Restaurant.find({}).then(function(restaurants){
+//    res.json(restaurants);
+//  });
+// });

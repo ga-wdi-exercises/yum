@@ -16,8 +16,6 @@ var RestaurantSchema = new Schema({
     items: [ MenuItemSchema ]
   })
 
-
-
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema)
 var MenuItem = mongoose.model("MenuItem", MenuItemSchema)
 
