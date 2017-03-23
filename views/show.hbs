@@ -1,0 +1,20 @@
+<a href="restaurants-show">{{restaurant.name}} and {{restaurant.address.street}}</a>
+
+
+{{restaurant.address.street}}
+{{restaurant.address.zipcode}}
+
+
+{{Menu.title}}
+
+
+EDIT?!
+<form action="/:name/{{restaurant.name}}" method="post">
+ <input type="Name" name="restaurant[name]" placeholder="Name" />
+ <input type="Address" name="restaurant[address][street]" placeholder="Street" />
+ <input type="Address" name="restaurant[address][zipcode]" placeholder="Zip Code" />
+ <input type="Address" name="restaurant[yelpUrl]" placeholder="yelpUrl" />
+ <button type="submit">Add Restaurant</button>
+</form>
+
+<button type="submit">Delete</button>

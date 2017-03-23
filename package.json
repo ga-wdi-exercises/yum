@@ -9,6 +9,17 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cabralsylvester/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/cabralsylvester/yum/issues"
+  },
+  "homepage": "https://github.com/cabralsylvester/yum#readme"
 }
