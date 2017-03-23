@@ -26,3 +26,16 @@ function findByZip(zipcode) {
     console.log(restaurants)
   })
 }
+
+//updates is an object containing parameters to be changed
+function update(name, updates) {
+  Restaurant.findOneAndUpdate({name: name}, {$set: updates}, {new: true}, (restaurant) => {
+    console.log(restaurant)
+  })
+}
+
+function delete(name) {
+  Restaurant.findOneAndRemove({name: name}, (restaurant) => {
+    console.log(restaurant + "deleted successfully")
+  })
+}
