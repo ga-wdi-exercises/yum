@@ -4,12 +4,9 @@ var express  = require("express");
 var hbs      = require("express-handlebars");
 var parser = require("body-parser");
 var app     = express();
-// var restaurantsController = require("./controllers/restaurantsController")
 
-// var Restaurant = Schema.RestaurantModel
-// var Menu = Schema.MenuModel
-
-
+var Restaurant = mongoose.model("Restaurant")
+var Menu = mongoose.model("Menu")
 
 app.set("port", process.env.PORT || 3001);
 app.set("view engine", "hbs");
@@ -23,9 +20,17 @@ app.use("/assets", express.static("public"));
 app.use(parser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
-  res.send("welcome");
+  res.render("restaurants");
 });
 
+app.get("/restaurants", function(req, res){
+  Restaurant.find({}).then((restaurants) =>{
+    res.render("restaurants", {
+      restaurants: restaurants
+    });
+  })
+
+});
 
 
 
