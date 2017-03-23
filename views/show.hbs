@@ -9,9 +9,16 @@
 
 <section class="menu">
   <h3>Menu</h3>
-  {{#each restaurant.items as |item|}}
-    <p>{{item.title}}</p>
+  {{#each items as |item|}}
+    <form action="/restaurants/{{../restaurant.name}}/items/{{item.title}}/delete" method="post">
+      {{item.title}}
+      <button type="submit">Delete</button>
+    </form>
   {{/each}}
+  <form action="/restaurants/{{restaurant.name}}/new-item" method="post">
+    <p><input type="text" name="item[title]" placeholder="new menu item" autocomplete="off"></p>
+    <p><button type="submit">Add Menu Item</button></p>
+  </form>
 </section>
 
 <h3>Edit Restaurant</h3>
