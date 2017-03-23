@@ -1,14 +1,22 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/yum');
+
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', err => {
+  console.log(err);
+})
+
+db.once('open', () =>{
+  console.log('connected!');
+})
 
 var Schema = mongoose.Schema
+    ObjectId = Schema.ObjectId
 
 var MenuSchema = new Schema({
   title: String
-
 });
+
 
 var RestaurantSchema = new Schema({
   name: String,
@@ -24,30 +32,11 @@ var RestaurantSchema = new Schema({
 
 
 
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema)
-var Menu = mongoose.model("Menu", MenuSchema)
+var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema)
+var MenuModel = mongoose.model("Menu", MenuSchema)
 
-Menu.create([{ title: 'Entre' }, { title: 'Food' }, { title: 'Drink' }], (err, menu) => {
-  if (err){
-    console.log(err);
-  }
-  else{
-    console.log(menu);
-  }
-});
 
-Restaurant.create([
-  { name: "G Street",
- address: {
-  street: "1435 L st NW",
-  zipcode: 20005
- },
- yelpUrl: 4,
-items: Menu }], (err, restaurant) => {
-  if (err){
-    console.log(err);
-  }
-  else{
-    console.log(restaurant);
-  }
-});
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuModel: MenuModel
+};
