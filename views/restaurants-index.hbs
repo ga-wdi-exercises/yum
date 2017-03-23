@@ -1,0 +1,14 @@
+<h2>  {{restaurants.length}} Yummies: </h2>
+{{#each restaurants as |restaurant index|}}
+<h3>
+  <a href="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
+</h3>
+{{/each}}
+
+<form action="/restaurants" method="post">
+  <label for="new_restaurant">Add new Restaurant</label>
+  <input type="text" name="restaurant[name]" placeholder="Name">
+  <input type="text" name="restaurant[address.street]" placeholder="Address/Street">
+  <input type="text" name="restaurant[address.zipcode]" placeholder="Zipcode">
+  <button type="submit"> Submit </button>
+</form>

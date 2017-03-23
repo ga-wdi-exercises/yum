@@ -1,0 +1,33 @@
+{{#if restaurant}}
+<h2>{{restaurant.name}}</h2>
+<h4>{{restaurant.address.street}}, {{restaurant.address.zipcode}} </h4>
+<h4> <a href="{{restaurant.yelpUrl}}">Yelp!</a></h4>
+
+<form action="/restaurants/{{restaurant.name}}" method="post">
+  <label for="">Edit Restaurant</label>
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}">
+  <input type="text" name="restaurant[address.street]" value="{{restaurant.address.street}}">
+  <input type="text" name="restaurant[address.zipcode]" value="{{restaurant.address.zipcode}}">
+  <button type="submit"> Update </button>
+</form>
+<form action="/restaurants/{{restaurant.name}}/delete" method="post">
+  <button type="submit">Delete Restaurant</button>
+</form>
+
+<h3>Menu for {{restaurant.name}}</h3>
+  {{#each restaurant.items}}
+  <ul>
+    <li> <p>{{this.title}}</p> </li>
+  </ul>
+  {{/each}}
+
+  <form action="/restaurants/{{restaurant.name}}" method="post">
+    <label for="new_menuitem">Add new deliciousness</label>
+    <input type="text" name="restaurant.items[title]" placeholder="Item">
+    <button type="submit"> Submit Yum </button>
+  </form>
+
+
+{{else}}
+<h3> Sorry, that restaurant couldn't be found!</h3>
+{{/if}}
