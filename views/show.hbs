@@ -1,1 +1,15 @@
-<h1>Hello Eric</h1>
+{{#if restaurant}}
+<h2>{{restaurant.name}}</h2>
+
+<h3> Address: {{restaurant.address.street}} {{restaurant.address.zipcode}}</h3>
+
+<p><a href="{{yelpUrl}}"> Yelp Page </a></p>
+
+<h2> Menu </h2>
+<ul>
+{{#each restaurant.items as | item |}}
+
+<li>{{item.title}}</li>
+
+{{/each}}
+</ul>

@@ -3,13 +3,19 @@ const Restaurant = require('./models.js').Restaurant;
 
 const seedData = require("./seed.js");
 
-Item.remove({}).then((err) => {
-  process.exit();
+
+
+Item.remove({}).then(function(){
+  Item.collection.insert(seedData).then(function(){
+    process.exit();
+  });
+});
+Restaurant.remove({}).then(function(){
+  Restaurant.collection.insert(seedData).then(function(){
+    process.exit();
+  });
 });
 
-Restaurant.remove({}).then((err) => {
-  process.exit();
-});
 
 //seedData
 
