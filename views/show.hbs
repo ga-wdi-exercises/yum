@@ -1,0 +1,24 @@
+<h2><a href='/'>All Reastaurants</a></h2>
+
+{{#unless restaurant}}
+  <h2>That restaurant couldn't be found!</h2>
+{{else}}
+  <h1>Welcome to {{restaurant.name}}</h1>
+  <h3>Our Address is {{restaurant.address.street}} - {{restaurant.address.zipcode}}</h3>
+  <h3>Review us on Yelp: {{restaurant.yelpUrl}}</h3>
+  <h3>Dig into our menu:</h3>
+
+  <hr />
+  <h2>Edit This Restaurant!</h2>
+  <form action="/{{restaurant.name}}" method="post">
+    <input type="text" name="restaurant[name]" value="{{restaurant.name}}">
+    <input type="text" name="restaurant[address][street]" value="{{restaurant.address.street}}">
+    <input type="text" name="restaurant[address][zipcode]" value="{{restaurant.address.zipcode}}">
+    <input type="text" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}">
+    <Button type="submit">Update This Restaurant!</button>
+  </form>
+
+  <form method="post" action="/{{restaurant.name}}/delete" >
+    <Button type="submit">Delete Restaurant</button>
+  </form>
+{{/unless}}
