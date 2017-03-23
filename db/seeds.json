@@ -1,0 +1,32 @@
+[
+  {
+    "name": "restaurant1",
+    "adress": {"street": "this_here_street", "zipcode": 11111},
+    "yelpUrl": "a_url",
+    "items": [
+              {
+                "title": "tasty_dish"
+              }
+              ]
+  },
+  {
+    "name": "restaurant2",
+    "adress": {"street": "that_there_street", "zipcode": 22222},
+    "yelpUrl": "another_url",
+    "items": [
+              {
+                "title": "another_tasty_dish"
+              }
+              ]
+  },
+  {
+    "name": "restaurant3",
+    "adress": {"street": "whose_on_street?", "zipcode": 33333},
+    "yelpUrl": "yet_another_url",
+    "items": [
+              {
+                "title": "the_final_tasty_dish"
+              }
+              ]
+  }
+]
