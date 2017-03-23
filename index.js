@@ -10,7 +10,7 @@ var app = express();
 var Item = mongoose.model("Item")
 var Restaurant = mongoose.model("Restaurant")
 
-app.set("port", process.env.PORT|| 3001)
+app.set("port", process.env.PORT || 3001)
 app.set("view engine", "hbs")
 app.engine(".hbs", hbs({
   extname:        ".hbs",
@@ -33,3 +33,7 @@ app.get("/restaurants", function(req, res){
     })
   })
 })
+
+app.listen(app.get("port"), () => {
+  console.log("app listening on port 3001");
+});
