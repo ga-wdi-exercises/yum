@@ -11,15 +11,15 @@ db.once('open', () => {
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 
+  var MenuItemSchema = new Schema ({
+    title: String
+  });
+
 var RestaurantSchema = new Schema ({
   name: String,
-  address: {street: String, zipcode: Number},
+  address: {street: String, zipCode: Number},
   yelpUrl: String,
   items: [MenuItemSchema]
-});
-
-var MenuItemSchema = new Schema ({
-  title: String
 });
 
 var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);

@@ -3,8 +3,8 @@ var Restaurant = Schema.Restaurant;
 var MenuItem = Schema.MenuItem;
 
 var restaurantsController = {
-  index(){
-    Restaurant.find({}, (err, restaurants) => {
+  index(req){
+    Restaurant.find({address: {zipCode: req.zipCode}}, (err, restaurants) => {
       console.log(restaurants);
     });
   },
