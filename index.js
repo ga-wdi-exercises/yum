@@ -7,6 +7,7 @@ var hbs       = require("express-handlebars");
 
 var app = express();
 
+//schema
 var Item = mongoose.model("Item")
 var Restaurant = mongoose.model("Restaurant")
 
@@ -23,12 +24,14 @@ app.use("/assets", express.static("public"));
 app.use(parser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
-  res.render("app-welcome");
+  Restaurant.find({}).then((restaurants) => {
+      res.render("index", {restaurants});
+  })
 })
 
 app.get("/restaurants", function(req, res){
   Restaurant.find({}).then(function(restaurants){
-    res.render("restaurants-index", {
+    res.render("index", {
       restaurants
     })
   })
@@ -36,7 +39,7 @@ app.get("/restaurants", function(req, res){
 
 app.get("/restaurants/:name", function(req, res){
   Restaurant.findOne({name: req.params.name}).then(function(restaurant){
-    res.render("restaurant-show", {
+    res.render("show", {
       restaurant
     })
   })
