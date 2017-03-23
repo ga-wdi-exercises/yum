@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Adam's Burgers",
+		"address": [
+			{"street": "16 Park Lane"},
+			{"zipcode": "20102"}
+		],
+		"yelpUrl": "https://www.yelp.com",
+		"items": [
+			{"title": "Burger"},
+			{"title": "Fries"}
+		]
+	},
+		{
+		"name": "Ted's Better Burgers",
+		"address": [
+			{"street": "17 Park Lane"},
+			{"zipcode": "20102"}
+		],
+		"yelpUrl": "https://www.yelp.com",
+		"items": [
+			{"title": "Burger"},
+			{"title": "Fries"}
+		]
+	},
+]

@@ -1,0 +1,12 @@
+<h1>{{restaurant.name}}</h1>
+<p><a href="{{restaurant.yelpUrl}}">Yelp URL</a></p>
+<div>
+<p>{{restaurant.address.street}} - {{restaurant.address.zipcode}}</p>
+</div>
+
+<div>
+<h2>Menu</h2>
+{{#each restaurant.food as |item|}}
+<p>{{item.title}}</p>
+{{/each}}
+</div>
