@@ -19,10 +19,9 @@ var ItemSchema = new Schema({
 
 var RestaurantSchema = new Schema({
   name: String,
-  street: String,
-  zipcode: Number,
+  address: {street: String, state: String, zipcode: Number},
   yelpUrl: String,
-  items: [ {type: Schema.ObjectId, ref: "Item"}]
+  items: [ItemSchema]
 })
 
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema)

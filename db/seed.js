@@ -15,18 +15,20 @@ Item.remove({}, err => {
   }
 })
 
-var mcdonalds = new Restaurant({name: "McDonalds"})
+var restaurant1 = new Restaurant({name: "McDonalds", address: {street: "178 Dumfries Dr", state: "VA", zipcode: 22026}, yelpUrl: "https://www.yelp.com/biz/mcdonalds-dumfries"})
+var restaurant2 = new Restaurant({name: "Chik-Fil-A", address: {street: "3880 Fettler Park Dr", state: "VA", zipcode: 22556}, yelpUrl: "https://www.yelp.com/biz/chick-fil-a-dumfries-2"})
+var restaurant3 = new Restaurant({name: "Bob's Snak Attak", address: {street: "18200 Triangle Blvd ", state: "VA", zipcode: 22886}, yelpUrl: "https://www.yelp.com/biz/bobs-snak-attak"})
 
-var mcdouble = new Item({title: "McDouble"})
-var bigmac = new Item({title: "Big Mac"})
-var mcflurry = new Item({title: "McFlurry"})
-var qpcheese = new Item({title: "Quarter Pounder with Cheese"})
-var fries = new Item({title: "French Fries"})
-var applepie = new Item({title: "Apple Pie"})
-var nuggets = new Item({title: "Chicken McNuggets"})
+var item1 = new Item({title: "Hamburger"})
+var item2 = new Item({title: "Chicken Sandwich"})
+var item3 = new Item({title: "Shake"})
+var item4 = new Item({title: "Salad"})
+var item5 = new Item({title: "French Fries"})
+var item6 = new Item({title: "Apple Pie"})
+var item7 = new Item({title: "Chicken Nuggets"})
 
-var restaurants = [mcdonalds]
-var items = [mcdouble, bigmac, mcflurry, qpcheese, fries, applepie, nuggets]
+var restaurants = [restaurant1]
+var items = [item1, item2, item3, item4, item5, item6, item7]
 
 for(var i=0; i < restaurants.length; i++){
   restaurants[i].items.push(items[i], items[i+1])
