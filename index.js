@@ -34,6 +34,14 @@ app.get("/restaurants", function(req, res){
   })
 })
 
+app.get("/restaurants/:name", function(req, res){
+  Restaurant.findOne({name: req.params.name}).then(function(restaurant){
+    res.render("restaurant-show", {
+      restaurant
+    })
+  })
+})
+
 app.listen(app.get("port"), () => {
   console.log("app listening on port 3001");
 });
