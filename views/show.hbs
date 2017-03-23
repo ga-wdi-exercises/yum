@@ -8,6 +8,12 @@
   <h3>Review us on Yelp: {{restaurant.yelpUrl}}</h3>
   <h3>Dig into our menu:</h3>
 
+  {{#each restaurants.address.items as |item index|}}
+  <h3>
+    {{item}}</a>
+  </h3>
+  {{/each}}
+
   <hr />
   <h2>Edit This Restaurant!</h2>
   <form action="/{{restaurant.name}}" method="post">
