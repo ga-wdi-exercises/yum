@@ -1,4 +1,5 @@
 const mongoose  = require('./db/connection.js');
+var Schema =
 const express   = require('express');
 const parser    = require('body-parser');
 const hbs       = require('express-handlebars');

@@ -28,9 +28,9 @@ var tamale = new Item({title: "Tamale"});
 var rice = new Item({title: "Rice"});
 var beans = new Item({title: "Beans"});
 
-var chipotle = new Restaurant({name: "Chipotle", address: {street: "Jefferson St", zipcode: 20001}, yelpUrl: "#" });
-var moes = new Restaurant({name: "Moes", address: {street:"Thomas Way", zipcode: 20003}, yelpUrl: "#" });
-var albertos = new Restaurant({name: "Albertos", address: {street: "Washington Ave", zipcode: 20002}, yelpUrl: "#" });
+var chipotle = new Restaurant({name: "Chipotle", address: {street: "123 Jefferson St", zipcode: 20001}, yelpUrl: "#" });
+var moes = new Restaurant({name: "Moes", address: {street:"456 Thomas Way", zipcode: 20003}, yelpUrl: "#" });
+var albertos = new Restaurant({name: "Albertos", address: {street: " 789 Washington Ave", zipcode: 20002}, yelpUrl: "#" });
 
 
 

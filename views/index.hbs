@@ -1,7 +1,7 @@
 <h2>Restaurants</h2>
-{{#if restaurants as |restaurant|}}
+{{#each restaurants as |restaurant|}}
 <a href="/restaurants/{{restaurant.name}}">{{restaurant.name}}</a>
-{{/if}}
+{{/each}}
 
 <div class="add_form">
   <form action="/" method="post">
