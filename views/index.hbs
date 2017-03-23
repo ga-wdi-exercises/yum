@@ -1,0 +1,10 @@
+<h2>There are {{restaurant.length}} restaurants in your area!</h2>
+
+
+<form action="/" method="post">
+  <input type="Name" name="restaurant[name]" placeholder="Name" />
+  <input type="text" name="restaurant[address][street]" placeholder="Street Address" />
+  <input type="number" name="restaurant[address][zipcode]" placeholder="Zip Code" />
+  <input type="text" name="restaurant[yelp]" placeholder="yelp Link" />
+  <button type="submit">Click to add restaurant</button>
+</form>
