@@ -2,7 +2,7 @@
 // const Restaurant = require('./db/models.js').Restaurant
 var mongoose = require('mongoose');
 var Schema = require("./db/schema.js");
-var restaurantController = require("./controllers/restaurants.controller.js");
+var restaurantsController = require("./controllers/restaurants.controller.js");
 
 
 // const app = express()
