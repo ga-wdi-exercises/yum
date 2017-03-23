@@ -54,6 +54,24 @@ app.post('/restaurants/:name/delete', function(req, res){
   });
 });
 
+// add menu item for restaurant
+app.post('/restaurants/:name/items', function(req, res){
+
+  Restaurant.findOneAndUpdate({name: req.params.name}, {$push: {items: req.body.item}}).then( function(err, restaurant){
+      res.redirect(`/restaurants/${restaurant.name}`);
+  });
+
+});
+
+// delete menu item for a restaurant
+app.post('/restaurants/:name/items/:title/delete', function(req, res){
+
+  Restaurant.findOneAndUpdate({name: req.params.name},{$pull: {items: {title: req.params.title}}}).then((restaurant) => {
+    res.redirect(`/restaurants/${restaurant.name}`);
+  });
+
+});
+
 // references to activate when this port get visited
 app.listen(app.get("port"), function(){
   console.log('Alive and Active');
