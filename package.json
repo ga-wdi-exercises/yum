@@ -9,6 +9,17 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "express": "^4.15.3",
+    "mongoose": "^4.10.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwonih1020/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kwonih1020/yum/issues"
+  },
+  "homepage": "https://github.com/kwonih1020/yum#readme"
 }
