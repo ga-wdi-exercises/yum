@@ -9,8 +9,10 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mongoose": "^4.10.0"
+    "hbs": "^4.0.1",
+    "mongoose": "^4.10.1"
   },
   "devDependencies": {},
   "repository": {
