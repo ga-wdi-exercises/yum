@@ -3,7 +3,7 @@ mongoose.connect('mongodb://localhost/yum');
 
 var db = mongoose.connection;
 
-db.on('error', err => {
+db.on('error', (err) => {
   console.log(err);
 });
 
@@ -12,9 +12,9 @@ db.once('open', () => {
 });
 
 var Schema = mongoose.Schema
-var ObjectId = Schema.ObjectId
 
-var ItemsSchema = new Schema({
+
+var ItemSchema = new Schema({
   title: String
 })
 
@@ -22,11 +22,11 @@ var RestaurantSchema = new Schema({
   name: String,
   address: {street: String, zipcode: Number},
   yelpUrl: String,
-  item: [ItemsSchema]
+  items: [ItemSchema]
 });
 
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var Item = mongoose.model("Items", ItemsSchema);
+var Item = mongoose.model("Items", ItemSchema);
 
 
 
