@@ -17,14 +17,17 @@ var RestaurantSchema = new Schema({
     menus: [MenuSchema]
   },
   yelpUrl: String,
-  item:[]
+  item:[MenuSchema]
 });
 
 
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
 var Menu = mongoose.model("Menu", MenuSchema)
-var Restaurant = new Restaurant({name: "Awash", address: "1400 tuckerman st nw",yelpUrl: "amlak@yahoo.com"});
 
+module.export = {
+  Restaurant: Restaurant,
+  Menu: Menu
+}
 
  Restaurant.save((err, Restaurant) => {
    if(err){
@@ -34,4 +37,4 @@ var Restaurant = new Restaurant({name: "Awash", address: "1400 tuckerman st nw",
     console.log(student);
   }
  });
- Restaurant.findId(name: "Awash");
+ 
