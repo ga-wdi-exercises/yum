@@ -1,2 +1,2 @@
-var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
+//var Restaurant = require("./db/schema.js").Restaurant
+//var Item = require("./db/schema.js").Item

@@ -9,6 +9,16 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^4.4.11"
-  }
+    "express": "^4.15.3",
+    "mongoose": "^4.10.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StormyRamsey/yum.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StormyRamsey/yum/issues"
+  },
+  "homepage": "https://github.com/StormyRamsey/yum#readme"
 }
