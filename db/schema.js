@@ -16,3 +16,6 @@ var RestaurantSchema = new Schema ({
   yelpUrl:String
   items:[MenuItemSchema]
 });
+
+var Restaurant = mongoose.model('Restaurant', RestaurantSchema)
+var MenuItem = mongoose.model("MenuItem", MenuItemSchema)
