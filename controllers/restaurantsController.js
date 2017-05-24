@@ -13,7 +13,21 @@ var restaurantsController = {
             console.log(restaurant);
         });
     },
+
     
+    function findByZip(zipcode){
+        results = [];
+        Restaurant.find({}, function(err, docs){
+            docs.forEach(function(rest){
+                if(rest.address.zipcode === zipcode){
+                    results.push(rest);
+                }
+            });
+            console.log(results);
+        });
+    }
+
+
     update: function(req, update){
         RestaurantModel.findOneAndUpdate(req, update, {new: true}, function(err, docs){
             if(err){
@@ -40,3 +54,7 @@ restaurantsController.destroy({name: "Ozio Rooftop"});
 
 restaurantsController.index();
 restaurantsController.show({name: "Ozio Rooftop"})
+
+module.exports = {
+    restaurantsController
+};
