@@ -30,3 +30,4 @@ module.exports = {
 	Restaurant: Restaurant,
 	MenuItem: MenuItem
 };
+
