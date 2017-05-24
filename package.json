@@ -10,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "mongoose": "^4.4.11"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pchristianbrown/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/pchristianbrown/yum/issues"
+  },
+  "homepage": "https://github.com/pchristianbrown/yum#readme"
 }
