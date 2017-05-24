@@ -13,9 +13,13 @@ var RestaurantSchema = new Schema({
   name: String,
   address: String,
   zipcode: Number,
-  yelpUrl: String,
   items: [MenuSchema]
 });
 
 var Menu = mongoose.model("Menu", MenuSchema);
 var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+
+module.exports = {
+  Menu: Menu,
+  Restaurant: Restaurant
+}
