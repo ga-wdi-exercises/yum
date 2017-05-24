@@ -1,7 +1,18 @@
-var Restaurant = require("./schema.js").Restaurant
-var Item = require("./schema.js").Item
 
-Restaurant.remove({}, (err) => {
+var mongoose = require("./connection");
+var seedData = require("./seeds");
+//var Restaurant = require("./schema.js").Restaurant
+//var Item = require("./schema.js").Item
+
+var Restaurant = mongoose.model("Restaurant");
+
+Restaurant.remove({}).then(function(){
+  Restaurant.collection.insert(seedData).then(function(){
+    process.exit();
+  });
+});
+
+/* Restaurant.remove({}, (err) => {
   if(err){
     console.log(err)
   }
@@ -41,3 +52,4 @@ for(var i = 0; i < restaurants.length; i++){
       }
     })
   };
+*/

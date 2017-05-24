@@ -13,5 +13,4 @@ mongoose.model("Restaurant", RestaurantSchema);
 mongoose.connect("mongodb://localhost/yum");
 
 var seedData = require("./seeds.json");
-
 module.exports = mongoose;
