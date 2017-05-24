@@ -5,12 +5,22 @@ var RestaurantSchema = new mongoose.Schema(
     name: String,
     address: {street: String, zipcode: Number},
     yelpUrl: String,
-    items: [ItemSchema]
+    item: [ItemSchema]
+  }
+);
+
+var ItemSchema = new mongoose.Schema(
+  {
+    title: String,
   }
 );
 
 mongoose.model("Restaurant", RestaurantSchema);
+mongoose.model("Item", ItemSchema);
 mongoose.connect("mongodb://localhost/yum");
 
-var seedData = require("./seeds.json");
+
+
+
+
 module.exports = mongoose;
