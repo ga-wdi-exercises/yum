@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = require("./db/schema.js");
 
+var Restaurant = Schema.Restaurant;
+var MenuItem = Schema.MenuItem;
+
 Restaurant.create({name: "Bougie House", address: {street: "111 Golden Circle", zipcode: 99999}, yelpUrl: "www.yelp.money.com"}, (err, restaurant) => {
 	if (err){
 		console.log(err);
@@ -49,7 +52,7 @@ function update(restaurant, update){
 	});
 }
 
-function delete(restaurant){
+function destroy(restaurant){
 	Restaurant.findOneAndRemove({name: restaurant}, (err, restaurant) => {
 		if(err){
 			console.log(err);
