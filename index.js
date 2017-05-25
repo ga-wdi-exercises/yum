@@ -18,7 +18,7 @@ app.engine(".hbs", hbs({
   layoutsDir:     "views/",
   defaultLayout:  "layout-main"
 }));
-app.use(parser.json());
+app.use(parser.urlencoded({extended: true}))
 
 
 //find a restaurant by name
@@ -74,6 +74,13 @@ function destroy(restaurant){
 app.get("/", function(req, res){
   Restaurant.find({}).then(function(restaurants){
     res.render("index", {restaurants})
+  })
+})
+
+app.post("/", function(req, res){
+  console.log(req.body)
+  Restaurant.create(req.body.restaurant).then(function(restaurant){
+    res.redirect("/restaurants/" + restaurant._id);
   })
 })
 

@@ -1,4 +1,14 @@
-<h1>YUM</h1>
+
 {{#each restaurants as |restaurant index|}}
 <a href="/restaurants/{{restaurant._id}}">{{restaurant.name}}</a>
 {{/each}}
+
+
+<form action="/" method="post">
+  <input type="text" name="restaurant[name]" placeholder="Name" />
+  <input type="text" name="restaurant[address][street]" placeholder="street" />
+  <input type="text" name="restaurant[address][state]" placeholder="state" />
+  <input type="number" name="restaurant[address][zipcode]" placeholder="zipcode" />
+  <input type="text" name="restaurant[yelpUrl]" placeholder="yelp address" />
+  <button type="submit">Add new Restaurant</button>
+</form>
