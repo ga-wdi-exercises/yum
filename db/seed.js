@@ -1,4 +1,4 @@
-var Schema = require("../schema.js");
+var Schema = require("../db/schema.js");
 
 var Menu = Schema.Menu
 var Restaurant = Schema.Restaurant
@@ -38,6 +38,14 @@ var restaurantController = {
   show(req){
     Restaurant.findOne({name: req.name}, function(restaurant) {
       console.log(restaurant);
+    });
+  }
+};
+
+var restaurantController = {
+  show(req){
+    Restaurant.find({zipcode: req.zipcode}, function(restaurants) {
+      console.log(restaurants);
     });
   }
 };
