@@ -11,16 +11,4 @@
   "dependencies": {
     "mongoose": "^4.4.11"
   },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lgmusic24/yum.git"
-  },
-  "keywords": [
-    "yum"
-  ],
-  "bugs": {
-    "url": "https://github.com/lgmusic24/yum/issues"
-  },
-  "homepage": "https://github.com/lgmusic24/yum#readme"
 }

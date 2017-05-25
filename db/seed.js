@@ -27,7 +27,7 @@ MenuItem.remove({}, function(err){
   var item6 = new MenuItem({ title: "Smoked Salmon Salad"})
 
   var menuItems = [item1, item2, item3, item4, item5, item6]
-  var restaurant = [restaurant1, restaurant2, restaurant3, restaurant4, restaurant5]
+  var restaurants = [restaurant1, restaurant2, restaurant3, restaurant4, restaurant5]
 
   restaurants.forEach(function(restaurant, i){
    restaurant.items.push(menuItems[i], menuItems[i+3]);
