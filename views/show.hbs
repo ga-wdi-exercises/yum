@@ -5,3 +5,16 @@
 {{#each restaurant.items as |item index|}}
 <li>{{item.title}}</li>
 {{/each}}
+
+
+<form action="/restaurants/{{restaurant._id}}" method="post">
+  <input type="text" name="restaurant[name]" value={{restaurant.name}} />
+  <input type="text" name="restaurant[address][street]" value={{restaurant.address.street}} />
+  <input type="text" name="restaurant[address][state]" value={{restaurant.address.state}} />
+  <input type="number" name="restaurant[address][zipcode]" value={{restaurant.address.zipcode}} />
+  <input type="text" name="restaurant[yelpUrl]" value={{restaurant.yelpUrl}} />
+  <button type="submit">Edit Restaurant</button>
+</form>
+<form action="/restaurants/{{restaurant._id}}/delete" method="post">
+  <button type="submit">Delete Restaurant</button>
+</form>

@@ -90,6 +90,19 @@ app.get("/restaurants/:id", function(req, res){
   })
 })
 
+app.post("/restaurants/:id", function(req, res){
+  console.log("hi")
+  Restaurant.findOneAndUpdate({_id: req.params.id}, req.body.restaurant, {new: true}).then(function(restaurant){
+    res.redirect("/restaurants/" + restaurant._id);
+  });
+});
+
+app.post("/restaurants/:id/delete", function(req, res){
+  Restaurant.findOneAndRemove({_id: req.params.id}).then(function(){
+    res.redirect("/");
+  });
+});
+
 app.listen(app.get("port"), function(){
   console.log("It's aliiive!");
 });
