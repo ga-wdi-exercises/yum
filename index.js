@@ -1,2 +1,2 @@
 var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
+var Seed = require("./db/seed.js")
