@@ -9,7 +9,7 @@ var app        = express();
 var Restaurant = Schema.RestaurantModel;
 var MenuItem = Schema.MenuItemModel;
 
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT || 3001);
 
 app.set("view engine", "hbs");
 app.engine(".hbs", hbs({
@@ -47,7 +47,7 @@ function restaurantByZipcode(restaurantZipcode){
 }
 
 // Updating resturant
-function update(resturant, update){
+function update(restaurant, update){
   Restaurant.findOneAndUpdate({name: resturant}, {name: update}, {new: true}, function(err, docs){
     if(err){
       console.log(err)
@@ -59,7 +59,7 @@ function update(resturant, update){
 }
 
 // Deleting resturant
-function destroy(resturant){
+function destroy(restaurant){
   Restaurant.findOneAndRemove({name: resturant}, function(err, docs){
     if(err){
       console.log(err);
@@ -69,3 +69,20 @@ function destroy(resturant){
     }
   });
 }
+
+
+app.get("/", function(req, res){
+  Restaurant.find({}).then(function(restaurants){
+    res.render("index", {restaurants})
+  })
+})
+
+app.get("/restaurants/:id", function(req, res){
+  Restaurant.findOne({_id: req.params.id}).then(function(restaurant){
+    res.render("show", {restaurant})
+  })
+})
+
+app.listen(app.get("port"), function(){
+  console.log("It's aliiive!");
+});

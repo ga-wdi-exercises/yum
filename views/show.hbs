@@ -1,0 +1,7 @@
+<h1>{{restaurant.name}}</h1>
+<h2>Address: {{restaurant.address.street}} {{restaurant.address.state}}, {{restaurant.address.zipcode}}</h2>
+<h2>yelpUrl: {{restaurant.yelpUrl}}</h2>
+<h2>Menu</h2>
+{{#each restaurant.items as |item index|}}
+<li>{{item.title}}</li>
+{{/each}}
