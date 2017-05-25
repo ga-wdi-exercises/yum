@@ -21,3 +21,11 @@ var rest2 = new Restaurant({name: "The Blind Dog Cafe", address:{street: "944 Fl
 var rest3 = new Restaurant({name: "Birch & Barley", address:{street: "1337 14th St NW", zipcode: 20005}, yelpUrl: "http://www.yelp.com/biz/birch-and-barley-washington?osq=Restaurants+cookies"})
 var rest4 = new Restaurant({name: "Captain Cookie and the Milk Man", address:{street: "Dupont Circle", zipcode: 20036}, yelpUrl: "http://www.yelp.com/biz/captain-cookie-and-the-milk-man-washington-5"})
 var rest5 = new Restaurant({name: "J's Cookies", address:{street: "1700 N Moore St", zipcode: 22209}, yelpUrl: "http://www.yelp.com/biz/js-cookies-arlington"})
+
+var item1 = new MenuItem({title: "Pineapple Duck"})
+var item2 = new MenuItem({title: "Meatloaf"})
+var item3 = new MenuItem({title: "Spinach and Artichoke Dip"})
+var item4 = new MenuItem({title: "Sweet and Sour Tofu"})
+var item5 = new MenuItem({title: "Falafel Sandwich"})
+var item6 = new MenuItem({title: "Fried Shrimp"})
+var item7 = new MenuItem({title: "Baked Alaska"})
