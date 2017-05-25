@@ -3,24 +3,25 @@ mongoose.connect('mongodb://localhost/yum');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-let schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-let MenuItemSchema = new Schema ({
+var MenuItemSchema = new Schema ({
   title: String
 });
 
-let RestaurantSchema = new Schema({
+var RestaurantSchema = new Schema({
   name: String,
   address: {
     street: String,
+    state: String,
     zipcode: Number
   },
   yelpUrl: String,
   items: [MenuItemSchema]
 });
 
-let Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-let MenuItem = mongoose.model("MenuItem", MenuItemSchema);
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+var MenuItem = mongoose.model("MenuItem", MenuItemSchema);
 
 module.exports = {
   RestaurantModel: Restaurant,
