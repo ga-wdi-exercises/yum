@@ -36,11 +36,6 @@ app.get("/restaurants", function(req, res){
 app.get("/restaurants/:id", function(req, res){
 	Restaurant.findById(req.params.id).then(function(restaurant) {
 		console.log("going somewhere")
-			restaurant.item.forEach((item) => {
-				MenuItem.findById(item._id).then(function(item) {
-					console.log("blah " + item.name)
-				})
-			})
 		res.render("restaurant-show", {
 			restaurant: restaurant
 		})

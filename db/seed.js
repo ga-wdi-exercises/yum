@@ -7,6 +7,7 @@ let RestaurantModel = Schema.RestaurantModel
 MenuItemModel.remove({})
 RestaurantModel.remove({})
 
+
 let pizza = new MenuItemModel({name: "Pizza"})
 let breadSticks = new MenuItemModel({name: "BreadSticks"})
 
@@ -17,9 +18,7 @@ let pizzaHut = new RestaurantModel({
 		zipcode: 43953
 	},
 	yelpUrl: "www.yelp.com",
-	item: [pizza, breadSticks]
 })
 
-pizza.save()
-breadSticks.save()
+pizzaHut.items.push(breadSticks, pizza)
 pizzaHut.save()

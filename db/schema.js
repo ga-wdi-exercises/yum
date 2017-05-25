@@ -19,7 +19,7 @@ let RestaurantSchema = new Schema({
 		zipcode: Number
 	},
 	yelpUrl: String,
-	item: [MenuItemSchema]
+	items: [MenuItemSchema]
 })
 
 let MenuItemModel = mongoose.model("MenuItem", MenuItemSchema)
