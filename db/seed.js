@@ -4,6 +4,9 @@ let Schema = require('../db/schema.js')
 let MenuItemModel = Schema.MenuItemModel
 let RestaurantModel = Schema.RestaurantModel
 
+MenuItemModel.remove({})
+RestaurantModel.remove({})
+
 let pizza = new MenuItemModel({name: "Pizza"})
 let breadSticks = new MenuItemModel({name: "BreadSticks"})
 
