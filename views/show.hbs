@@ -1,0 +1,31 @@
+<h1>{{restaurant.name}}</h1>
+
+<h2>Address: {{restaurant.address.street}} {{restaurant.address.state}}, {{restaurant.address.zipcode}}</h2>
+<h2>yelpUrl: {{restaurant.yelpUrl}}</h2>
+<h2>Menu</h2>
+
+{{#each restaurant.items as |item|}}
+<p>{{item.title}}</p>
+<form action="/restaurants/{{../restaurant._id}}/items/{{item._id}}/delete" method="post">
+  <button class="deleteButton"  type="submit">Delete item</button>
+</form>
+{{/each}}
+
+<h3>Edit Restaurant</h3>
+<form action="/restaurants/{{restaurant._id}}" method="post">
+  <input type="text" name="restaurant[name]" value={{restaurant.name}} />
+  <input type="text" name="restaurant[address][street]" value={{restaurant.address.street}} />
+  <input type="text" name="restaurant[address][state]" value={{restaurant.address.state}} />
+  <input type="number" name="restaurant[address][zipcode]" value={{restaurant.address.zipcode}} />
+  <input type="text" name="restaurant[yelpUrl]" value={{restaurant.yelpUrl}} />
+  <button type="submit">Edit Restaurant</button>
+</form>
+<h3>Add new item</h3>
+<form action="/restaurants/{{restaurant._id}}/items" method="post">
+<input type="text" name="title" placeholder="add new item.." />
+<button type="submit">New item</button>
+</form>
+<h3>Delete Restaurant</h3>
+<form action="/restaurants/{{restaurant._id}}/delete" method="post">
+  <button class="deleteButton" type="submit">Delete Restaurant</button>
+</form>
