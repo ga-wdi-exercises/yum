@@ -103,6 +103,24 @@ app.post("/restaurants/:id/delete", function(req, res){
   });
 });
 
+app.post("/restaurants/:id/:item_id/delete", function(req, res){
+  console.log(req.params)
+  Restaurant.findOne({_id: req.params.id}).then(function(restaurant){
+    for (let i = 0; i < restaurant.items.length; i++){
+      if (restaurant.items[i]._id == req.params.item_id) {
+        restaurant.items.splice(i, 1)
+      }
+    }
+    restaurant.save((err, question) =>{
+      if (err){
+        console.log(err)
+      } else {
+        res.redirect("/restaurants/" + restaurant._id);
+      }
+    })
+  })
+});
+
 app.listen(app.get("port"), function(){
   console.log("It's aliiive!");
 });

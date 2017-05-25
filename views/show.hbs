@@ -1,9 +1,15 @@
 <h1>{{restaurant.name}}</h1>
+<form action="/restaurants/{{restaurant._id}}/delete" method="post">
+  <button type="submit">Delete Restaurant</button>
+</form>
 <h2>Address: {{restaurant.address.street}} {{restaurant.address.state}}, {{restaurant.address.zipcode}}</h2>
 <h2>yelpUrl: {{restaurant.yelpUrl}}</h2>
 <h2>Menu</h2>
-{{#each restaurant.items as |item index|}}
+{{#each restaurant.items as |item|}}
 <li>{{item.title}}</li>
+<form action="/restaurants/{{../restaurant._id}}/{{item._id}}/delete" method="post">
+  <button type="submit">Delete item</button>
+</form>
 {{/each}}
 
 
@@ -14,7 +20,4 @@
   <input type="number" name="restaurant[address][zipcode]" value={{restaurant.address.zipcode}} />
   <input type="text" name="restaurant[yelpUrl]" value={{restaurant.yelpUrl}} />
   <button type="submit">Edit Restaurant</button>
-</form>
-<form action="/restaurants/{{restaurant._id}}/delete" method="post">
-  <button type="submit">Delete Restaurant</button>
 </form>
