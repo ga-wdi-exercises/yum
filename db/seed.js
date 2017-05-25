@@ -1,4 +1,4 @@
-var Schema = require("../db/schema.js");
+var Schema = require("../schema.js");
 
 var Menu = Schema.Menu
 var Restaurant = Schema.Restaurant
@@ -33,3 +33,11 @@ var monsieurFrancois = new Restaurant({name: "Monsieur Francois", address: "Fren
 monsieurFrancois.save()
 var signoreMario = new Restaurant({name: "Signore Mario", address: "Little Italy", zipcode: 10013, items: [lasagne, minestrone, antipasto]})
 signoreMario.save()
+
+var restaurantController = {
+  show(req){
+    Restaurant.findOne({name: req.name}, function(restaurant) {
+      console.log(restaurant);
+    });
+  }
+};
