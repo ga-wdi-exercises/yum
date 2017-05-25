@@ -9,10 +9,10 @@ var RestaurantSchema = new Schema ({
   name: String,
   address: {'street': String, 'zipcode': Number},
   yelpUrl: String,
-  items: [MenuItemsSchema]
+  items: []
 });
 
-var MenuItemsSchema = new Schema ({
+var MenuItemSchema = new Schema ({
   title: String
 })
 

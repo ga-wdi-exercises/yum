@@ -29,3 +29,17 @@ var item4 = new MenuItem({title: "Sweet and Sour Tofu"})
 var item5 = new MenuItem({title: "Falafel Sandwich"})
 var item6 = new MenuItem({title: "Fried Shrimp"})
 var item7 = new MenuItem({title: "Baked Alaska"})
+
+var restaurants = [rest1, rest2, rest3, rest4, rest5]
+var items = [item1, item2, item3, item4, item5, item6, item7]
+
+for(var i = 0; i < restaurants.length; i++){
+  restaurants[i].items.push(items[i], items[i+1])
+  restaurants[i].save((err, restaurant) => {
+    if (err){
+      console.log(err)
+    } else {
+      console.log(restaurant);
+    }
+  })
+};
