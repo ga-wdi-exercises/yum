@@ -14,7 +14,7 @@ var restaurantsController = {
         });
     },
 
-    
+
     function findByZip(zipcode){
         results = [];
         Restaurant.find({}, function(err, docs){
@@ -55,6 +55,4 @@ restaurantsController.destroy({name: "Ozio Rooftop"});
 restaurantsController.index();
 restaurantsController.show({name: "Ozio Rooftop"})
 
-module.exports = {
-    restaurantsController
-};
+module.exports = restaurantsController
