@@ -13,9 +13,24 @@ Project.remove({}, err => {
     console.log(err)
   }
 });
+
 var Awash = new Restaurant({name: "Awash", address: "1400 tuckerman st nw",yelpUrl: "amlak@yahoo.com",})
+Awash.save((err,Restaurant)=> {
+  if(err){
+    console.log(err);
+  }
+  else {
+    console.log(Restaurant);
+  }
+
 var Asmara = new Restaurant({name: "Asmara", address: "1411 tuckerman st nw",yelpUrl: "amlakgirma@yahoo.com",itme[tibs, shiro] })
+Asmara.save((err,Restaurant)=> {
+  if(err){
+    console.log(err);
+  }
+  else {
+    console.log(Restaurant);
+  }
 var Tibs = new Menu(title: "tibs")
+
 var shiro = new Menu(title: "shiro")
-var Restaurants = [Awash, Asmara]
-var Menu = [Tibs, shiro]
