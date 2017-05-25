@@ -90,6 +90,21 @@ app.get("/restaurants/:id", function(req, res){
   })
 })
 
+app.post("/restaurants/:id/items", function(req, res){
+  console.log(req.body)
+  let restaurant = Restaurant.findOne({_id: req.params.id}).then(function(restaurant){
+    let newItem = new MenuItem(req.body)
+    restaurant.items.push(newItem)
+    restaurant.save((err) =>{
+      if (err){
+        console.log(err)
+      } else {
+        res.redirect("/restaurants/" + restaurant._id);
+      }
+    })
+  })
+});
+
 app.post("/restaurants/:id", function(req, res){
   console.log("hi")
   Restaurant.findOneAndUpdate({_id: req.params.id}, req.body.restaurant, {new: true}).then(function(restaurant){
@@ -103,7 +118,7 @@ app.post("/restaurants/:id/delete", function(req, res){
   });
 });
 
-app.post("/restaurants/:id/:item_id/delete", function(req, res){
+app.post("/restaurants/:id/items/:item_id/delete", function(req, res){
   console.log(req.params)
   Restaurant.findOne({_id: req.params.id}).then(function(restaurant){
     for (let i = 0; i < restaurant.items.length; i++){
@@ -111,7 +126,7 @@ app.post("/restaurants/:id/:item_id/delete", function(req, res){
         restaurant.items.splice(i, 1)
       }
     }
-    restaurant.save((err, question) =>{
+    restaurant.save((err) =>{
       if (err){
         console.log(err)
       } else {
