@@ -1,0 +1,16 @@
+<h1>{{restaurant.name}}</h1>
+<h3>{{restaurant.address.street}}</h3>
+<h3>{{restaurant.address.zipcode}}</h3>
+<h2>Menu</h2>
+<h3>{{restaurant.items}}</h3>
+
+<form method="post" action="/restaurants/{{restaurant._id}}/delete">
+  <button type="submit">Delete</button>
+</form>
+
+<form action="/restaurants/{{restaurant._id}}" method="post">
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}" />
+  <input type="text" name="restaurant[address.street]" value="{{restaurant.address.street}}" />
+  <input type="number" name="restaurant[address.zipcode]" value="{{restaurant.address.zipcode}}" />
+  <button type="submit">update Restaurant</button>
+</form>

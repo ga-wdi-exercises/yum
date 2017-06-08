@@ -1,1 +1,24 @@
-var Schema = require("../db/schema.js");
+let mongoose = require("mongoose")
+let Schema = require('../db/schema.js')
+
+let MenuItemModel = Schema.MenuItemModel
+let RestaurantModel = Schema.RestaurantModel
+
+MenuItemModel.remove({})
+RestaurantModel.remove({})
+
+
+let pizza = new MenuItemModel({name: "Pizza"})
+let breadSticks = new MenuItemModel({name: "BreadSticks"})
+
+let pizzaHut = new RestaurantModel({
+	name: "Pizza Hut",
+	address: {
+		street: "2343 BlahBlah St.",
+		zipcode: 43953
+	},
+	yelpUrl: "www.yelp.com",
+})
+
+pizzaHut.items.push(breadSticks, pizza)
+pizzaHut.save()
