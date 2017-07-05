@@ -1,22 +1,14 @@
-var mongoose = require('mongoose');
-var Schema = require("./db/schema.js");
-let Restaurant = Schema.Restaurant
-let MenuItem = Schema.MenuItem
+// var mongoose = require('mongoose');
+let express = require('express')
+let mongoose = require("./db/schema.js");
+// let Restaurant = Schema.Restaurant
+// let MenuItem = Schema.MenuItem
+let hbs = require("express-handlebars")
+let parser = require("body-parser")
+let Restaurant = mongoose.model("Restaurant")
+let MenuItem = mongoose.model("MenuItem")
 
-let restaurantController = {
-	findByName(input){
-		Restaurant.findOne({name: input}, (error,locale)=>{
-			console.log(locale)
-		})
-	}
-	findByZip(input){
-		Restaurant.find({'address.zip': input},(error,locale)=>{
-			console.log(locale)
-		})
-	}
-	update(input){
-		Restaurant.findOneAndUpdate({name: input},req.body.locale,{new:true}).then(()=>{
-			res.redirect(`/candidates/${person.name}`)
-		})
-	}
-}
+let app = express();
+
+app.set("port",prcess.env.PORT || 4000);
+app.
