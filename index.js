@@ -10,5 +10,13 @@ let MenuItem = mongoose.model("MenuItem")
 
 let app = express();
 
-app.set("port",prcess.env.PORT || 4000);
-app.
+app.set("port",process.env.PORT || 4000);
+app.set("view engine","hbs");
+app.engine(".hbs", hbs({
+	extname: 	 ".hbs",
+	partialsDir: "views/",  
+	layoutsDir:  "views/",
+	defaultLayout:"layout"
+}))
+app.use(parser.urlencoded({extended:true}))
+
