@@ -14,4 +14,9 @@ let restaurantController = {
 			console.log(locale)
 		})
 	}
+	update(input){
+		Restaurant.findOneAndUpdate({name: input},req.body.locale,{new:true}).then(()=>{
+			res.redirect(`/candidates/${person.name}`)
+		})
+	}
 }
