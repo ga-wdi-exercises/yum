@@ -6,7 +6,11 @@ db.once('open', () => {
   console.log("database has been connected!");
 });
 
-var Schema = mongoose.Schema
+var Schema = mongoose.Schema;
+
+var MenuSchema = new Schema({
+  title: String,
+});
 
 var RestaurantSchema = new Schema({
   name: String,
@@ -15,6 +19,5 @@ var RestaurantSchema = new Schema({
   items: [MenuSchema]
 });
 
-var MenuSchema = new Schema({
-  title: String,
-});
+var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
+var Menu = mongoose.model("Menu", MenuSchema);
