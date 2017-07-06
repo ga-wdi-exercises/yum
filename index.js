@@ -48,7 +48,8 @@ app.post("/restaurants/:name",function(req,res){
 })
 //remove restaurant
 app.post("/restaurants/:name/delete",function(req,res){
-	Restaurant.findOneAndRemove({}).then(()=>{
+	Restaurant.findOneAndRemove({},function(){}).then(()=>{
+		res.redirect("/restaurants")
 	})
 })
 //add menu item to restrant
