@@ -9,6 +9,19 @@
   "author": "WDI8",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "hbs": "^4.0.1",
     "mongoose": "^4.11.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarikkazanci/yum.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tarikkazanci/yum/issues"
+  },
+  "homepage": "https://github.com/tarikkazanci/yum#readme"
 }

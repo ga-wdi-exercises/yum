@@ -1,0 +1,14 @@
+<h2> <a href="/restaurants/">View Restaurants</a> </h2>
+
+
+{{#if restaurant}}
+<h2>Name: {{restaurant.name}} </h2>
+<h2>Address: {{restaurant.address.street}} / {{restaurant.address.zipcode}} </h2>
+<h2>Yelp: {{restaurant.yelp}}</h2>
+<!-- <a href="{{restaurant.yelp}}"></a>  -->
+<h2>Items: {{restaurant.items}} </h2>
+
+
+{{else}}
+<h2>That restaurant couldn't be found!</h2>
+{{/if}}

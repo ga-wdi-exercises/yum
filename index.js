@@ -1,8 +1,50 @@
-var mongoose = require('mongoose');
+var express = require("express");
+var parser = require("body-parser")
 var Schema = require("./db/schema.js");
+var app = express();
 
 var Restaurant = Schema.Restaurant
-var MenuItem = Schema.MenuItem
+// var MenuItem = Schema.MenuItem
+
+app.set("view engine", "hbs");
+app.use("/assets", express.static("public"));
+app.use(parser.urlencoded({extended: true}))
+
+app.listen(4000, () => {
+  console.log("app listening on port 4000")
+})
+
+app.get("/restaurants", function(req, res) {
+  Restaurant.find({}).then ((restaurants) => {
+    res.render("restaurants-index", {
+      restaurants: restaurants
+    });
+  });
+});
+
+app.get("/restaurants/:name", function(req, res) {
+  Restaurant.findOne({name: req.params.name}).then ((restaurant) => {
+    res.render("restaurants-show", {
+      restaurant: restaurant
+    });
+  });
+});
+
+app.post("/restaurants", function(req, res) {
+  Restaurant.create(req.body.restaurant).then ((restaurant) => {
+    res.redirect("/restaurants/" + restaurant.name)
+    });
+  });
+
+
+
+
+
+
+
+
+
+
 
 
 // Create a new restaurant
