@@ -4,7 +4,8 @@ var Schema = require("./db/schema.js");
 var Restaurant = Schema.Restaurant;
 var Menu = Schema.Menu;
 
-Restaurant.create({ name: 'Langano', "address.zipcode": 20902 }, function (err, restaurant) {
+//stuck with this one!!!
+Restaurant.create({name: "Langano", address: { street: "19th St NW", state: "Washington, DC",  zipcode: "20007"}, yelp: "https://www.yelp.com/biz/langano-washington-26"}, function (err, restaurant) {
   if (err) return handleError(err);
   console.log("New restaurant created", restaurant.name, 'in', restaurant.address.zipcode);
 });
