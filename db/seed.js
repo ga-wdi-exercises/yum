@@ -12,3 +12,8 @@ Restaurant.remove({}).then(() => {
 })
 
 var benAndJerrys = new Restaurant({name: "Ben and Jerrys", address: [street: "123 Main Street", zipcode: 10978]})
+
+var rubyTuesdays = new Restaurant({name: "Ruby Tuesdays", address: [street: "456 Jefferson Street", zipcode: 20002]})
+
+
+module.exports = mongoose
