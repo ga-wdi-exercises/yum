@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/yum');
+
 var db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error:'));
+
 db.once('open', () => {
   console.log("database has been connected!");
 });
 
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema
 
 var MenuSchema = new Schema({
   title: String,
@@ -19,5 +22,10 @@ var RestaurantSchema = new Schema({
   items: [MenuSchema]
 });
 
-var Restaurant = mongoose.model("Restaurant", RestaurantSchema);
-var Menu = mongoose.model("Menu", MenuSchema);
+var MenuModel = mongoose.model("Menu", MenuSchema);
+var RestaurantModel = mongoose.model("Restaurant", RestaurantSchema);
+
+module.exports = {
+  RestaurantModel: RestaurantModel,
+  MenuModel: MenuModel
+};
