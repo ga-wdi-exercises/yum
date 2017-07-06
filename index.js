@@ -17,3 +17,9 @@ app.get("/restaurants/:name", function(req, res){
     })
   })
 });
+
+app.post("/restaurants", function(req, res){
+  Restaurant.create(req.body.restaurant).then((rrestaurant) => {
+    res.redirect("/restaurants/" + restaurant.name);
+  })
+});
