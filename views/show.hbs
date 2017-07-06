@@ -1,0 +1,8 @@
+<form action="/{{restaurant.name}}/delete" method="post">
+  <button type="submit" name="button">Delete</button>
+</form>
+<form action="/{{restaurant.name}}/edit" method="post">
+  <input type="text" name="restaurant[name]" value="{{restaurant.name}}" placeholder="Name">
+  <input type="number" name="restaurant[yelpUrl]" value="{{restaurant.yelpUrl}}" placeholder="yelpUrl">
+  <button type="submit" name="button">Edit</button>
+</form>
