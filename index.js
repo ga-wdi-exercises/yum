@@ -36,10 +36,17 @@ app.post("/restaurants", function(req, res) {
     });
   });
 
+  app.post("/restaurants/:name", function(req, res) {
+    Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true}).then ((restaurant) => {
+      res.redirect("/restaurants/" + restaurant.name)
+      });
+    });
 
-
-
-
+    app.post("/restaurants/:name/delete", function(req, res) {
+      Restaurant.findOneAndRemove({name: req.params.name}).then ((restaurant) => {
+        res.redirect("/restaurants/")
+        });
+      });
 
 
 
