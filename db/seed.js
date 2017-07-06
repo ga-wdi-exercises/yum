@@ -35,7 +35,7 @@ let theGrille = new Restaurant({
 
 let restaurants = [wbinn,greene,theGrille]
 restaurants.forEach((place,idx)=>{
-	restaurants[idx].save((error,place)=>{
+	place.save((error,place)=>{
 		if(error){
 			console.log(error)
 		}else{
@@ -43,3 +43,6 @@ restaurants.forEach((place,idx)=>{
 		}
 	})
 })
+// process.exit()
+
+

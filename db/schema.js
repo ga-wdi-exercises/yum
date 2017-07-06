@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 //testing connection
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
 
 let menuItemSchema = new mongoose.Schema({
 	title: String

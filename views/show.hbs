@@ -1,0 +1,30 @@
+{{#if eatery}}
+	<h2>{{eatery.name}}</h2>
+	<p>{{eatery.address.street}}. {{eatery.address.zip}}</p>
+	<p><a href="{{eatery.yelpUrl}}">yelp.com</a></p>
+	<ul>
+		{{#each eatery.items as |eatery index|}}
+		<li>{{eatery.title}}</li>
+		{{/each}}
+		<li><form action="/restaurants/:name/add" method="POST">
+			<input type="text" name="menuItem[title]" placeholder="Food Item">
+			<input type="submit">
+		</form></li>
+	</ul>
+	<form action="/restaurants/{{eatery.name}}" method="POST">
+		<input type="text" name="restaurant[name]" placeholder="Name"><br>
+		<input type="text" name="restaurant[yelpUrl]" placeholder="Yelp Url"><br>
+		<input type="text" name="restaurant[address][street]" placeholder="street"><br>
+		<input type="number" name="restaurant[address][zip]" placeholder="zip"><br>
+		<button type="submit">Update</button>
+	</form>
+	<form action="/restaurants/{{eatery.name}}/delete">
+		<button type="submit">Delete</button>
+	</form>
+
+
+
+
+{{else}}
+	<h1>That Eatery is not in the database</h1>
+{{/if}}
