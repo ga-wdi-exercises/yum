@@ -5,11 +5,10 @@ var RestaurantSchema = new mongoose.Schema(
   address: { street: String, zipcode: Number,
   yelpUrl: String,
   items: ["avacado toast", "brie", "duck", "cake"]
-
   }
 )
 
-
+mongoose.model("Restaurant", RestaurantSchema)
 
 mongoose.connect('mongodb://localhost/yum');
 var db = mongoose.connection;
