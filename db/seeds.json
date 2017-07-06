@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Pop's",
+    "address": 2024,
+    "yelpUrl": "url",
+    "items": ["avacado toast", "brie", "duck", "cake"]
+  },
+  {
+    "name": "The Cafe",
+    "address": 2008,
+    "yelpUrl": "url",
+    "items": ["avacado toast", "brie", "duck", "cake"]
+  },
+  {
+    "name": "Cork",
+    "address": 2000,
+    "yelpUrl": "url",
+    "items": ["avacado toast", "brie", "duck", "cake"]
+  }
+]
